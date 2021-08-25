@@ -1,0 +1,1 @@
+export const TOAST_TIMER = 5000;

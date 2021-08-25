@@ -1,0 +1,93 @@
+<ion-content>
+
+  <div class="section_mobile" *ngIf="showMobileSection">
+
+    <div class="page_info">
+      <div class="img_wrapper">
+        <img src="../../../assets/icon/verification.png" alt="">
+      </div>
+      <div class="img_caption">
+        <p>
+          Enter your mobile number we will send you the OTP for verification
+        </p>
+      </div>
+    </div>
+  
+    <div class="card_main">
+      <div class="input_wrapper">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="2" class="country_code">
+              <ion-input value="+91" readonly></ion-input>
+            </ion-col>
+            <ion-col size="10" class="mobile">
+              <ion-input type="number" placeholder="Enter your mobile"></ion-input>
+              <ion-icon name="checkmark-circle" size="small" color="success"></ion-icon>
+              <!-- Show when the entered moble number is less than 10 digits and user clicks on the submit button -->
+              <!-- <ion-icon name="alert-circle" size="small" color="danger"></ion-icon> -->
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <!-- <input type="text" class="country_code"> -->
+        <!-- <input type="text" class="mobile"> -->
+      </div>
+      <div class="action_btn">
+        <ion-button expand="block" (click)="verifyMobile()">Submit</ion-button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section_passcode" *ngIf="showPasscodeSection">
+
+    <div class="page_info">
+      <div class="img_title">
+        <p>Enter Code</p>
+      </div>
+      <div class="img_wrapper">
+        <img src="../../../assets/icon/passcode.png" alt="">
+      </div>
+      <div class="img_caption">
+        <p>
+          We have sent you an SMS on 
+          8877665544 with 4 digit verification code.
+        </p>
+      </div>
+    </div>
+  
+    <div class="card_main">
+      <div class="input_wrapper">
+        <ion-grid>
+          <ion-row>
+            <ion-col  size="3" class="passcode">
+              <ion-input #otp1 type="number" pattern="[0-9]{6}" maxlength="1" size="1" (keyup)="next(otp2)"></ion-input>
+            </ion-col>
+            <ion-col  size="3" class="passcode">
+              <ion-input #otp2 type="number" pattern="[0-9]{6}" maxlength="1" size="1" (keyup)="next(otp3)"></ion-input>
+            </ion-col>
+            <ion-col size="3" class="passcode">
+              <ion-input  #otp3 type="number"  (keyup)="next(otp4)"></ion-input>
+            </ion-col>
+            <ion-col  size="3" class="passcode">
+              <ion-input #otp4 type="number"  pattern="[0-9]{6}" maxlength="1" size="1"></ion-input>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <!-- <input type="text" class="country_code"> -->
+        <!-- <input type="text" class="mobile"> -->
+      </div>
+      <div class="action_btn">
+        <ion-button expand="block" (click)="checkPassode()">Submit</ion-button>
+      </div>
+    </div>
+    
+    <div class="sub_text">
+      <p>Did not receive the code?</p>
+    </div>
+    <div class="sub_action">
+      <span>Re-send code in 25 sec</span>
+    </div>
+
+  </div>
+
+</ion-content>
