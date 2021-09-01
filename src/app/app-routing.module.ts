@@ -3,10 +3,6 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'seller',
-    loadChildren: () => import('./modules/seller-dashboard/seller-dashboard.module').then( m => m.SellerDashboardModule)
-  },
-  {
     path: '',
     redirectTo: 'welcome',
     pathMatch: 'full'
@@ -18,6 +14,10 @@ const routes: Routes = [
   {
     path: 'welcome',
     loadChildren: () => import('./modules/welcome/welcome.module').then( m => m.WelcomeModule)
+  },
+  {
+    path: 'seller',
+    loadChildren: () => import('./modules/seller-dashboard/seller-dashboard.module').then( m => m.SellerDashboardModule)
   },
 ];
 
