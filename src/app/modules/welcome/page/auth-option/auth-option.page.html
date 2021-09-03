@@ -1,9 +1,16 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>auth-option</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-
+  <div class="main">
+    <div class="content">
+      <p class="title">
+        BWA
+      </p>
+      <p class="subtitle">
+        Tagline Goes Here
+      </p>
+    </div>
+    <div class="action">
+      <ion-button [routerLink]="['/auth/login']">LOGIN</ion-button>
+      <ion-button [routerLink]="['/welcome/profile-type']" fill="outline">REGISTER</ion-button>
+    </div>
+  </div>
 </ion-content>

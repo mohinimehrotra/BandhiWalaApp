@@ -1,0 +1,26 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 60px;
+    height: 100vh;
+    .illustration {
+        padding: 40px;
+    }
+    .content {
+        text-align: center;
+        .title {
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .subtitle {
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--ion-color-medium);
+        }
+    }
+    .action {
+        width: 100%;
+    }
+}

@@ -8,40 +8,37 @@ import { Router } from '@angular/router';
 })
 export class SellerRegisterPage implements OnInit {
 
-  showSectionZero = true;
-  showSectionOne = false;
-  showSectionTwo = false;
-  specializationsData = [];
+  showMobileSection = true;
+  showOTPSection = false;
+  showRegistrationSection = false;
 
   constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
-  goToStepOne () {
-    this.showSectionZero = false;
-    this.showSectionOne = true;
-    this.showSectionTwo = false;
+  onSendOTP () {
+    this.showMobileSection = false;
+    this.showOTPSection = true;
   }
 
-  goToStepTwo () {
-    this.showSectionZero = false;
-    this.showSectionOne = false;
-    this.showSectionTwo = true;
+  onVerifyOTP () {
+    this.showOTPSection = false;
+    this.showMobileSection = false;
+    this.showRegistrationSection = true;
   }
 
-  addMoreSpecialization () {
-    // Logic here...
-    this.specializationsData = ['1'];
+  onRegister () {
+    this.showMobileSection = true;
+    this.showOTPSection = false;
+    this.showRegistrationSection = false;
+    this.router.navigateByUrl('/auth/login');
   }
 
-  removeMoreSpecialization () {
-    // Logic here...
-    this.specializationsData = [];
-  }
-
-  registerAccount () {
-    this.router.navigate(['/home'])
+  onChangeNumber() {
+    this.showMobileSection = true;
+    this.showOTPSection = false;
+    this.showRegistrationSection = false;
   }
 
 }

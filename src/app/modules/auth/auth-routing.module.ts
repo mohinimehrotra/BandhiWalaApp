@@ -15,7 +15,8 @@ const routes: Routes = [
         component: BuyerLoginPage
       },
       {
-        path: 'register/:mobile',
+        path: 'register',
+        // path: 'register/:mobile',
         component: BuyerRegisterPage
       }
     ]
@@ -28,11 +29,17 @@ const routes: Routes = [
         component: SellerLoginPage
       },
       {
-        path: 'register/:mobile',
+        path: 'register',
+        // path: 'register/:mobile',
         component: SellerRegisterPage
       }
     ]
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   }
+
 ];
 
 @NgModule({

@@ -1,252 +1,111 @@
-<div class="header" *ngIf="!showSectionZero">
-  <ion-grid>
-    <ion-row>
-      <ion-col size="9" class="header_title">
-        Setup your account
-      </ion-col>
-      <ion-col size="3" class="header_subtitle" *ngIf="showSectionOne">
-        Step 1 of 2
-      </ion-col>
-      <ion-col size="3" class="header_subtitle" *ngIf="showSectionTwo">
-        Step 2 of 2
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</div>
-
 <ion-content>
+  <div class="main">
 
-  <div class="section_zero" *ngIf="showSectionZero">
-  
-    <div class="page_info">
-      <div class="img_wrapper">
-        <img src="../../../assets/icon/verification.png" alt="">
-      </div>
-      <div class="img_caption">
-        <p>
-          Welcome onboard! <br>
-          What should we call you?
+    <section class="w-100" *ngIf="showMobileSection">
+      <div class="content">
+        <p class="title">
+          I'm a Buyer
         </p>
       </div>
-    </div>
-  
-    <div class="card_main">
-      <div class="input_wrapper">
-        <ion-grid>
-          <ion-row>
-            <ion-col size="12" class="mobile">
-              <ion-input type="text" placeholder="Full Name"></ion-input>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+      <div class="form">
+        <div class="input_wrapper">
+          <ion-label class="label_primary">Mobile</ion-label>
+          <ion-input class="input_primary" type="number" placeholder="Enter your mobile number"></ion-input>
+        </div>
+        <p class="help-text">We will send an OTP to verify this number</p>
       </div>
-      <div class="action_btn">
-        <ion-button expand="block" (click)="goToStepOne()">Get Started</ion-button>
+      <div class="action w-100">
+        <ion-button (click)="onSendOTP()">SEND OTP</ion-button>
       </div>
-    </div>
+      <p class="error-text">User centric error message goes here</p>
+      <div class="action_secondary w-100">
+        Already have an account? 
+        <span class="link_secondary" [routerLink]="['/auth/login']">
+          Login here
+        </span>
+      </div>
+    </section>
+
+    <section class="w-100 section_otp" *ngIf="showOTPSection">
+      <div class="content">
+        <p class="title">
+          Enter Verification Code
+        </p>
+      </div>
+      <div class="form">
+        <div class="input_wrapper">
+          <ion-label class="label_primary">OTP</ion-label>
+          <ion-input class="input_primary" type="number" placeholder="x x x x x x"></ion-input>
+        </div>
+        <p class="help-text">Please enter the OTP sent to 8871342281</p>
+      </div>
+      <div class="action w-100">
+        <ion-button (click)="onVerifyOTP()">VERIFY</ion-button>
+      </div>
+      <div class="action_secondary w-100">
+        <span class="link_secondary">
+          Resend OTP in 25 sec
+        </span>
+        <span class="link_secondary" (click)="onChangeNumber()">
+          Change Number
+        </span>
+      </div>
+    </section>
+
+    <section class="w-100 section_register" *ngIf="showRegistrationSection">
+      <div class="content">
+        <p class="title">
+          Fill in the details below
+        </p>
+      </div>
+      <div class="form">
+        <div class="input_wrapper">
+          <ion-label class="label_primary">Mobile</ion-label>
+          <ion-input class="input_primary" type="number" value="8871342281" readonly></ion-input>
+        </div>
+        <div class="input_wrapper">
+          <ion-label class="label_primary">Full Name *</ion-label>
+          <ion-input class="input_primary" type="text"></ion-input>
+        </div>
+        <div class="input_wrapper">
+          <ion-label class="label_primary">State *</ion-label>
+          <ion-select class="input_primary" mode="ios" placeholder="Select State">
+            <ion-select-option>Madhya Pradesh</ion-select-option>
+            <ion-select-option>Maharastra</ion-select-option>
+          </ion-select>
+        </div>
+        <div class="input_wrapper">
+          <ion-label class="label_primary">City *</ion-label>
+          <ion-select class="input_primary" mode="ios" placeholder="Select City">
+            <ion-select-option>Bhopal</ion-select-option>
+            <ion-select-option>Dewas</ion-select-option>
+            <ion-select-option>Indore</ion-select-option>
+            <ion-select-option>Ujjain</ion-select-option>
+          </ion-select>
+        </div>
+        <div class="input_wrapper">
+          <ion-label class="label_primary">Address *</ion-label>
+          <ion-input class="input_primary" type="text"></ion-input>
+        </div>
+        <div class="input_wrapper">
+          <ion-label class="label_primary">Password *</ion-label>
+          <ion-input class="input_primary" type="password"></ion-input>
+        </div>
+        <div class="input_wrapper">
+          <ion-label class="label_primary">Confirm Password *</ion-label>
+          <ion-input class="input_primary" type="password"></ion-input>
+        </div>
+      </div>
+      <div class="action w-100">
+        <ion-button (click)="onRegister()">CREATE ACCOUNT</ion-button>
+      </div>
+      <!-- <div class="action_secondary w-100">
+        By clicking on Create Account, you agree to our  
+        <span class="link_secondary" [routerLink]="['/auth/login']">
+          Terms and Conditions
+        </span>
+      </div> -->
+    </section>
 
   </div>
-
-  <!-- ========== Stepper Step 1 Begins ========== -->
-  <div class="stepper_section section_one" *ngIf="showSectionOne">
-
-    <div class="card_main">
-      <div class="card_header">
-        <div class="card_title">
-          <p>Hello Selena!</p>
-        </div>
-        <div class="card_sub_title">
-          <p>
-            Please provide up the details below to help up setup your profile
-          </p>
-        </div>
-      </div>
-      <div class="input_wrapper">
-        <ion-grid>
-          <ion-row class="radio_label">
-            <ion-col>
-              <p>Select your gender</p>
-            </ion-col>
-          </ion-row>
-          <ion-row class="radio_group">
-            
-              <ion-radio-group>
-                <ion-col size="4">
-                  <ion-radio value="Male"></ion-radio>
-                  <p>Male</p>
-                </ion-col>
-                <ion-col size="4">
-                  <ion-radio value="Female"></ion-radio>
-                  <p>Female</p>
-                </ion-col>
-                <ion-col size="4">
-                  <ion-radio value="Other"></ion-radio>
-                  <p>Other</p>
-                </ion-col>
-
-              </ion-radio-group>
-
-          </ion-row>
-          <ion-row>
-            <ion-col class="dark_input">
-              <ion-input type="email" placeholder="E-mail"></ion-input>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col class="dark_input">
-              <ion-datetime displayFormat="YYYY/MM/DD" min="1930-01-01" max="2002-31-12" placeholder="Date of Birth" mode="ios"></ion-datetime>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col class="dark_input">
-              <ion-input type="text" placeholder="Registration Number"></ion-input>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col class="dark_input">
-              <ion-input type="text" placeholder="Registration Photo" (click)="f.click()" readonly></ion-input>
-              <input class="ion-hide" #f type="file" id="file-input"
-                accept="image/png, image/jpeg">
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col class="dark_input">
-              <ion-input type="text" placeholder="License Number"></ion-input>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col class="dark_input">
-              <ion-input type="text" placeholder="License Name"></ion-input>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col class="dark_input">
-              <ion-input type="text" placeholder="License Photo" (click)="f.click()" readonly></ion-input>
-              <input class="ion-hide" #f type="file" id="file-input"
-                accept="image/png, image/jpeg">
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </div>
-    </div>
-    <div class="stepper_btn">
-      <ion-button (click)="goToStepTwo()">Continue</ion-button>
-    </div>
-
-  </div>
-  <!-- ========== Stepper Step 1 Ends ========== -->
-
-  <!-- ========== Stepper Step 2 Begins ========== -->
-  <div class="stepper_section section_two" *ngIf="showSectionTwo">
-
-    <div class="card_main">
-      <div class="card_header">
-        <div class="card_title">
-          <p>Just a few more things</p>
-        </div>
-        <div class="card_sub_title">
-          <p>
-            Please provide up the details below to help up setup your profile
-          </p>
-        </div>
-      </div>
-      <div class="input_wrapper">
-        <ion-grid>
-          <ion-row class="radio_label">
-            <ion-col>
-              <p>Where can your patients visit you?</p>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col class="dark_input">
-              <ion-select placeholder="State" mode="ios">
-                <ion-select-option value="">Madhya Pradesh</ion-select-option>
-                <ion-select-option value="">Uttar Pradesh</ion-select-option>
-              </ion-select>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col class="dark_input">
-              <ion-select placeholder="City" mode="ios">
-                <ion-select-option value="">Indore</ion-select-option>
-                <ion-select-option value="">Bhopal</ion-select-option>
-              </ion-select>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col class="dark_input">
-              <ion-input type="text" placeholder="Complete Address"></ion-input>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col class="dark_input">
-              <ion-input type="text" placeholder="Pickup Current Location"></ion-input>
-            </ion-col>
-          </ion-row>
-          <ion-row class="radio_label">
-            <ion-col>
-              <p>Contact number (this would be shown on your profile to your patients)</p>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col class="dark_input">
-              <ion-input type="number" placeholder="Contact Number"></ion-input>
-            </ion-col>
-          </ion-row>
-          <ion-row class="radio_label">
-            <ion-col>
-              <p>What are your specializations?</p>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col class="dark_input">
-              <ion-select placeholder="Specialization" mode="ios">
-                <ion-select-option value="">Cardiologist</ion-select-option>
-                <ion-select-option value="">Dermatologist</ion-select-option>
-                <ion-select-option value="">Ear-Nose-Throat (ENT) Specialist</ion-select-option>
-                <ion-select-option value="">Gastroenterologist</ion-select-option>
-              </ion-select>
-            </ion-col>
-          </ion-row>
-
-          <!-- Repeat the below div on Add More Click  -->
-          <div *ngFor="let item of specializationsData">
-            <ion-row class="radio_label">
-              <ion-col>
-                <p>Select more specialization</p>
-                <ion-icon name="close-circle-outline" size="small" color="danger" 
-                  class="remove_more_emergency" (click)="removeMoreSpecialization()"></ion-icon>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col class="dark_input">
-                <ion-select placeholder="Specialization" mode="ios">
-                  <ion-select-option value="">Cardiologist</ion-select-option>
-                  <ion-select-option value="">Dermatologist</ion-select-option>
-                  <ion-select-option value="">Ear-Nose-Throat (ENT) Specialist</ion-select-option>
-                  <ion-select-option value="">Gastroenterologist</ion-select-option>
-                </ion-select>
-              </ion-col>
-            </ion-row>
-          </div>
-
-          <ion-row>
-            <ion-col class="action_link_btn">
-              <div>
-                <span (click)="addMoreSpecialization()">Add More</span>
-                <ion-icon name="add-circle-outline" size="small" color="primary"></ion-icon>
-              </div>
-            </ion-col>
-          </ion-row>
-          
-        </ion-grid>
-      </div>
-    </div>
-    <div class="stepper_btn">
-      <ion-button (click)="registerAccount()">Submit</ion-button>
-    </div>
-
-  </div>
-  <!-- ========== Stepper Step 2 Ends ========== -->
-
 </ion-content>
