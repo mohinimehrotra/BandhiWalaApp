@@ -10,6 +10,7 @@ import { SellerHomePage } from './home/page/seller-home/seller-home.page';
 import { PaymentHistoryPage } from './payments/page/payment-history/payment-history.page';
 import { AddProductPage } from './products/page/add-product/add-product.page';
 import { AutoEntryPage } from './products/page/auto-entry/auto-entry.page';
+import { ProductListPage } from './products/page/product-list/product-list.page';
 import { AddSalesEntryPage } from './sales/page/add-sales-entry/add-sales-entry.page';
 import { BulkSalesEntryPage } from './sales/page/bulk-sales-entry/bulk-sales-entry.page';
 import { SalesListingPage } from './sales/page/sales-listing/sales-listing.page';
@@ -69,6 +70,10 @@ const routes: Routes = [
       {
         path: 'past-bills',
         component: BillDetailPage
+      },
+      {
+        path: 'product-list',
+        component: ProductListPage
       },
       {
         path: 'payment-history',

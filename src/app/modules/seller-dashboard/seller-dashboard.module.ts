@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SellerDashboardRoutingModule } from './seller-dashboard-routing.module';
@@ -16,6 +16,7 @@ import { BulkSalesEntryPage } from './sales/page/bulk-sales-entry/bulk-sales-ent
 import { BillDetailPage } from './bills/page/bill-detail/bill-detail.page';
 import { PastBillsPage } from './bills/page/past-bills/past-bills.page';
 import { PaymentHistoryPage } from './payments/page/payment-history/payment-history.page';
+import { ProductListPage } from './products/page/product-list/product-list.page';
 
 
 @NgModule({
@@ -33,11 +34,13 @@ import { PaymentHistoryPage } from './payments/page/payment-history/payment-hist
     GenerateBillPage,
     BillDetailPage,
     PastBillsPage,
-    PaymentHistoryPage
+    PaymentHistoryPage,
+    ProductListPage
   ],
   imports: [
     CommonModule,
     SellerDashboardRoutingModule
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SellerDashboardModule { }
