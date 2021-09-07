@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RUPEE_ICON } from 'src/app/core/constants/widgets.constant';
 
 @Component({
   selector: 'app-product-list',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductListPage implements OnInit {
 
+  rsIcon = RUPEE_ICON;
   constructor() { }
 
   ngOnInit() {
