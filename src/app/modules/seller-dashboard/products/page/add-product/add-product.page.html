@@ -1,9 +1,35 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>add-product</ion-title>
+<ion-header mode = "ios">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start" [routerLink]="['/seller/product-list']">
+      <ion-icon name="chevron-back-outline" size="large"></ion-icon>
+    </ion-buttons>
+    <ion-title>Add Product</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <div class="main">
+    <div class="add-product">
+      <p class="section_title">
+        Enter Product Details
+      </p>
+    </div>
+    <div class="form">
+      <div class="input_wrapper">
+        <ion-label class="label_primary">Product Name</ion-label>
+        <ion-input class="input_primary" type="text" placeholder="Enter the product name"></ion-input>
+      </div>
+      <div class="input_wrapper">
+        <ion-label class="label_primary">Unit</ion-label>
+        <ion-input class="input_primary" type="text" placeholder="Enter unit"></ion-input>
+      </div>
+      <div class="input_wrapper">
+        <ion-label class="label_primary">Price</ion-label>
+        <ion-input class="input_primary" type="number" placeholder="Enter the product price"><i>₹</i></ion-input>
+      </div>
+    </div>
+    <div class="action w-100">
+      <ion-button [routerLink]="['/seller/product-list']">SAVE</ion-button>
+    </div>
+  </div>
 </ion-content>
