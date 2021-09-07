@@ -18,7 +18,7 @@ export class AppComponent {
     },
     {
       title: 'Products',
-      url: '/login',
+      url: '/seller/product-list',
       icon: 'bag'
     },
     {

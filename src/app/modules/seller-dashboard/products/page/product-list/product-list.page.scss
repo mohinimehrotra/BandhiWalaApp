@@ -1,37 +1,29 @@
-ion-title{
-      text-align: left;
-      
-}
-.card {
-      &_primary {
-          background: var(--ion-color-almost-white);
-          border-radius: 8px;
-          padding-left: 0.5px;
-      }
+ion-title {
+      text-align: left;  
   }
-.main {
-      padding: 20px 40px;
+  
+  .main {
+      padding: 20px 40px 80px;
       .my-products {
           &_items_wrapper {
-                margin-bottom: 1rem;
+              margin-bottom: 1rem;
           }
           &_item {
               padding: 12px;
-              
               border-bottom: 1px solid var(--ion-color-medium);
               &:last-child {
                   border-bottom: none;
               }
               &-timestamp { 
-                 font-size: 12px;
-                 font-weight: 300;
-                 color: var(--ion-color-medium);
-                 margin: 0;
+                  font-size: 12px;
+                  font-weight: 300;
+                  color: var(--ion-color-medium);
+                  margin: 0;
               }
               &-label {
                   font-size: 13px;
                   font-weight: 300;
-                  margin: 10px 0;
+                  margin: 0 0 10px;
                   &--bold {
                       font-weight: 500;
                   }
@@ -41,26 +33,18 @@ ion-title{
                   font-weight: 500;
                   display: inline-block;
                   float: right;
-                  padding-right: 1rem;
                   font-size: 13px;
-                  color: var(--ion-color-secondary);
-                  
+                  color: var(--ion-color-secondary); 
               }
               
           }
       }
   }
-
-  li{
-        list-style: none;
-        
-  }
-
-  .add {
+  
+  ion-fab {
       position:fixed;
       bottom:35px;
       height:50px;
-      margin-left: 290px;
-   }
-
+      right: 20px;
+  }
   

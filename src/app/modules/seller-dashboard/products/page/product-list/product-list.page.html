@@ -1,5 +1,4 @@
 <ion-header mode = "ios">
-
   <ion-toolbar color="secondary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
@@ -9,7 +8,6 @@
       <ion-icon name="search-outline" size="large"></ion-icon>
     </ion-buttons>
   </ion-toolbar>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </ion-header>
 
 <ion-content>
@@ -19,34 +17,22 @@
         My Products(12)
       </p>
       <div class="card_primary my-products_items_wrapper" *ngFor="let item of ['1','2','3','4','5','6','7','8','9','10','11','12']">
-        <ul>
-          <li>
-            <ion-buttons class="my-products_item-edit">
-              Edit
-              <ion-icon name="pencil-outline"></ion-icon>
-            </ion-buttons>
-            <p class="my-products_item-timestamp">Dairy</p>
-            <p class="my-products_item-label">
-              Full Fat Milk
-              <span class="my-products_item-label--bold">(Litres)</span>
-            </p>
-            <p class="my-products_item-timestamp"><i class="fa fa-rupee"></i>60/Litre</p>
-            <!-- <ion-buttons slot="end">
-              Edit
-              <ion-icon name="pencil-outline"></ion-icon>
-            </ion-buttons> -->
-          </li>
-        </ul>
+        <ion-buttons class="my-products_item-edit">
+          Edit
+          <ion-icon name="pencil-outline"></ion-icon>
+        </ion-buttons>
+        <p class="my-products_item-timestamp">Dairy</p>
+        <p class="my-products_item-label">
+          Full Fat Milk
+          <span class="my-products_item-label--bold">(Litres)</span>
+        </p>
+        <p class="my-products_item-timestamp">₹60/Litre</p>
       </div>
     </div>
-    <div class="add">
-      <ion-fab>
-        <ion-fab-button>
-          <ion-icon name="add"></ion-icon>
-        </ion-fab-button>
-      </ion-fab>
-
-  </div>
+    <ion-fab>
+      <ion-fab-button [routerLink]="['/seller/add-product']">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
   </div>
 </ion-content>
-
