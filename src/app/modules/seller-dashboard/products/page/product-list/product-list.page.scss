@@ -1,7 +1,3 @@
-ion-title {
-    text-align: left;  
-}
-
 .main {
     padding: 20px 40px 80px;
     .my-products {
@@ -34,9 +30,11 @@ ion-title {
                 display: inline-block;
                 float: right;
                 font-size: 13px;
-                color: var(--ion-color-secondary); 
+                color: var(--ion-color-secondary);
+                ion-icon {
+                    padding-left: 4px;
+                }
             }
-            
         }
     }
 }
