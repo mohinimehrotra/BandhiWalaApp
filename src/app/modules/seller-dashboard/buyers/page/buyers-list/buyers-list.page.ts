@@ -6,9 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./buyers-list.page.scss'],
 })
 export class BuyersListPage implements OnInit {
-
-  constructor() { }
-
+  numbers = []
+  constructor() {
+    this.numbers = Array(49).fill(1).map((x,i)=>i);
+   }
+  
   ngOnInit() {
   }
 
