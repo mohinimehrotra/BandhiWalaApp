@@ -1,9 +1,37 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>buyers-list</ion-title>
+<ion-header mode = "ios">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Buyers</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="search-outline" size="large"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <div class="main">
+    <div class="my-products">
+      <p class="section_title">
+        My Buyers(49)
+      </p>
+      <div class="card_primary my-products_items_wrapper" *ngFor="let item of ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16', '17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49']">
+        <ion-buttons class="my-products_item-edit">
+          view
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </ion-buttons>
+        <p class="my-products_item-timestamp">Connection since 12-12-2021</p>
+        <p class="my-products_item-label">
+          Tony Stark
+          <span class="my-products_item-label--bold">(*****42281)</span>
+        </p>
+      </div>
+    </div>
+    <ion-fab>
+      <ion-fab-button [routerLink]="['/seller/add-buyer']">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
 </ion-content>
