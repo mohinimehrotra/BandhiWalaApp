@@ -23,7 +23,7 @@ export class AppComponent {
     },
     {
       title: 'Buyers',
-      url: '/register',
+      url: '/seller/buyers-list',
       icon: 'people'
     },
     {
