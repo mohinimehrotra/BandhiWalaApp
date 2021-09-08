@@ -1,0 +1,36 @@
+<ion-header mode = "ios">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start" [routerLink]="['/seller/home']">
+      <ion-icon name="chevron-back-outline" size="large"></ion-icon>
+    </ion-buttons>
+    <ion-title>Help</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main">
+    <div class="add-product">
+      <p class="section_title">
+        Drop us a message
+      </p>
+    </div>
+    <div class="form">
+      <div class="input_wrapper">
+        <ion-label class="label_primary">Title</ion-label>
+        <ion-input class="input_primary" type="text" placeholder="Title name"></ion-input>
+      </div>
+      <div class="input_wrapper">
+        <ion-label class="label_primary">Email</ion-label>
+        <ion-input class="input_primary" type="email" placeholder="Your email"></ion-input>
+      </div>
+      <div class="input_wrapper">
+        <ion-label class="label_primary">Message</ion-label>
+        <!-- <ion-input class="input_primary" name = "message" type="text" placeholder="Your message"></ion-input> -->
+        <textarea rows="5" cols="40" type = "text" placeholder="Your message..."></textarea>
+        </div>
+    </div>
+    <div class="action w-100">
+      <ion-button [routerLink]="['/seller/home']">SEND</ion-button>
+    </div>
+  </div>
+</ion-content>
