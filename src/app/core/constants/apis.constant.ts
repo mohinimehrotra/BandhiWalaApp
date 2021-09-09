@@ -1,1 +1,1 @@
-export const API_END_POINT = '';
+export const SELLER_REGISTER = 'seller/register';

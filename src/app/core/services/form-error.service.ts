@@ -9,10 +9,16 @@ export class FormErrorService {
     switch (errorName) {
       case 'pattern':
         if (fieldName == 'mobileNumber') {
-          return 'Invalid mobile number';
+          return 'Mobile number should be 10 digits';
+        }
+        if (fieldName === 'email') {
+          return 'Invalid email id'
         }
         return 'Invalid value';
       case 'required':
+        if (fieldName === 'mobileNumber') {
+          return 'Mobile number is required'
+        }
         return 'This field is required';
       case 'minlength':
         if (fieldName == 'password') {
