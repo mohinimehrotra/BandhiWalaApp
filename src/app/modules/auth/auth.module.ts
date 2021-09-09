@@ -4,22 +4,30 @@ import { CommonModule } from '@angular/common';
 import { AuthRoutingModule } from './auth-routing.module';
 
 import { SellerRegisterPage } from './seller/page/register/register.page';
-import { SellerLoginPage } from './seller/page/login/login.page';
 import { BuyerRegisterPage } from './buyer/page/register/register.page';
-import { BuyerLoginPage } from './buyer/page/login/login.page';
+import { ReactiveFormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { AuthService } from './auth.service';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginPage } from './login/login.page';
 
 
 @NgModule({
   declarations: [
     SellerRegisterPage,
-    SellerLoginPage,
     BuyerRegisterPage,
-    BuyerLoginPage
+    LoginPage
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    ReactiveFormsModule,
+    IonicModule.forRoot(),
+    SharedModule,
+    HttpClientModule
   ],
+  providers: [AuthService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AuthModule { }

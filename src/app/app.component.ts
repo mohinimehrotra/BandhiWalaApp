@@ -43,7 +43,7 @@ export class AppComponent {
     },
     {
       title: 'Payments',
-      url: '/register',
+      url: '/seller/payment-history',
       icon: 'cash'
     },
     {
@@ -73,7 +73,8 @@ export class AppComponent {
     },
   ];
 
-  constructor() {}
+  constructor() {
+  }
 
   closeMenu() {
     menuController.toggle();

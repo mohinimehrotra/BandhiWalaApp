@@ -2,30 +2,32 @@
   <div class="main">
 
     <section class="w-100" *ngIf="showMobileSection">
-      <div class="content">
-        <p class="title">
-          I'm a Seller
-        </p>
-      </div>
-      <div class="form">
-        <div class="input_wrapper">
-          <ion-label class="label_primary">Mobile</ion-label>
-          <ion-input class="input_primary" type="number" placeholder="Enter your mobile number"></ion-input>
+    <form [formGroup] = "otpVerifyFormGroup">
+        <div class="content">
+          <p class="title">
+            I'm a Seller
+          </p>
         </div>
-        <p class="help-text">We will send an OTP to verify this number</p>
-      </div>
-      <div class="action w-100">
-        <ion-button (click)="onSendOTP()">SEND OTP</ion-button>
-      </div>
-      <p class="error-text">User centric error message goes here</p>
-      <div class="action_secondary w-100">
-        Already have an account? 
-        <span class="link_secondary" [routerLink]="['/auth/login']">
-          Login here
-        </span>
-      </div>
+        <div class="form">
+          <div class="input_wrapper">
+            <ion-label class="label_primary">Mobile</ion-label>
+            <ion-input formControlName = "mobileNumber" class="input_primary" type="number" placeholder="Enter your mobile number" autocomplete = "disable"></ion-input>
+          </div>
+          <field-errors [formGroup] = "otpVerifyFormGroup" fieldName = "mobileNumber" [getErrorMessage] = "getErrorMessage.bind(this)"></field-errors>
+          <p class="help-text">We will send an OTP to verify this number</p>
+        </div>
+        <div class="action w-100">
+          <ion-button (click)="onSendOTP()">SEND OTP</ion-button>
+        </div>
+        <p class="error-text">User centric error message goes here</p>
+        <div class="action_secondary w-100">
+          Already have an account? 
+          <span class="link_secondary" [routerLink]="['/auth/login']">
+            Login here
+          </span>
+        </div>   
+      </form>
     </section>
-
     <section class="w-100 section_otp" *ngIf="showOTPSection">
       <div class="content">
         <p class="title">
@@ -52,72 +54,93 @@
       </div>
     </section>
 
-    <section class="w-100 section_register" *ngIf="showRegistrationSection">
-      <div class="content">
-        <p class="title">
-          Fill in the details below
-        </p>
-      </div>
-      <div class="form">
-        <div class="input_wrapper">
-          <ion-label class="label_primary">Mobile</ion-label>
-          <ion-input class="input_primary" type="number" value="8871342281" readonly></ion-input>
+    <form [formGroup] = "sellerRegistartionFormGroup">
+      <section class="w-100 section_register" *ngIf="showRegistrationSection">
+        <div class="content">
+          <p class="title">
+            Fill in the details below
+          </p>
         </div>
-        <div class="input_wrapper">
-          <ion-label class="label_primary">Full Name *</ion-label>
-          <ion-input class="input_primary" type="text"></ion-input>
+        <div class="form">
+          <div class="input_wrapper">
+            <ion-label class="label_primary">Mobile</ion-label>
+            <ion-input class="input_primary" formControlName = "mobileNumber" [(ngModel)] = "otpVerifyFormGroup.value.mobileNumber" type="tel" readonly></ion-input>
+          </div>
+          <field-errors [formGroup] = "sellerRegistartionFormGroup" fieldName = "mobileNumber" [getErrorMessage] = "getErrorMessage.bind(this)"></field-errors>
+          <div class="input_wrapper">
+            <ion-label class="label_primary">Full Name *</ion-label>
+            <ion-input class="input_primary" formControlName = "fullName" type="text"></ion-input>
+          </div>
+          <field-errors [formGroup] = "sellerRegistartionFormGroup" fieldName = "fullName" [getErrorMessage] = "getErrorMessage.bind(this)"></field-errors>
+
+          <div class="input_wrapper">
+            <ion-label class="label_primary">Shop / Establishment Name *</ion-label>
+            <ion-input class="input_primary" formControlName = "shopName" type="text"></ion-input>
+          </div>
+          <field-errors [formGroup] = "sellerRegistartionFormGroup" fieldName = "shopName" [getErrorMessage] = "getErrorMessage.bind(this)"></field-errors>
+
+          <div class="input_wrapper">
+            <ion-label class="label_primary">Shop / Establishment Registration Number *</ion-label>
+            <ion-input class="input_primary" formControlName = "shopRegistrationNumber" type="text"></ion-input>
+          </div>
+          <field-errors [formGroup] = "sellerRegistartionFormGroup" fieldName = "shopRegistrationNumber" [getErrorMessage] = "getErrorMessage.bind(this)"></field-errors>
+
+          <div class="input_wrapper">
+            <ion-label class="label_primary">FSSAI Code</ion-label>
+            <ion-input class="input_primary" formControlName = "fssaiCode" type="text"></ion-input>
+          </div>
+          <field-errors [formGroup] = "sellerRegistartionFormGroup" fieldName = "fssaiCode" [getErrorMessage] = "getErrorMessage.bind(this)"></field-errors>
+
+          <div class="input_wrapper">
+            <ion-label class="label_primary">State *</ion-label>
+            <ion-select class="input_primary" mode="ios" placeholder="Select State">
+              <ion-select-option>Madhya Pradesh</ion-select-option>
+              <ion-select-option>Maharastra</ion-select-option>
+            </ion-select>
+          </div>
+
+          <div class="input_wrapper">
+            <ion-label class="label_primary">City *</ion-label>
+            <ion-select formControlName = "cityId" class="input_primary" mode="ios" placeholder="Select City">
+              <ion-select-option value = "1">Bhopal</ion-select-option>
+              <ion-select-option value = "1">Dewas</ion-select-option>
+              <ion-select-option value = "1">Indore</ion-select-option>
+              <ion-select-option value = "1">Ujjain</ion-select-option>
+            </ion-select>
+          </div>
+          <field-errors [formGroup] = "sellerRegistartionFormGroup" fieldName = "cityId" [getErrorMessage] = "getErrorMessage.bind(this)"></field-errors>
+
+          <div class="input_wrapper">
+            <ion-label class="label_primary">Shop / Establishment Address *</ion-label>
+            <ion-input autocomplete = "disable" formControlName = "shopAddress" class="input_primary" type="text"></ion-input>
+          </div>
+          <field-errors [formGroup] = "sellerRegistartionFormGroup" fieldName = "shopAddress" [getErrorMessage] = "getErrorMessage.bind(this)"></field-errors>
+
+          <div class="input_wrapper">
+            <ion-label class="label_primary">Password *</ion-label>
+            <ion-input autocomplete = "disable" formControlName = "password" class="input_primary" type="password"></ion-input>
+          </div>
+          <field-errors [formGroup] = "sellerRegistartionFormGroup" fieldName = "password" [getErrorMessage] = "getErrorMessage.bind(this)"></field-errors>
+
+          <div class="input_wrapper">
+            <ion-label class="label_primary">Confirm Password *</ion-label>
+            <ion-input formControlName = "cpassword" class="input_primary" type="password"></ion-input>
+          </div>
+          <field-errors [formGroup] = "sellerRegistartionFormGroup" fieldName = "cpassword" [getErrorMessage] = "getErrorMessage.bind(this)"></field-errors>
+
         </div>
-        <div class="input_wrapper">
-          <ion-label class="label_primary">Shop / Establishment Name *</ion-label>
-          <ion-input class="input_primary" type="text"></ion-input>
+        <p class="error-text">{{customErrorMessage}}</p>
+        <div class="action w-100">
+          <ion-button (click)="onRegister()">CREATE ACCOUNT</ion-button>
         </div>
-        <div class="input_wrapper">
-          <ion-label class="label_primary">Shop / Establishment Registration Number *</ion-label>
-          <ion-input class="input_primary" type="text"></ion-input>
-        </div>
-        <div class="input_wrapper">
-          <ion-label class="label_primary">FSSAI Code</ion-label>
-          <ion-input class="input_primary" type="text"></ion-input>
-        </div>
-        <div class="input_wrapper">
-          <ion-label class="label_primary">State *</ion-label>
-          <ion-select class="input_primary" mode="ios" placeholder="Select State">
-            <ion-select-option>Madhya Pradesh</ion-select-option>
-            <ion-select-option>Maharastra</ion-select-option>
-          </ion-select>
-        </div>
-        <div class="input_wrapper">
-          <ion-label class="label_primary">City *</ion-label>
-          <ion-select class="input_primary" mode="ios" placeholder="Select City">
-            <ion-select-option>Bhopal</ion-select-option>
-            <ion-select-option>Dewas</ion-select-option>
-            <ion-select-option>Indore</ion-select-option>
-            <ion-select-option>Ujjain</ion-select-option>
-          </ion-select>
-        </div>
-        <div class="input_wrapper">
-          <ion-label class="label_primary">Shop / Establishment Address *</ion-label>
-          <ion-input class="input_primary" type="text"></ion-input>
-        </div>
-        <div class="input_wrapper">
-          <ion-label class="label_primary">Password *</ion-label>
-          <ion-input class="input_primary" type="password"></ion-input>
-        </div>
-        <div class="input_wrapper">
-          <ion-label class="label_primary">Confirm Password *</ion-label>
-          <ion-input class="input_primary" type="password"></ion-input>
-        </div>
-      </div>
-      <div class="action w-100">
-        <ion-button (click)="onRegister()">CREATE ACCOUNT</ion-button>
-      </div>
-      <!-- <div class="action_secondary w-100">
-        By clicking on Create Account, you agree to our  
-        <span class="link_secondary" [routerLink]="['/auth/login']">
-          Terms and Conditions
-        </span>
-      </div> -->
-    </section>
+        <!-- <div class="action_secondary w-100">
+          By clicking on Create Account, you agree to our  
+          <span class="link_secondary" [routerLink]="['/auth/login']">
+            Terms and Conditions
+          </span>
+        </div> -->
+      </section>
+    </form>
 
   </div>
 </ion-content>
