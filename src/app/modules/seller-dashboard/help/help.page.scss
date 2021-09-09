@@ -8,19 +8,21 @@ ion-icon {
 i {
     padding-left: 12px; 
 }
-
 textarea{
+    max-width: max-content;
     background-color: var(--ion-color-tertiary);
     border-radius: 8px;
     --padding-start: 20px;
-    --padding-end: 20px;
+    padding-inline-end: var(--padding-end);
     border: none;
+    padding-left: 20px;
+    padding-top: 13px;
+    outline: none;
 }
 textarea::placeholder{
-    padding-top: 11px;
+    padding-top: 2px;
     font-size:15px;
     font-weight: 2px;
-    padding-inline-start: var(--padding-start);
     font-family: inherit;
 }
 .main {

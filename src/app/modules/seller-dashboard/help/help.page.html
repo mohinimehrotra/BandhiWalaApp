@@ -25,9 +25,10 @@
       </div>
       <div class="input_wrapper">
         <ion-label class="label_primary">Message</ion-label>
-        <!-- <ion-input class="input_primary" name = "message" type="text" placeholder="Your message"></ion-input> -->
-        <textarea rows="5" cols="40" type = "text" placeholder="Your message..."></textarea>
-        </div>
+        <ion-input class="input_primary">
+          <textarea rows="5" cols="40" type = "text" placeholder="Your message..."></textarea>
+        </ion-input>
+      </div>
     </div>
     <div class="action w-100">
       <ion-button [routerLink]="['/seller/home']">SEND</ion-button>
