@@ -12,4 +12,8 @@ export class PaymentHistoryPage implements OnInit {
   ngOnInit() {
   }
 
+  onApplyFilter() {
+    console.log('Filter...');
+  }
+
 }

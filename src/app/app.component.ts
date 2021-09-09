@@ -43,7 +43,7 @@ export class AppComponent {
     },
     {
       title: 'Payments',
-      url: '/register',
+      url: '/seller/payment-history',
       icon: 'cash'
     },
     {
