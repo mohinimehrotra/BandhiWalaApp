@@ -1,45 +1,11 @@
-ion-icon {
-    .back-icon{
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-    }
-}
-i {
-    padding-left: 12px; 
-}
-textarea{
-    max-width: max-content;
-    background-color: var(--ion-color-tertiary);
-    border-radius: 8px;
-    --padding-start: 20px;
-    padding-inline-end: var(--padding-end);
-    border: none;
-    padding-left: 20px;
-    padding-top: 13px;
-    outline: none;
-}
-textarea::placeholder{
-    padding-top: 2px;
-    font-size:15px;
-    font-weight: 2px;
-    font-family: inherit;
-}
 .main {
     padding: 20px 40px;
     .form {
-        width: 100%;
         .input_wrapper {
             margin-bottom: 20px;
-            position: relative;
-        }
-    }
-    .action {
-        ion-button {
-            &:first-child { 
-                margin-bottom: 20px;
+            ion-textarea {
+                margin-top: 0;
             }
         }
-
     }
 }
