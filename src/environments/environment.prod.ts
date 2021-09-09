@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+  production: true,
+  serverConfig: {
+    apiUrl: 'http://bwa-apis.imtsllp.org/'
+  }
 };

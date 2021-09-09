@@ -1,51 +1,43 @@
 import { Injectable } from "@angular/core";
-import { FormArray, FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { EMAIL_REGEX } from "../constants/regex.conatant";
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { MOBILE_REGEX } from "../constants/regex.constant";
+import { PASSSWORD_MIN_LENGTH } from "../constants/storage.constant";
 
 @Injectable({providedIn: 'root'})
 export class FormBuilderService {
-
-    registrationFormGroup: FormGroup;
 
     constructor(
         private formBuilder: FormBuilder
     ) {}
 
-    // Registration form section started
+    // Seller-Registration form start
 
-    getRegistrationForm(mobileNumber: string): FormGroup {
-        this.registrationFormGroup =this.formBuilder.group({
-            fullName: ['', [Validators.required, Validators.minLength(3)]],
-            gender: ['', Validators.required],
-            email: ['', [Validators.required, Validators.pattern(EMAIL_REGEX)]],
-            dob: ['', Validators.required],
-            bloodGroup: ['', Validators.required],
-            weight: ['', Validators.required],
-            height: ['', Validators.required],
-            emergencyContacts: this.formBuilder.array([this.createEmergencyContact()]),
-            physicianName: [''],
-            physicianContact: [''],
-            careTakerName: ['', Validators.required],
-            careTakerContact: ['', Validators.required],
-            drugAllergies: ['', Validators.required],
-            medicationHistory: ['', Validators.required],
-            mobileNumber: [mobileNumber]
-        });
-
-        return this.registrationFormGroup;
-    }
-
-    public createEmergencyContact(): FormGroup {
+    getSellerRegistartionform(): FormGroup {
         return this.formBuilder.group({
-          emergencyName: '',
-          emergencyContact: '',
-        });
+            mobileNumber:['9039335273', [Validators.required, Validators.pattern(MOBILE_REGEX)]],
+            fullName:['Aniket', [Validators.required, Validators.minLength(3)]],
+            password:['123456', [Validators.required, Validators.minLength(PASSSWORD_MIN_LENGTH)]],
+            cpassword:['123456', [Validators.required, Validators.minLength(PASSSWORD_MIN_LENGTH)]],
+            status:['ACTIVE'],
+            shopName:['Test shop name', [Validators.required]],
+            cityId:['1',[Validators.required]],
+            shopRegistrationNumber:['Dxq4344', [Validators.required, Validators.minLength(3)]],
+            fssaiCode:['ASDGBHJA23423', [Validators.required, Validators.minLength(8)]],
+            shopAddress:['Test address', [Validators.required, Validators.minLength(8)]]
+        })
     }
 
-    public getEmergencyContact() {
-        return this.registrationFormGroup.get('emergencyContacts') as FormArray;
+    getOtpForm() {
+        return this.formBuilder.group({
+            mobileNumber:['', [Validators.required, Validators.pattern(MOBILE_REGEX)]]
+        })
     }
 
-    // Registration form section End
+    // Seller-Registration form end
+
+    // lOGIN START
+
+
+    // lOGIN END
 
 }

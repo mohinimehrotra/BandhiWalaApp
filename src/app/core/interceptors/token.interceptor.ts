@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 import { from, Observable, throwError } from 'rxjs';
 import { map, catchError, finalize, mergeMap } from 'rxjs/operators';
 import { UiService } from '../services/ui.service';
-import { AUTH_TOKEN } from '../constants/storage.constants';
+import { AUTH_TOKEN } from '../constants/storage.constant';
 import { StorageService } from 'src/app/core/services/storage.service';
   
 @Injectable({ providedIn: 'root' })

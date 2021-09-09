@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-intro',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IntroPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private menuController: MenuController
+  ) { }
 
-  ngOnInit() {
+  ngOnInit(
+    ) {
+    this.menuController.enable(false);
   }
 
 }
