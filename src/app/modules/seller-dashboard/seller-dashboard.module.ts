@@ -17,6 +17,7 @@ import { BillDetailPage } from './bills/page/bill-detail/bill-detail.page';
 import { PastBillsPage } from './bills/page/past-bills/past-bills.page';
 import { PaymentHistoryPage } from './payments/page/payment-history/payment-history.page';
 import { ProductListPage } from './products/page/product-list/product-list.page';
+import { HelpPage } from './help/help.page';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ProductListPage } from './products/page/product-list/product-list.page'
     BillDetailPage,
     PastBillsPage,
     PaymentHistoryPage,
-    ProductListPage
+    ProductListPage,
+    HelpPage
   ],
   imports: [
     CommonModule,

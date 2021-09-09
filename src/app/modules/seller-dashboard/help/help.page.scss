@@ -1,0 +1,11 @@
+.main {
+    padding: 20px 40px;
+    .form {
+        .input_wrapper {
+            margin-bottom: 20px;
+            ion-textarea {
+                margin-top: 0;
+            }
+        }
+    }
+}

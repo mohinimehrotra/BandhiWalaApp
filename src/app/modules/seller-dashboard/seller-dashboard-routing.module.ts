@@ -14,6 +14,7 @@ import { ProductListPage } from './products/page/product-list/product-list.page'
 import { AddSalesEntryPage } from './sales/page/add-sales-entry/add-sales-entry.page';
 import { BulkSalesEntryPage } from './sales/page/bulk-sales-entry/bulk-sales-entry.page';
 import { SalesListingPage } from './sales/page/sales-listing/sales-listing.page';
+import { HelpPage } from './help/help.page';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
       {
         path: 'home',
         component: SellerHomePage
+      },
+      {
+        path: 'help',
+        component: HelpPage
       },
       {
         path: 'add-product',
@@ -81,6 +86,11 @@ const routes: Routes = [
       }
     ]
   },
+  // {
+  //   path: 'help',
+  //   loadChildren: () => import('./help/help.module').then( m => m.HelpPageModule)
+  // },
+
 
 ];
 
