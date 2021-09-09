@@ -6,14 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./payment-history.page.scss'],
 })
 export class PaymentHistoryPage implements OnInit {
-  showCalendar = false;
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  toggleCalendarView() {
-    this.showCalendar = !this.showCalendar;
+  onApplyFilter() {
+    console.log('Filter...');
   }
 
 }

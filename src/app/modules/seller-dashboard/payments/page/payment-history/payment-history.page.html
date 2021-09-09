@@ -15,16 +15,13 @@
         <ion-icon class="search-icon" color="medium" name="search-outline"></ion-icon>
       </div>
       <div class="input_wrapper">
-        <!-- <ion-label class="label_primary">Filter by month</ion-label>
-        <ion-input class="input_primary" type="month" value="null"></ion-input> -->
         <ion-label class="label_primary">Filter by Month</ion-label>
-        <ion-input class="input_primary" placeholder="Select month"></ion-input>
-        <ion-icon class="calendar-icon" color="medium" name="chevron-down-outline" *ngIf="!showCalendar" (click)="toggleCalendarView()"></ion-icon>
-        <ion-icon class="calendar-icon" color="medium" name="chevron-up-outline" *ngIf="showCalendar" (click)="toggleCalendarView()"></ion-icon>
+        <ion-datetime class="input_primary" mode="ios" display-format="MMMM YYYY" picker-format="MMMM YYYY" min="2020-01-01" placeholder="Select month"></ion-datetime>
+        <ion-icon class="calendar-icon" color="medium" name="chevron-down-outline"></ion-icon>
       </div>
     </div>
     <div class="action w-100">
-      <ion-button [routerLink]="['/seller/product-list']">FILTER</ion-button>
+      <ion-button (click)="onApplyFilter()">FILTER</ion-button>
     </div>
 
     <div class="payment-history">
