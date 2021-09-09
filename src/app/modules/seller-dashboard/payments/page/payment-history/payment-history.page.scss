@@ -6,6 +6,18 @@
             margin-bottom: 20px;
             margin-top: 20px;
             position: relative;
+            .search-icon {
+                position: absolute;
+                right: 20px;
+                top: calc(17% + 5px);
+                z-index: 2;
+            }
+            .calendar-icon {
+                position: absolute;
+                right: 20px;
+                top: calc(50% + 5px);
+                z-index: 2;
+            }
         }
     }
     .action {

@@ -11,13 +11,16 @@
   <div class="main">
     <div class="form">
       <div class="input_wrapper">
-        <ion-icon class="search" name="search-outline"></ion-icon>
-        <ion-input class="input_primary" placeholder="Search by name or bill number">
-        </ion-input>
+        <ion-input class="input_primary" placeholder="Search by name or bill number"></ion-input>
+        <ion-icon class="search-icon" color="medium" name="search-outline"></ion-icon>
       </div>
       <div class="input_wrapper">
-        <ion-label class="label_primary">Filter by month</ion-label>
-        <ion-input class="input_primary" type="month" value="null"></ion-input>
+        <!-- <ion-label class="label_primary">Filter by month</ion-label>
+        <ion-input class="input_primary" type="month" value="null"></ion-input> -->
+        <ion-label class="label_primary">Filter by Month</ion-label>
+        <ion-input class="input_primary" placeholder="Select month"></ion-input>
+        <ion-icon class="calendar-icon" color="medium" name="chevron-down-outline" *ngIf="!showCalendar" (click)="toggleCalendarView()"></ion-icon>
+        <ion-icon class="calendar-icon" color="medium" name="chevron-up-outline" *ngIf="showCalendar" (click)="toggleCalendarView()"></ion-icon>
       </div>
     </div>
     <div class="action w-100">
