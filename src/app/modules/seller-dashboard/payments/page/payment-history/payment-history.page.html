@@ -1,0 +1,53 @@
+<ion-header mode = "ios">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Payment History</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main">
+    <div class="form">
+      <div class="input_wrapper">
+        <ion-input class="input_primary" placeholder="Search by name or bill number"></ion-input>
+        <ion-icon class="search-icon" color="medium" name="search-outline"></ion-icon>
+      </div>
+      <div class="input_wrapper">
+        <ion-label class="label_primary">Filter by Month</ion-label>
+        <ion-datetime class="input_primary" mode="ios" display-format="MMMM YYYY" picker-format="MMMM YYYY" min="2020-01-01" placeholder="Select month"></ion-datetime>
+        <ion-icon class="calendar-icon" color="medium" name="chevron-down-outline"></ion-icon>
+      </div>
+    </div>
+    <div class="action w-100">
+      <ion-button (click)="onApplyFilter()">FILTER</ion-button>
+    </div>
+
+    <div class="payment-history">
+      <p class="section_title">
+        All Payments
+      </p>
+      <div class="card_primary payment-history_items_wrapper" *ngFor="let item of ['1','2']">
+        <p class="payment-history_item-label">
+          <span class="payment-history_item-label--bold">Bill No.: 11234021245</span>
+        </p>
+        <p class="payment-history_item-timestamp">
+          <span class="name">Tony Stark(*****42281)</span>
+          <br>
+          Payment Date: 01/07/2021
+          <br>
+          Payment Mode: Online
+        </p>
+        <p class="payment-history_item-label">
+          <span class="payment-history_item-label--bold">Total Bill Amount:</span>
+          <span class="payment-history_item-label--bold price">₹2,110.00</span>
+        </p>
+        <ion-buttons class="payment-history_item-edit">
+          Send Invoice
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </ion-buttons>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,93 @@
+ion-content {
+    text-align: center;
+    // --padding-top: 40px;
+    --padding-bottom: 40px;
+    --padding-start: 24px;
+    --padding-end: 24px;
+    --background: var(--ion-color-light);
+    .section_passcode {
+        padding-top: 24px
+    }
+    .section_mobile {
+        padding-top: 40px
+    }
+    .page_info {
+        margin-top: 24%;
+    }
+    .img_wrapper {
+        img {
+            width: 100px;
+        }
+    }
+    .img_title {
+        padding: 0 24px;
+        p {
+            color: #333348;
+            font-size: 16px;
+            font-weight: 600;
+        }
+    }
+    .img_caption {
+        padding: 0 24px;
+        p {
+            color: #898A8F;
+            font-size: 12px;
+        }
+    }
+    .card_main {
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, .09);
+        padding: 16px;
+        margin-top: 32px;
+        .input_wrapper {
+            margin-bottom: 12px;
+            // display: flex;
+            ion-col {}
+            ion-input {
+                border: 1px solid #ECECEC;
+                border-radius: 8px;
+                font-size: 14px;
+            }
+            .passcode {
+                ion-input {
+                    border: none;
+                    border-bottom: 1px solid #ECECEC;
+                    border-radius: 0;
+                    font-size: 14px;
+                }
+            }
+            .country_code {
+                // padding-right: 4px;
+                ion-input {
+                    --padding-start: 0;
+                }
+            }
+            .mobile {
+                text-align: left;
+                ion-icon {
+                    position: absolute;
+                    top: 32%;
+                    right: 4%;
+                }
+            }
+        }
+        ion-button {
+            --border-radius: 24px;
+            color: #fff;
+        }
+    }
+    .sub_text {
+        margin-top: 24px;
+        p {
+            font-size: 12px;
+            color: #313450;
+        }
+    }
+    .sub_action {
+        span {
+            font-size: 14px;
+            color: #3A58FC;
+        }
+    }
+}

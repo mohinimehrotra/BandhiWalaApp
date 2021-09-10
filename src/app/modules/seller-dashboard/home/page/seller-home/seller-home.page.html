@@ -1,0 +1,55 @@
+<ion-header mode="ios">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      <!-- <ion-icon name="menu-outline" size="large"></ion-icon> -->
+    </ion-buttons>
+    <ion-title>Hello Ankit!</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="notifications-outline" size="large"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main">
+    <div class="overview">
+      <p class="section_title">
+        Overview
+      </p>
+      <div class="overview_items_wrapper">
+        <div class="card_primary overview_item">
+          <p class="overview_item-number">12</p>
+          <p class="overview_item-label">Total Products</p>
+        </div>
+        <div class="card_primary overview_item">
+          <p class="overview_item-number">12</p>
+          <p class="overview_item-label">Total Products</p>
+        </div>
+      </div>
+    </div>
+    <div class="advance-bookings">
+      <p class="section_title">
+        Advance Bookings (3)
+      </p>
+      <div class="card_primary advance-bookings_items_wrapper">
+        <div class="advance-bookings_item" *ngFor="let item of ['1','2','3']">
+          <p class="advance-bookings_item-timestamp">12:34 | 12 Aug 2021</p>
+          <p class="advance-bookings_item-label">
+            John Doe Requested for 
+            <span class="advance-bookings_item-label--bold">2 Litres</span>  
+            of 
+            <span class="advance-bookings_item-label--bold">Full Fat Milk</span>
+          </p>
+          <div class="advance-bookings_item-action">
+            View Booking
+            <ion-icon name="arrow-forward-outline" color="secondary"></ion-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer class="advertisement_footer">
+  Google Ad Goes Here
+</ion-footer>
