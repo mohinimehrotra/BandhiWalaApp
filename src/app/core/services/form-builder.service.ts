@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MOBILE_REGEX } from '../constants/regex.constant';
-import { PASSSWORD_MIN_LENGTH } from '../constants/storage.constant';
+import { Injectable } from "@angular/core";
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { MOBILE_REGEX } from "../constants/regex.constant";
+import { PASSSWORD_MIN_LENGTH } from "../constants/storage.constant";
 
 @Injectable({providedIn: 'root'})
 export class FormBuilderService {

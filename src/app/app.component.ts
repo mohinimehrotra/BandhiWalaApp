@@ -63,7 +63,7 @@ export class AppComponent {
     },
     {
       title: 'Help',
-      url: '/register',
+      url: '/seller/help',
       icon: 'help'
     },
     {

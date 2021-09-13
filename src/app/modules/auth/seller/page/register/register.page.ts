@@ -36,28 +36,29 @@ export class SellerRegisterPage implements OnInit {
   buildForm() {
     this.sellerRegistartionFormGroup = this.formBuilderService.getSellerRegistartionform();
     this.otpVerifyFormGroup = this.formBuilderService.getOtpForm();
-    console.log(this.otpVerifyFormGroup);
+    console.log(this.otpVerifyFormGroup)
   }
 
-  onSendOTP() {
-    this.formService.markFormAsTouched(this.otpVerifyFormGroup);
+  onSendOTP () {
+    this.formService.markFormAsTouched(this.otpVerifyFormGroup)
     if (!this.otpVerifyFormGroup.valid) {
       return;
     }
     this.sellerRegistartionFormGroup.value.mobileNumber = '9039335274';
-    console.log(this.sellerRegistartionFormGroup.value);
+    console.log(this.sellerRegistartionFormGroup.value)
     this.showMobileSection = false;
     this.showOTPSection = true;
   }
 
-  onVerifyOTP() {
+  onVerifyOTP () {
     this.showOTPSection = false;
     this.showMobileSection = false;
     this.showRegistrationSection = true;
   }
 
-  onRegister() {
+  onRegister () {
     this.formService.markFormAsTouched(this.sellerRegistartionFormGroup);
+    
     if (this.sellerRegistartionFormGroup.valid) {
       this.authService.registerSeller(this.sellerRegistartionFormGroup.value).subscribe((data) => {
         console.log(data);
@@ -66,7 +67,7 @@ export class SellerRegisterPage implements OnInit {
         }
       }, error => {
         this.customErrorMessage = error;
-      });
+      })
     }
     console.log(this.sellerRegistartionFormGroup.value);
     // this.showMobileSection = true;
