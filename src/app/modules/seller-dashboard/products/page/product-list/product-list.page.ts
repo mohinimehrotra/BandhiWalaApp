@@ -10,7 +10,7 @@ import { Item } from './product-interface';
   styleUrls: ['./product-list.page.scss'],
 })
 export class ProductListPage implements OnInit {
-  items:  Item[];
+  items: Item[] = [];
   customErrorMessage: string;
 
 
@@ -21,12 +21,15 @@ export class ProductListPage implements OnInit {
 
 
   ngOnInit() {
+    this.fetchProduct();
     }
 
   fetchProduct(){
-    this.sellerDashboardService.fetchProduct().subscribe((response) => {
+    this.sellerDashboardService.fetchProduct().subscribe((response: any) => {
       console.log(response);
-          }
+      this.items =response.data;
+      console.log(this.items)
+    }
       , error => {
       this.customErrorMessage = error;
     });

@@ -5,6 +5,7 @@ import { FormErrorService } from 'src/app/core/services/form-error.service';
 import { FormService } from 'src/app/core/services/form.service';
 import { SellerDashboardService } from '../../../services/seller-dashboard.service';
 
+
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.page.html',

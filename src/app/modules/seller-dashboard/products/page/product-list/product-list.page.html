@@ -23,10 +23,10 @@
                 </ion-buttons>
                 <p class="my-products_item-timestamp">Dairy</p>
                 <p class="my-products_item-label">
-                    {{items.product}}
-                    <span class="my-products_item-label--bold">{{items.unit}}</span>
+                    {{item?.productName}}
+                    <span class="my-products_item-label--bold">{{item?.productUnit}}</span>
                 </p>
-                <p class="my-products_item-timestamp">{{items.price}}/{{items.unit}}</p>
+                <p class="my-products_item-timestamp">{{item?.productPrice}}/{{item?.productUnit}}</p>
             </div>
         </div>
         <ion-fab>

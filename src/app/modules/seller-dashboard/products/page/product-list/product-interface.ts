@@ -1,5 +1,9 @@
 export interface Item{
-    product: string;
-    unit: string;
-    price: string;
+    createdAt: string;
+    id: number;
+    productName: string;
+    productPrice: number;
+    productUnit: string;
+    sellerUserIdFK: number;
+    updatedAt: any;
 }
