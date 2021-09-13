@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SellerDashboardRoutingModule } from './seller-dashboard-routing.module';
+import { SellerDashboardRoutingModule } from './services/seller-dashboard-routing.module';
 import { SellerHomePage } from './home/page/seller-home/seller-home.page';
 import { AddProductPage } from './products/page/add-product/add-product.page';
 import { AutoEntryPage } from './products/page/auto-entry/auto-entry.page';
@@ -18,6 +18,12 @@ import { PastBillsPage } from './bills/page/past-bills/past-bills.page';
 import { PaymentHistoryPage } from './payments/page/payment-history/payment-history.page';
 import { ProductListPage } from './products/page/product-list/product-list.page';
 import { HelpPage } from './help/help.page';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SellerDashboardService } from './seller-dashboard.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { IonicModule } from '@ionic/angular';
+import { TokenInterceptorService } from 'src/app/core/interceptors/token.interceptor';
 
 
 @NgModule({
@@ -41,7 +47,15 @@ import { HelpPage } from './help/help.page';
   ],
   imports: [
     CommonModule,
-    SellerDashboardRoutingModule
+    SharedModule,
+    ReactiveFormsModule,
+    SellerDashboardRoutingModule,
+    HttpClientModule,
+    IonicModule.forRoot()
+  ],
+  providers: [
+    SellerDashboardService,
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true},
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

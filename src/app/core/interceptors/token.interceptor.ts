@@ -25,35 +25,41 @@ export class TokenInterceptorService implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         
         this.uiService.loadingChecker.next(true);
-        let promise = this.storageService.getString(AUTH_TOKEN);
+        // let promise = this.storageService.getAuthToken();
+        let token = this.storageService.getAuthToken();
 
-        return from(promise)
-        .pipe(mergeMap((token) => {
-            let clonedReq = this.addToken(req, token);
-            return next.handle(clonedReq).pipe(
+        req = req.clone({
+            setHeaders: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+        return next.handle(req).pipe(
 
-                map((event: HttpEvent<any>) => {
-                    if (event instanceof HttpResponse) {
-                }
-                return event;
+            map((event: HttpEvent<any>) => {
+                if (event instanceof HttpResponse) {
+            }
+            return event;
 
-            }),
-            
-            catchError((error: HttpErrorResponse) => {
+        }),
+        
+        catchError((error: HttpErrorResponse) => {
 
-                if (error.status === 401) {
-                    // unauthorized user
-                } else if (error.status === 0) {
-                    // alert('Internet connection error');
-                }
-                return throwError(error);
-            }),
+            if (error.status === 401) {
+                // unauthorized user
+            } else if (error.status === 0) {
+                // alert('Internet connection error');
+            }
+            return throwError(error);
+        }),
 
-            finalize(() => {
-                this.uiService.loadingChecker.next(false);
-            }));
-
+        finalize(() => {
+            this.uiService.loadingChecker.next(false);
         }));
+        // return from(promise)
+        // .pipe(mergeMap((token) => {
+        //     let clonedReq = this.addToken(req, token);
+
+        // }));
     }
 
     private addToken(request: HttpRequest<any>, token: any) {
