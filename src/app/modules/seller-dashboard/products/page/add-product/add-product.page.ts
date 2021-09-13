@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { FormBuilderService } from 'src/app/core/services/form-builder.service';
 import { FormErrorService } from 'src/app/core/services/form-error.service';
 import { FormService } from 'src/app/core/services/form.service';
-import { SellerDashboardService } from '../../../seller-dashboard.service';
+import { SellerDashboardService } from '../../../services/seller-dashboard.service';
 
 @Component({
   selector: 'app-add-product',
