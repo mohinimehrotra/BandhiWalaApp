@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AUTH_TOKEN } from '../constants/storage.constant';
 // import { Plugins } from '@capacitor/core';
 
 // const { Storage } = Plugins;
@@ -6,6 +7,10 @@ import { Injectable } from '@angular/core';
 export class StorageService {
     saveData(key: string, value: string){
         localStorage.setItem(key, value);
+    }
+
+    getAuthToken(): string {
+        return localStorage.getItem(AUTH_TOKEN);
     }
     // async setString(key: string, value: string) {
     //     await Storage.set({ key, value });

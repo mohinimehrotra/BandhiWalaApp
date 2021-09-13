@@ -8,28 +8,36 @@
 </ion-header>
 
 <ion-content>
-  <div class="main">
-    <div class="add-product">
-      <p class="section_title">
-        Enter Product Details
-      </p>
-    </div>
-    <div class="form">
-      <div class="input_wrapper">
-        <ion-label class="label_primary">Product Name</ion-label>
-        <ion-input class="input_primary" type="text" placeholder="Enter the product name"></ion-input>
+  <form [formGroup] = "addProductFormGroup">
+    <div class="main">
+      <div class="add-product">
+        <p class="section_title">
+          Enter Product Details
+        </p>
       </div>
-      <div class="input_wrapper">
-        <ion-label class="label_primary">Unit</ion-label>
-        <ion-input class="input_primary" type="text" placeholder="Enter unit"></ion-input>
+      <div class="form">
+        <div class="input_wrapper">
+          <ion-label class="label_primary">Product Name</ion-label>
+          <ion-input class="input_primary" type="text" formControlName = "productName" placeholder="Enter the product name"></ion-input>
+        </div>
+        <field-errors [formGroup]="addProductFormGroup" fieldName="productName" [getErrorMessage]="getErrorMessage.bind(this)"></field-errors>
+        <div class="input_wrapper">
+          <ion-label class="label_primary">Unit</ion-label>
+          <ion-input class="input_primary" type="text" formControlName = "productUnit" placeholder="Enter unit"></ion-input>
+        </div>
+        <field-errors [formGroup]="addProductFormGroup" fieldName="productUnit" [getErrorMessage]="getErrorMessage.bind(this)"></field-errors>
+        <div class="input_wrapper">
+          <ion-label class="label_primary">Price</ion-label>
+          <ion-input class="input_primary" type="number" formControlName = "productPrice" placeholder="Enter the product price"><i>₹</i></ion-input>
+        </div>
+        <field-errors [formGroup]="addProductFormGroup" fieldName="productPrice" [getErrorMessage]="getErrorMessage.bind(this)"></field-errors>
       </div>
-      <div class="input_wrapper">
-        <ion-label class="label_primary">Price</ion-label>
-        <ion-input class="input_primary" type="number" placeholder="Enter the product price"><i>₹</i></ion-input>
+
+      <p class="error-text">{{customErrorMessage}}</p>
+
+      <div class="action w-100">
+        <ion-button (click) = "onAddProduct()">SAVE</ion-button>
       </div>
     </div>
-    <div class="action w-100">
-      <ion-button [routerLink]="['/seller/product-list']">SAVE</ion-button>
-    </div>
-  </div>
+  </form>
 </ion-content>
