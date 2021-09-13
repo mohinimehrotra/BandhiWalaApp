@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { catchError, map } from "rxjs/operators";
-import { ADD_PRODUCT, FECTCH_PRODUCT } from "src/app/core/constants/apis.constant";
+import { ADD_PRODUCT, FETCH_PRODUCT } from "src/app/core/constants/apis.constant";
 import { PRODUCT_ADDED_MESSAGE } from "src/app/core/constants/storage.constant";
 import { ErrorHandler } from "src/app/core/services/errorhandler.service";
 import { UiService } from "src/app/core/services/ui.service";
@@ -31,10 +31,15 @@ export class SellerDashboardService {
     }
     fetchProduct() {
         return this.httpClient.get(
-            `${environment.serverConfig.apiUrl}${FECTCH_PRODUCT}`,
+            `${environment.serverConfig.apiUrl}${FETCH_PRODUCT}`,
 
         ).pipe(catchError(this.errorHandler.handleError)
         );
 }
 
+}
+
+
+export interface AddProductResponse {
+    statusCode: number;
 }
