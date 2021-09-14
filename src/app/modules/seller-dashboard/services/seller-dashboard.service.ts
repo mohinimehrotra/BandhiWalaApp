@@ -8,9 +8,12 @@ import { PRODUCT_ADDED_MESSAGE } from "src/app/core/constants/storage.constant";
 import { ErrorHandler } from "src/app/core/services/errorhandler.service";
 import { UiService } from "src/app/core/services/ui.service";
 import { environment } from "src/environments/environment";
+import { HELP } from "src/app/core/constants/apis.constant";
+import {FEEDBACK_ADDED_MESSAGE} from "src/app/core/constants/storage.constant";
 
 @Injectable()
 export class SellerDashboardService {
+
 
     constructor(
         private httpClient: HttpClient,
@@ -21,7 +24,7 @@ export class SellerDashboardService {
 
     addProduct(data): Observable<boolean> {
         return this.httpClient.post(
-            `${environment.serverConfig.apiUrl}${ADD_PRODUCT}`, 
+            `${environment.serverConfig.apiUrl}${ADD_PRODUCT}`,
             data
         ).pipe(map((response: AddProductResponse) => {
             if (response.statusCode === 201) {
@@ -41,6 +44,19 @@ export class SellerDashboardService {
     toggleMenuView(toggleTo: boolean) {
         this.menuController.enable(toggleTo);
     }
+    getFeedback(data){
+      return this.httpClient.post(
+          `${environment.serverConfig.apiUrl}${HELP}`,
+          data
+      ).pipe(map((response: AddFeedback) => {
+          if (response.statusCode === 201) {
+              this.uiService.presentToast(FEEDBACK_ADDED_MESSAGE);
+              return true;
+          }
+          return false;
+      }), catchError(this.errorHandler.handleError));
+    }
+
 
 }
 
@@ -48,3 +64,9 @@ export class SellerDashboardService {
 export interface AddProductResponse {
     statusCode: number;
 }
+
+export interface AddFeedback {
+  statusCode: number;
+}
+
+

@@ -1,35 +1,42 @@
-<ion-header mode = "ios">
-  <ion-toolbar color="secondary">
-    <ion-buttons slot="start" [routerLink]="['/seller/home']">
-      <ion-icon name="chevron-back-outline" size="large"></ion-icon>
-    </ion-buttons>
-    <ion-title>Help</ion-title>
-  </ion-toolbar>
+<ion-header mode="ios">
+    <ion-toolbar color="secondary">
+        <ion-buttons slot="start" [routerLink]="['/seller/home']">
+            <ion-icon name="chevron-back-outline" size="large"></ion-icon>
+        </ion-buttons>
+        <ion-title>Help</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="main">
-    <div class="add-product">
-      <p class="section_title">
-        Drop us a message
-      </p>
-    </div>
-    <div class="form">
-      <div class="input_wrapper">
-        <ion-label class="label_primary">Title</ion-label>
-        <ion-input class="input_primary" type="text" placeholder="Title name"></ion-input>
-      </div>
-      <div class="input_wrapper">
-        <ion-label class="label_primary">Email</ion-label>
-        <ion-input class="input_primary" type="email" placeholder="Your email"></ion-input>
-      </div>
-      <div class="input_wrapper">
-        <ion-label class="label_primary">Message</ion-label>
-        <ion-textarea class="input_primary" type="text" placeholder="Your message..." rows="5"></ion-textarea>
-      </div>
-    </div>
-    <div class="action w-100">
-      <ion-button>SEND</ion-button>
-    </div>
-  </div>
+    <form [formGroup]="helpPageFormGroup">
+        <div class="main">
+            <div class="add-product">
+                <p class="section_title">
+                    Drop us a message
+                </p>
+            </div>
+            <div class="form">
+                <div class="input_wrapper">
+                    <ion-label class="label_primary">Title</ion-label>
+                    <ion-input class="input_primary" type="text" formControlName="title" placeholder="Title name"></ion-input>
+                </div>
+                <field-errors [formGroup]="helpPageFormGroup" fieldName="title" [getErrorMessage]="getErrorMessage.bind(this)"></field-errors>
+                <div class="input_wrapper">
+                    <ion-label class="label_primary">Email</ion-label>
+                    <ion-input class="input_primary" type="email" formControlName="email" placeholder="Your email"></ion-input>
+                </div>
+                <field-errors [formGroup]="helpPageFormGroup" fieldName="email" [getErrorMessage]="getErrorMessage.bind(this)"></field-errors>
+                <div class="input_wrapper">
+                    <ion-label class="label_primary">Message</ion-label>
+                    <ion-textarea class="input_primary" type="text" formControlName="message" placeholder="Your message..." rows="5"></ion-textarea>
+
+                </div>
+                <field-errors [formGroup]="helpPageFormGroup" fieldName="message" [getErrorMessage]="getErrorMessage.bind(this)"></field-errors>
+
+            </div>
+            <div class="action w-100">
+                <ion-button (click)="onHelp()">SEND</ion-button>
+            </div>
+        </div>
+    </form>
 </ion-content>
