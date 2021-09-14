@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SellerDashboardService } from '../../../services/seller-dashboard.service';
 @Component({
   selector: 'app-seller-home',
   templateUrl: './seller-home.page.html',
@@ -6,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SellerHomePage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private sellerDashboardService: SellerDashboardService
+  ) { }
 
   ngOnInit() {
+    this.sellerDashboardService.toggleMenuView(true);
   }
 
 }

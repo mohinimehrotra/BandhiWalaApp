@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { MenuController } from "@ionic/angular";
 import { Observable } from "rxjs";
 import { catchError, map } from "rxjs/operators";
 import { ADD_PRODUCT, FETCH_PRODUCT } from "src/app/core/constants/apis.constant";
@@ -14,7 +15,8 @@ export class SellerDashboardService {
     constructor(
         private httpClient: HttpClient,
         private uiService: UiService,
-        private errorHandler: ErrorHandler 
+        private errorHandler: ErrorHandler,
+        private menuController: MenuController
     ) {}
 
     addProduct(data): Observable<boolean> {
@@ -29,13 +31,16 @@ export class SellerDashboardService {
             return false;
         }), catchError(this.errorHandler.handleError));
     }
+
     fetchProduct() {
         return this.httpClient.get(
             `${environment.serverConfig.apiUrl}${FETCH_PRODUCT}`,
+        ).pipe(catchError(this.errorHandler.handleError));
+    }
 
-        ).pipe(catchError(this.errorHandler.handleError)
-        );
-}
+    toggleMenuView(toggleTo: boolean) {
+        this.menuController.enable(toggleTo);
+    }
 
 }
 

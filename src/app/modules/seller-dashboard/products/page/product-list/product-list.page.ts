@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RUPEE_ICON } from 'src/app/core/constants/widgets.constant';
 import { SellerDashboardService } from '../../../services/seller-dashboard.service';
-import { Item } from './product-interface';
+import { Item } from '../../product-interface';
 
 
 @Component({
