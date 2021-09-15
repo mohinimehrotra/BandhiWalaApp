@@ -1,9 +1,146 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>add-sales-entry</ion-title>
+<ion-header mode="ios">
+  <ion-toolbar color="secondary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Upload Sales Figures</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
 
+<!-- Segment Creation -->
+<ion-content>
+  <ion-toolbar>
+    <ion-segment mode="ios" (ionChange)="viewChanged($event)" value="single-entry">
+      <ion-segment-button value='single-entry'>
+        <ion-label>Single Entry</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value='bulk-entry'>
+        <ion-label>Bulk Entry</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+ 
+  <!-- Single-Entry Segment -->
+  <div class="main" *ngIf = "showSingleEntry">
+    <div>
+      <p class="section_title">
+        Enter Details
+      </p>
+    </div>
+    <div class="form">
+      <div class="input_wrapper">
+        <ion-label class="label_primary">Buyer</ion-label>
+          <ion-select class="input_primary" interface="action-sheet" placeholder="Enter the buyer name" cancelText="">
+            <ion-select-option value="tony">Tony Stark</ion-select-option>
+            <ion-select-option value="lily">Lily John</ion-select-option>
+          </ion-select>
+        <!-- <ion-icon class="drop-icon" color="medium" name="chevron-down-outline"></ion-icon> -->
+      </div>
+      <div class="input_wrapper">
+        <ion-label class="label_primary">Product</ion-label>
+        <ion-select class="input_primary" interface="action-sheet" placeholder="Enter the product name" cancelText="">
+          <ion-select-option value="milk">Skimmed milk</ion-select-option>
+          <ion-select-option value="curd">Curd</ion-select-option>
+        </ion-select>
+        <!-- <ion-icon class="drop-icon" color="medium" name="chevron-down-outline"></ion-icon> -->
+      </div>
+
+      <ion-label class="label_primary">Quantity</ion-label>
+      <ion-grid class="input_wrapper">
+        <ion-row>
+          <ion-col class="input_primary quant" size="4.5">
+            <ion-input type="number" placeholder="Quantity no."></ion-input>
+          </ion-col>
+          <ion-col class="input_primary unit">
+            <ion-select class="input_primary" interface="action-sheet" placeholder="Enter unit" cancelText="">
+              <ion-select-option value="litres">Litres(ltr)</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid class="input_wrapper">
+        <ion-row>
+          <ion-col class="quant">
+            <ion-label class="label_primary">Rate</ion-label>
+            <ion-input class="input_primary" type="number" placeholder="Enter rate"><i>₹</i></ion-input>
+          </ion-col>
+          <ion-col class="unit">
+            <ion-label class="label_primary label">Price</ion-label>
+            <ion-input class="input_primary" type="number" placeholder="Enter price"><i>₹</i></ion-input>
+          </ion-col>
+        </ion-row>
+      </ion-grid> 
+    </div>
+
+    <div class="action w-100">
+      <ion-button>SAVE</ion-button>
+    </div>
+  </div>
+
+
+  <!-- Bulk-Entry Segment -->
+  <div class = "main" *ngIf = "showBulkEntry">
+    <div>
+      <p class="section_title">
+        Enter Details
+      </p>
+    </div>
+    <div class="form">
+      <div class="input_wrapper">
+        <ion-label class="label_primary">Product</ion-label>
+        <ion-select class="input_primary" interface="action-sheet" placeholder="Enter the product name" cancelText="">
+          <ion-select-option value="milk">Skimmed milk</ion-select-option>
+          <ion-select-option value="curd">Curd</ion-select-option>
+        </ion-select>
+      </div>
+
+      <ion-grid class="input_wrapper">
+        <ion-row>
+          <ion-col class="quant">
+            <ion-label class="label_primary">Unit</ion-label>
+            <ion-select class="input_primary" interface="action-sheet" placeholder="Enter unit" cancelText="">
+              <ion-select-option value="litres">Litres(ltr)</ion-select-option>
+            </ion-select>
+          </ion-col>
+          <ion-col class="unit">
+            <ion-label class="label_primary label">Rate</ion-label>
+            <ion-input class="input_primary" type="number" placeholder="Enter rate"><i>₹</i></ion-input>
+          </ion-col>
+        </ion-row>
+      </ion-grid> 
+    </div>
+    
+    <ion-list lines=none>
+      <ion-item class="mlist">
+        <ion-checkbox class="check" slot="start"></ion-checkbox>
+        <ion-label>Buyers</ion-label>
+        <ion-label class="ion-text-end">Quantity</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <div *ngFor="let item of numbers">
+      <ion-list lines=none [ngClass]="{'active': isChecked}">
+        <ion-item class="slist">
+          <ion-checkbox color="dark" slot="start" (ionChange)="toggleState()"></ion-checkbox>
+          <ion-label>Tony Stark</ion-label>
+          <ion-list [ngClass]="{'active': isChecked}">
+            <ion-icon class="inlist iconstyle" color="danger" name="remove-circle-outline"></ion-icon>
+            <p class="inlist">2</p>
+            <ion-icon class="inlist iconstyle" color="success" name="add-circle-outline"></ion-icon>
+          </ion-list>
+        </ion-item>
+      </ion-list>
+    </div>
+    
+    <div class="action w-100">
+      <ion-fab class="save">
+        <ion-button>SAVE</ion-button>
+      </ion-fab>
+    </div>
+    
+  </div>
+  
 </ion-content>
+

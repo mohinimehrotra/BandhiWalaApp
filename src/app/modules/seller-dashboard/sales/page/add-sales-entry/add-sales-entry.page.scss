@@ -1,0 +1,97 @@
+ion-segment{
+    margin: 35px 40px 2px;
+}
+ion-label{
+    font-size: 15px;
+}
+ion-segment-button{
+    --background-checked: var(--ion-color-secondary);
+    --color-checked: var(--ion-color-secondary-contrast);
+    --indicator-color : transparent!important;
+}
+ion-checkbox{
+    --background-checked: transparent;
+    --checkmark-color: var(--ion-color-primary);
+}
+ion-list{
+    padding:0px;
+    margin-bottom: 15px;
+}
+.save{
+    margin: 20px;
+    justify-content: center;
+    
+    
+}
+.check{
+    --background: var(--ion-color-secondary-contrast);
+    --background-checked: var(--ion-color-secondary-contrast);
+    --checkmark-color: var(--ion-color-primary);
+}
+.iconstyle{
+    height: 18px;
+    width: 18px;
+    padding-top: 33px;
+}
+.inlist{
+    display: inline-block;
+    margin-right: 15px;
+    align-items: center;
+}
+.mlist{
+    --ion-background-color: var(--ion-color-primary) !important;
+    color: var(--ion-color-secondary-contrast);
+    border-radius: 10px;
+}
+.slist{
+    --ion-background-color: var(--ion-color-tertiary) !important;
+    color: var(--ion-color-primary);
+    border-radius: 10px;
+}
+.active{
+    border: 2px solid black;
+}
+
+.quant{
+    margin-right: 7.5px;
+    margin-left: -5px;
+}
+.unit{
+    margin-left: 7.5px;
+    margin-right: -5px;
+}
+i {
+    padding-left: 12px; 
+}
+.main {
+    padding: 20px 40px;
+    .form {
+        width: 100%;
+        .input_wrapper {
+            margin-bottom: 20px;
+            position: relative;
+        }
+    }
+    .action {
+        ion-button {
+            &:first-child { 
+                margin-bottom: 20px;
+            }
+        }
+
+    }
+
+    .drop-icon {
+        position: absolute;
+        right: 20px;
+        top: calc(50% + 5px);
+        z-index: 2;
+    }
+
+    .unit-icon {
+        position: absolute;
+        right: 20px;
+        top: calc(30% + 5px);
+        z-index: 2;
+    }
+}
