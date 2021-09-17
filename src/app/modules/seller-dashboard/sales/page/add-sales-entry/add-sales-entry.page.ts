@@ -28,7 +28,7 @@ export class AddSalesEntryPage implements OnInit {
   }
 
   toggleState(){
-    this.isChecked=true;
+    this.isChecked= !this.isChecked;
   }
 
 }

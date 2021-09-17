@@ -20,49 +20,17 @@ ion-list{
 .save{
     margin: 20px;
     justify-content: center;
-    
-    
 }
 .check{
     --background: var(--ion-color-secondary-contrast);
     --background-checked: var(--ion-color-secondary-contrast);
     --checkmark-color: var(--ion-color-primary);
 }
-.iconstyle{
-    height: 18px;
-    width: 18px;
-    padding-top: 33px;
-}
-.inlist{
-    display: inline-block;
-    margin-right: 15px;
-    align-items: center;
-}
-.mlist{
-    --ion-background-color: var(--ion-color-primary) !important;
-    color: var(--ion-color-secondary-contrast);
-    border-radius: 10px;
-}
-.slist{
-    --ion-background-color: var(--ion-color-tertiary) !important;
-    color: var(--ion-color-primary);
-    border-radius: 10px;
-}
-.active{
-    border: 2px solid black;
-}
 
-.quant{
-    margin-right: 7.5px;
-    margin-left: -5px;
-}
-.unit{
-    margin-left: 7.5px;
-    margin-right: -5px;
-}
 i {
     padding-left: 12px; 
 }
+
 .main {
     padding: 20px 40px;
     .form {
@@ -71,14 +39,67 @@ i {
             margin-bottom: 20px;
             position: relative;
         }
-    }
-    .action {
-        ion-button {
-            &:first-child { 
-                margin-bottom: 20px;
+        ion-grid {
+            padding: 0;
+            ion-row {
+                justify-content: space-between;
             }
         }
-
+    }
+    &-bulk {
+        padding: 20px 40px 80px 40px;
+        color: var(--ion-color-medium);
+        .sticky-header {
+            position: sticky;
+            top: 0px;
+            z-index: 1;
+            background: var(--ion-color-light);
+            padding-top: 2px;
+            padding-bottom: 2px;
+        }
+        ion-item {
+            --ion-background-color: var(--ion-color-tertiary) !important;
+            color: var(--ion-color-primary);
+            border-radius: 10px;
+            border: 2px solid var(--ion-color-light);
+        }
+        ion-checkbox {
+            margin: 0 10px 0 0;
+        }
+        .list-header{
+            --ion-background-color: var(--ion-color-primary) !important;
+            color: var(--ion-color-secondary-contrast);
+            border-radius: 10px;
+        }
+        .active{
+            --ion-background-color: var(--ion-color-light) !important;
+            border: 2px solid var(--ion-color-medium);
+        }
+        .btn-active {
+            border-left: 1px solid var(--ion-color-medium);
+        }
+        .qty-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 80px;
+            padding-left: 10px;
+            
+            ion-icon {
+                height: 24px;
+                width: 24px;
+            }
+            
+        }
+        .action {
+            width: calc(100%);
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--ion-color-light);
+            padding: 10px 40px;
+        }
     }
 
     .drop-icon {
