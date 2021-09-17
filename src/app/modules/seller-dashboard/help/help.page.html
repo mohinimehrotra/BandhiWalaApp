@@ -32,8 +32,10 @@
 
                 </div>
                 <field-errors [formGroup]="helpPageFormGroup" fieldName="message" [getErrorMessage]="getErrorMessage.bind(this)"></field-errors>
-
             </div>
+
+            <p class="error-text">{{customErrorMessage}}</p>
+
             <div class="action w-100">
                 <ion-button (click)="onHelp()">SEND</ion-button>
             </div>

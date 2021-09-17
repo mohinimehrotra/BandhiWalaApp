@@ -18,7 +18,7 @@ export class StorageService {
         return JSON.parse(localStorage.getItem(USER_DATA));
     }
 
-    setUserData(data: string): void {
+    setUserData(data: any): void {
         localStorage.setItem(USER_DATA, JSON.stringify(data));
     }
 }

@@ -5,8 +5,6 @@ import { AddProductPage } from './products/page/add-product/add-product.page';
 import { AutoEntryPage } from './products/page/auto-entry/auto-entry.page';
 import { BuyersListPage } from './buyers/page/buyers-list/buyers-list.page';
 import { AddBuyerPage } from './buyers/page/add-buyer/add-buyer.page';
-import { RequestBookingsPage } from './bookings/page/request-bookings/request-bookings.page';
-import { PastBookingsPage } from './bookings/page/past-bookings/past-bookings.page';
 import { SalesListingPage } from './sales/page/sales-listing/sales-listing.page';
 import { AddSalesEntryPage } from './sales/page/add-sales-entry/add-sales-entry.page';
 import { GenerateBillPage } from './bills/page/generate-bill/generate-bill.page';
@@ -23,6 +21,7 @@ import { IonicModule } from '@ionic/angular';
 import { TokenInterceptorService } from 'src/app/core/interceptors/token.interceptor';
 import { SellerDashboardService } from './services/seller-dashboard.service';
 import { SellerDashboardRoutingModule } from './seller-dashboard-routing.module';
+import { AdvanceBookingsPage } from './bookings/page/advance-bookings/advance-bookings.page';
 
 
 @NgModule({
@@ -32,8 +31,6 @@ import { SellerDashboardRoutingModule } from './seller-dashboard-routing.module'
     AutoEntryPage,
     BuyersListPage,
     AddBuyerPage,
-    RequestBookingsPage,
-    PastBookingsPage,
     SalesListingPage,
     AddSalesEntryPage,
     BulkSalesEntryPage,
@@ -42,7 +39,8 @@ import { SellerDashboardRoutingModule } from './seller-dashboard-routing.module'
     PastBillsPage,
     PaymentHistoryPage,
     ProductListPage,
-    HelpPage
+    HelpPage,
+    AdvanceBookingsPage
   ],
   imports: [
     CommonModule,

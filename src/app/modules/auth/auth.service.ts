@@ -44,6 +44,7 @@ export class AuthService {
             if (response.statusCode === 200) {
                 this.uiService.presentToast( LOGGED_IN_MESSAGE);
                 this.storageService.saveData(AUTH_TOKEN, response.token);
+                this.storageService.setUserData(response.data);
                 this.router.navigateByUrl('/seller/home');
                 return response;
             }
@@ -57,14 +58,14 @@ export class AuthService {
 export interface RegisterMethodCall {
     status: string;
     statusCode: number;
-    data: any[];
+    data: any;
     totalCounts?: any;
 }
 
 export interface LoginMethodCall {
     status: string;
     statusCode: number;
-    data: any[];
+    data: any;
     token: string;
     totalCounts?: any;
 }

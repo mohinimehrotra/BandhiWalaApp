@@ -57,7 +57,7 @@ export class FormBuilderService {
     getHelpFrom(): FormGroup {
       return this.formBuilder.group({
         title:['LAPTOP review', [Validators.required, Validators.minLength(PRODUCT_MIN_LENGTH)]],
-        email:['"test@gmail.com"', [Validators.required]],
+        email:['test@gmail.com', [Validators.required]],
         status:['PENDING'],
         message:['LAPTOP IS BEST', [Validators.required]]
     });
