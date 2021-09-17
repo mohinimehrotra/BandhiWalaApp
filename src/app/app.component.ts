@@ -33,7 +33,7 @@ export class AppComponent {
     },
     {
       title: 'Upload Sales Figures',
-      url: '/register',
+      url: '/seller/add-sales-entry',
       icon: 'duplicate'
     },
     {

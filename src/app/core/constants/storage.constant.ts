@@ -6,3 +6,4 @@ export const LOGGED_IN_MESSAGE='Welcome';
 export const PRODUCT_MIN_LENGTH = 3;
 export const PRODUCT_ADDED_MESSAGE = 'Product successfully created';
 export const FEEDBACK_ADDED_MESSAGE = 'Your feedback has been submitted';
+export const USER_DATA = 'user_data';

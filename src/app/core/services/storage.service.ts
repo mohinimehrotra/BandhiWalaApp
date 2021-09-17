@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AUTH_TOKEN } from '../constants/storage.constant';
+import { SellerDataModel } from 'src/app/modules/seller-dashboard/services/seller-dashboard.interface';
+import { AUTH_TOKEN, USER_DATA } from '../constants/storage.constant';
 // import { Plugins } from '@capacitor/core';
 
 // const { Storage } = Plugins;
@@ -12,30 +13,12 @@ export class StorageService {
     getAuthToken(): string {
         return localStorage.getItem(AUTH_TOKEN);
     }
-    // async setString(key: string, value: string) {
-    //     await Storage.set({ key, value });
-    // }
 
-    // async getString(key: string): Promise<{ value: any }> {
-    //     return (await Storage.get({ key }));
-    // }
+    getuserData(): SellerDataModel {
+        return JSON.parse(localStorage.getItem(USER_DATA));
+    }
 
-    // async setObject(key: string, value: any) {
-    //     await Storage.set({ key, value: JSON.stringify(value) });
-    // }
-
-    // async getObject(key: string): Promise<{ value: any }> {
-    //     const ret = await Storage.get({ key });
-    //     return JSON.parse(ret.value);
-    // }
-
-
-    // async removeItem(key: string) {
-    //     await Storage.remove({ key });
-    // }
-
-    // async clear() {
-    //     await Storage.clear();
-    // }
-
+    setUserData(data: string): void {
+        localStorage.setItem(USER_DATA, JSON.stringify(data));
+    }
 }
