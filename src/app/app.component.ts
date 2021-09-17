@@ -28,7 +28,7 @@ export class AppComponent {
     },
     {
       title: 'Advance Bookings',
-      url: '/register',
+      url: '/seller/advance-bookings',
       icon: 'cart'
     },
     {
