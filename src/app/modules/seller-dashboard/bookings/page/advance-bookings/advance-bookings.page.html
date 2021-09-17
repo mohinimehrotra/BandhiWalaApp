@@ -1,9 +1,95 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>advance-bookings</ion-title>
+<ion-header mode="ios">
+  <ion-toolbar color="secondary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Advanced Bookings</ion-title>
   </ion-toolbar>
 </ion-header>
 
+<!-- Segment Creation -->
 <ion-content>
+  <ion-toolbar>
+    <ion-segment mode="ios" (ionChange)="viewsChanged($event)" value="requests">
+      <ion-segment-button value='requests'>
+        <ion-label>Requests(2)</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value='confirmed'>
+        <ion-label>Confirmed(18)</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 
+<!-- Requests Segment -->
+  <div class="main" *ngIf = "showRequests">
+    <div class="advance-bookings">
+      <div class="card_primary advance-bookings_items_wrapper" *ngFor="let item of ['1','2']">
+        <p class="label_primary">Requested at 12-12-2021</p>
+        <p class="advance-bookings_item-label">
+          <span class="advance-bookings_item-label--bold">Buyer Details:</span>
+          <span class="advance-bookings_item-timestamp">
+            <span class="name">Tony Stark(*****42281)</span>
+            <br>
+            12/3, New Road, Old Street, Indore, MP
+          </span>
+        </p>
+        <p class="advance-bookings_item-label">
+          <span class="advance-bookings_item-label--bold">Required on:</span>
+          <br>
+          <span class="advance-bookings_item-timestamp">
+            12/07/2021 - Thursday - 11:00 AM
+          </span>
+        </p>
+        <p class="advance-bookings_item-label">
+          <span class="advance-bookings_item-label--bold">Product Requested (2):</span>
+        </p>
+        <ion-row>
+          <ion-col size="6">
+            <p class="advance-bookings_item-label">Full Fat Milk</p>
+          </ion-col>
+          <ion-col size="3">
+            <p class="advance-bookings_item-label">2 Litres</p>
+          </ion-col>
+          <ion-col size="3">
+            <p class="advance-bookings_item-label price">₹120.00</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            <p class="advance-bookings_item-label">Curd</p>
+          </ion-col>
+          <ion-col size="3">
+            <p class="advance-bookings_item-label">0.5 Kg</p>
+           </ion-col>
+          <ion-col size="3">
+            <p class="advance-bookings_item-label price">₹50.00</p>
+          </ion-col>
+        </ion-row>
+        <div class="hr"> </div>
+        <p class="advance-bookings_item-label">
+          <span class="advance-bookings_item-label--bold">Order Total:</span>
+          <span class="advance-bookings_item-label--bold price">₹170.00</span>
+        </p>
+        <ion-row>
+          <ion-col size="7.2">
+            <ion-button class="ion-text-wrap">
+              ACCEPT ORDER<ion-icon name="checkmark-outline"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col size="4.7">
+            <ion-button color="danger">
+              REJECT<ion-icon name="close-outline"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+  </div>
+
+<!-- Confirmed Segment -->
+  <div class="main" *ngIf = "showConfirmed">
+    <p class="section_title">
+      This is confirmed segment.
+    </p>
+  </div>
 </ion-content>

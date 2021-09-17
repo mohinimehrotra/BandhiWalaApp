@@ -6,10 +6,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./advance-bookings.page.scss'],
 })
 export class AdvanceBookingsPage implements OnInit {
-
-  constructor() { }
+  showRequests = true;
+  showConfirmed = false;
+  numbers = []
+  constructor() {
+    this.numbers = Array(20).fill(1).map((x,i)=>i);
+   }
 
   ngOnInit() {
+  }
+  viewsChanged(ev){
+    if(ev.detail.value === 'requests'){
+      this.showRequests = true;
+      this.showConfirmed = false;
+    }
+    if(ev.detail.value === 'confirmed'){
+      this.showConfirmed = true;
+      this.showRequests = false;
+    }
   }
 
 }
