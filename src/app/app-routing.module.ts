@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'seller',
     loadChildren: () => import('./modules/seller-dashboard/seller-dashboard.module').then( m => m.SellerDashboardModule)
   },
+  {
+    path: 'buyer',
+    loadChildren: () => import('./modules/buyer-dashboard/buyer-dashboard.module').then( m => m.BuyerDashboardModule)
+  },
 ];
 
 @NgModule({
