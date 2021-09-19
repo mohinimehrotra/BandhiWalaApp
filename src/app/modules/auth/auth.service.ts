@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/member-delimiter-style */
+/* eslint-disable no-trailing-spaces */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { SELLER_REGISTER } from 'src/app/core/constants/apis.constant';
+import { CHECK_USER_EXIST, REGISTER_BUYER, SELLER_REGISTER, VERIFY_OTP } from 'src/app/core/constants/apis.constant';
 import { AUTH_TOKEN, LOGGED_IN_MESSAGE, USER_CREATED_MESSAGE } from 'src/app/core/constants/storage.constant';
 import { ErrorHandler } from 'src/app/core/services/errorhandler.service';
 import { UiService } from 'src/app/core/services/ui.service';
@@ -51,6 +53,37 @@ export class AuthService {
             return false;
         }),catchError(this.errorHandler.handleError));
     }
+
+
+    registerBuyer(data: {
+      'mobileNumber': string,
+      'password': string,
+      'fullName': string,
+      'status': string,
+      'cityId': number,
+      'address': string
+    }){
+      return this.httpClient.post(
+        `${environment.serverConfig.apiUrl}${REGISTER_BUYER}`,
+        data
+      );
+    };
+
+    checkUserExist(mobileNumber: string){
+      return this.httpClient.post(
+        `${environment.serverConfig.apiUrl}${CHECK_USER_EXIST}`,
+        {
+          mobileNumber
+        }
+      );
+    };
+
+    verifyOtp(sessionId: string, otp: string){
+      return this.httpClient.get(
+        `${environment.serverConfig.apiUrl}${VERIFY_OTP}${sessionId}/${otp}`
+      );
+    };
+
 
 }
 
