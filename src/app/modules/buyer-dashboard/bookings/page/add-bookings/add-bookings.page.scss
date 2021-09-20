@@ -27,4 +27,14 @@
         font-size: 13px;
         float: right;
     }
+    .close {
+        color: var(--ion-color-secondary);        
+        float: right;
+        font-size: 25px;
+    }
+    p{
+        display: inline-block;
+        margin-top: 0px;
+
+    }
 }
