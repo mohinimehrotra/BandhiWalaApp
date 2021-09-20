@@ -1,9 +1,71 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>add-bookings</ion-title>
+<ion-header mode="ios">
+  <ion-toolbar color="secondary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Create Advance Booking</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="main">
+    <div>
+      <p class="section_title">
+        Enter Details
+      </p>
+    </div>
+    <div class="form">
+      <div class="input_wrapper">
+        <ion-label class="label_primary">Seller</ion-label>
+          <ion-select class="input_primary" interface="action-sheet" placeholder="Select Seller" mode="ios">
+            <ion-select-option value="dairy needs">Dairy Needs</ion-select-option>
+            <ion-select-option value="indiamart">IndiaMART</ion-select-option>
+          </ion-select>
+      </div>
+      <div class="input_wrapper">
+        <ion-label class="label_primary">Product</ion-label>
+        <ion-select class="input_primary" interface="action-sheet" placeholder="Select Product" mode="ios">
+          <ion-select-option value="milk">Skimmed milk</ion-select-option>
+          <ion-select-option value="curd">Curd</ion-select-option>
+        </ion-select>
+      </div>
 
+      <ion-label class="label_primary">Quantity</ion-label>
+      <ion-grid class="input_wrapper">
+        <ion-row>
+          <ion-col class="input_primary" size="4">
+            <ion-input type="number" placeholder="Quantity"></ion-input>
+          </ion-col>
+          <ion-col class="input_primary" size="7.5">
+            <ion-select class="input_primary" interface="action-sheet" placeholder="Select unit" mode="ios" value="litres" readonly>
+              <ion-select-option value="litres">Litres(ltr)</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid class="input_wrapper">
+        <ion-row>
+          <ion-col>
+            <ion-label class="label_primary">Rate</ion-label>
+            <ion-input class="input_primary" type="number" value="60" readonly><i>₹</i></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-label class="label_primary label">Price</ion-label>
+            <ion-input class="input_primary" type="number" value="120" readonly><i>₹</i></ion-input>
+          </ion-col>
+        </ion-row>
+      </ion-grid> 
+    </div>
+
+    <ion-buttons class="add">
+      <ion-icon name="add-outline"></ion-icon>
+      Add More Product
+    </ion-buttons>
+
+    <div class="action w-100">
+      <ion-button>SAVE</ion-button>
+    </div>
+  </div>
+  
 </ion-content>

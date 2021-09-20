@@ -1,0 +1,30 @@
+.main {
+    padding: 20px 40px 140px;
+    i {
+        padding-left: 12px; 
+    }
+    .input_wrapper {
+        margin-bottom: 20px;
+        position: relative;
+    }
+    ion-grid {
+        padding: 0;
+        ion-row {
+            justify-content: space-between;
+        }
+    }
+    .action {
+        width: calc(100%);
+        position: fixed;
+        bottom: 40px;
+        left: 0;
+        right: 0;
+        padding: 10px 40px 0;
+        z-index: 2; 
+    }
+    .add {
+        color: var(--ion-color-secondary);
+        font-size: 13px;
+        float: right;
+    }
+}
