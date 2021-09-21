@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BuyerService } from '../../../buyer-dashboard.service';
 
 @Component({
   selector: 'app-advance-bookings',
@@ -8,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 export class AdvanceBookingsPage implements OnInit {
   showActive = true;
   showRequested = false;
-  constructor() { }
+  constructor(
+    private buyerApiService: BuyerService
+  ) { }
+  items = [];
+  customErrorMessage: string;
+
 
   ngOnInit() {
+    this.fetchBookings();
   }
   viewChange(ev){
     if(ev.detail.value === 'active'){
@@ -22,4 +29,16 @@ export class AdvanceBookingsPage implements OnInit {
       this.showActive = false;
     }
   }
+
+
+  fetchBookings(){
+    this.buyerApiService.fetchBooking().subscribe((response: any) => {
+      console.log(response);
+      this.items = response.data;
+      console.log(this.items)
+    }, error => {
+      this.customErrorMessage = error;
+    });
+  }
+
 }
