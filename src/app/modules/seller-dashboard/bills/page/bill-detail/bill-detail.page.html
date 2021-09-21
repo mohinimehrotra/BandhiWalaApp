@@ -1,9 +1,89 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>bill-detail</ion-title>
+<ion-header mode = "ios">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start" [routerLink]="['/seller/generate-bill']">
+      <ion-icon name="chevron-back-outline" size="large"></ion-icon>
+    </ion-buttons>
+    <ion-title>Bill #12344456765</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="main">
+    <div class="bill-detail">
+      <div class="card_primary bill-detail_items_wrapper">
+        <p class="bill-detail_item-label status">
+          <span class="bill-detail_item-label--bold">Bill #12344456765</span>
+        </p>
+        <ion-chip color = "danger">
+          <ion-label class="paid" color = "danger">UNPAID</ion-label>
+        </ion-chip>
+        <p class="bill-detail_item-label">
+          <span class="bill-detail_item-label--bold">Buyer Details:</span>
+          <br>
+          <span class="bill-detail_item-timestamp">
+            <span class="name">Tony Stark(*****42281)</span>
+            <br>
+            12/3, New Road, Old Street, Indore, MP
+          </span>
+        </p>
 
+        <p class="bill-detail_item-label">
+          <span class="bill-detail_item-label--bold">Billing Period:</span>
+          <br>
+          <span class="bill-detail_item-timestamp">
+            01/07/2021 - 31/07/2021 (31 Days)
+          </span>
+        </p>
+
+        <p class="bill-detail_item-label">
+          <span class="bill-detail_item-label--bold">Payable By:</span>
+          <br>
+          <span class="bill-detail_item-timestamp">
+            08/07/2021 (7 Days)
+          </span>
+        </p>
+
+        <p class="bill-detail_item-label">
+          <span class="bill-detail_item-label--bold">Items:</span>
+        </p>
+        <p class="bill-detail_item-label">
+          <span class="payment-history_item-label--bold">Full Fat Milk</span>
+          <span class="payment-history_item-label--bold price-a">₹60.00/litre</span>
+        </p>
+        <p class="bill-detail_item-label">
+          <span class="payment-history_item-label--bold">31 Litres</span>
+          <span class="payment-history_item-label--bold price-b">₹1860.00</span>
+        </p>
+        <br>
+        <p class="bill-detail_item-label">
+          <span class="payment-history_item-label--bold">Curd</span>
+          <span class="payment-history_item-label--bold price-a">₹100.00/kg</span>
+        </p>
+        <p class="bill-detail_item-label">
+          <span class="payment-history_item-label--bold">2.5 Kg</span>
+          <span class="payment-history_item-label--bold price-b">₹250.00</span>
+        </p>
+
+        
+        <div class="hr"> </div>
+
+        <p class="bill-detail_item-label">
+          <span class="bill-detail_item-label--bold">Total Bill Amount:</span>
+          <span class="bill-detail_item-label--bold price-b">₹2110.00</span>
+        </p>
+        <ion-button class="ion-text-wrap">
+          Add Payment & Clear Bill
+        </ion-button>
+      
+        
+      </div>
+    </div>
+
+    <ion-button class="out-btn" expand="round" fill="outline">Share</ion-button>
+    <ion-button class="ion-text-wrap out-btn" expand="round" fill="outline" color = "danger">Send Payment Reminder</ion-button>
+  </div>
+  
+
+  
+    
 </ion-content>

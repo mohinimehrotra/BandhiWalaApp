@@ -1,0 +1,48 @@
+<ion-header mode = "ios">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start" [routerLink]="['/seller/my-profile']">
+      <ion-icon name="chevron-back-outline" size="large"></ion-icon>
+    </ion-buttons>
+    <ion-title>Edit Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main">
+    <section class="w-100 section_register">
+      <div class="form">
+        <div class="input_wrapper">
+          <ion-label class="label_primary">Full Name</ion-label>
+          <ion-input class="input_primary" type="text" value="Tony Stark" readonly></ion-input>
+        </div>
+        <div class="input_wrapper">
+          <ion-label class="label_primary">Shop / Establishment Name</ion-label>
+          <ion-input class="input_primary" type="text" value="Daily Dairy Needs" readonly></ion-input>
+        </div>
+        <div class="input_wrapper">
+          <ion-label class="label_primary">Shop / Establishment Registration Number</ion-label>
+          <ion-input class="input_primary" value="ASDF1234QWER" readonly></ion-input>
+        </div>
+        <div class="input_wrapper">
+          <ion-label class="label_primary">FSSAI Code</ion-label>
+          <ion-input class="input_primary" value="ASDF1234QWER" readonly></ion-input>
+        </div>
+        <div class="input_wrapper">
+          <ion-label class="label_primary">State</ion-label>
+          <ion-input class="input_primary" text = "type" value="Madhya Pradesh" readonly></ion-input>
+        </div>
+        <div class="input_wrapper">
+          <ion-label class="label_primary">City</ion-label>
+          <ion-input class="input_primary" text = "type" value="Indore" readonly></ion-input>
+        </div>
+        <div class="input_wrapper">
+          <ion-label class="label_primary">Shop / Establishment Address</ion-label>
+          <ion-input class="input_primary" value="1/2 - A, New Street, Old Town" readonly></ion-input>
+        </div>
+      </div>
+      <div class="action w-100">
+        <ion-button>UPDATE</ion-button>
+      </div>
+    </section>
+  </div>
+</ion-content>
