@@ -10,7 +10,6 @@ import { AddSalesEntryPage } from './sales/page/add-sales-entry/add-sales-entry.
 import { GenerateBillPage } from './bills/page/generate-bill/generate-bill.page';
 import { BulkSalesEntryPage } from './sales/page/bulk-sales-entry/bulk-sales-entry.page';
 import { BillDetailPage } from './bills/page/bill-detail/bill-detail.page';
-import { PastBillsPage } from './bills/page/past-bills/past-bills.page';
 import { PaymentHistoryPage } from './payments/page/payment-history/payment-history.page';
 import { ProductListPage } from './products/page/product-list/product-list.page';
 import { HelpPage } from './help/help.page';
@@ -36,7 +35,6 @@ import { AdvanceBookingsPage } from './bookings/page/advance-bookings/advance-bo
     BulkSalesEntryPage,
     GenerateBillPage,
     BillDetailPage,
-    PastBillsPage,
     PaymentHistoryPage,
     ProductListPage,
     HelpPage,

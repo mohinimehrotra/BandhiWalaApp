@@ -1,0 +1,51 @@
+ion-segment{
+    margin: 35px 40px 2px;
+}
+ion-segment-button{
+    --background-checked: var(--ion-color-secondary);
+    --color-checked: var(--ion-color-secondary-contrast);
+    --indicator-color : transparent!important;
+}
+ion-button{
+    font-size: 12px;
+}
+.main {
+    padding: 20px 40px;
+    .name{
+        font-size: 13px;
+    }
+    .hr {
+        border-bottom: 1px solid black;
+        margin: 10px 0;
+        width: 100%;
+    }
+    .price{
+        float: right;
+    }
+    .advance-bookings {
+        &_items_wrapper {
+            margin-bottom: 1rem;
+        }
+        &_item {
+            padding: 12px;
+            border-bottom: 1px solid var(--ion-color-primary);
+            &:last-child {
+                border-bottom: none;
+            }
+            &-timestamp { 
+                font-size: 12px;
+                font-weight: 450;
+                color: var(--ion-color-primary);
+                margin-bottom: 10px;
+            }
+            &-label {
+                font-size: 13px;
+                font-weight: 300;
+                margin: 0 0 10px;
+                &--bold {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
