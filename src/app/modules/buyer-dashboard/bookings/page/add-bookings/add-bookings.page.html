@@ -42,7 +42,7 @@
       </div>
       <div class="form">
         <div formArrayName="products">
-            <p *ngIf = "products.controls.length >= 2">Product 1</p>
+          <p *ngIf = "products.controls.length >= 2">Product 1</p>
           <div *ngFor = "let product of products.controls; index as i" [formGroupName]="i">
             <ion-row>
               <ion-col>
@@ -50,7 +50,6 @@
                 <ion-icon
                 name="close-circle"
                 class="close"
-                
                 (click)="removeProduct(i)"
                 *ngIf="i > 0"
                 ></ion-icon>
@@ -100,7 +99,7 @@
                   formControlName="rate"
                   class="input_primary"
                   type="number"
-                  value="60"
+                  value=""
                   readonly><i>₹</i></ion-input>
                 </ion-col>
                 <ion-col>
@@ -109,7 +108,7 @@
                   formControlName="price"
                   class="input_primary"
                   type="number"
-                  value="120"
+                  value=""
                   readonly><i>₹</i></ion-input>
                 </ion-col>
               </ion-row>
