@@ -9,13 +9,17 @@ import { IonicModule } from '@ionic/angular';
 import { BuyerHomePage } from './home/page/buyer-home/buyer-home.page';
 import { AdvanceBookingsPage } from './bookings/page/advance-bookings/advance-bookings.page';
 import { AddBookingsPage } from './bookings/page/add-bookings/add-bookings.page';
+import { BillManagementPage } from './bills/page/bill-management/bill-management.page';
+import { BillDetailPage } from '../seller-dashboard/bills/page/bill-detail/bill-detail.page';
 
 
 @NgModule({
   declarations: [
     BuyerHomePage,
     AdvanceBookingsPage,
-    AddBookingsPage
+    AddBookingsPage,
+    BillManagementPage,
+    BillDetailPage
   ],
   imports: [
     CommonModule,

@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BillDetailPage } from './bills/page/bill-detail/bill-detail.page';
+import { BillManagementPage } from './bills/page/bill-management/bill-management.page';
 import { AddBookingsPage } from './bookings/page/add-bookings/add-bookings.page';
 import { AdvanceBookingsPage } from './bookings/page/advance-bookings/advance-bookings.page';
 import { BuyerHomePage } from './home/page/buyer-home/buyer-home.page';
@@ -19,6 +21,14 @@ const routes: Routes = [
         {
           path: 'add-booking',
           component: AddBookingsPage
+        },
+        {
+          path: 'bill-management',
+          component: BillManagementPage
+        },
+        {
+          path: 'bill-detail',
+          component: BillDetailPage
         }
     ]
   }

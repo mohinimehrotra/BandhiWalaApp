@@ -64,10 +64,6 @@ const routes: Routes = [
         component: BillDetailPage
       },
       {
-        path: 'past-bills',
-        component: BillDetailPage
-      },
-      {
         path: 'product-list',
         component: ProductListPage
       },
