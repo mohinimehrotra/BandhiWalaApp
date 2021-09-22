@@ -1,9 +1,37 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>seller-list</ion-title>
+<ion-header mode = "ios">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Sellers</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="search-outline" size="large"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <div class="main">
+    <div class="my-products">
+      <p class="section_title">
+        My Sellers(3)
+      </p>
+      <div class="card_primary my-products_items_wrapper" *ngFor="let item of numbers">
+        <ion-buttons class="my-products_item-edit">
+          view
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </ion-buttons>
+        <p class="my-products_item-timestamp">Connection since 12-12-2021</p>
+        <p class="my-products_item-label">
+          Dairy Needs
+          <span class="my-products_item-label--bold">(*****42281)</span>
+        </p>
+      </div>
+    </div>
+    <ion-fab>
+      <ion-fab-button>
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
 </ion-content>
