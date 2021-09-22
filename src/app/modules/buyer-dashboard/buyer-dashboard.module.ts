@@ -11,6 +11,7 @@ import { AdvanceBookingsPage } from './bookings/page/advance-bookings/advance-bo
 import { AddBookingsPage } from './bookings/page/add-bookings/add-bookings.page';
 import { BillManagementPage } from './bills/page/bill-management/bill-management.page';
 import { BillDetailPage } from '../seller-dashboard/bills/page/bill-detail/bill-detail.page';
+import { OrderEntriesPage } from './orders/page/order-entries/order-entries.page';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { BillDetailPage } from '../seller-dashboard/bills/page/bill-detail/bill-
     AdvanceBookingsPage,
     AddBookingsPage,
     BillManagementPage,
-    BillDetailPage
+    BillDetailPage,
+    OrderEntriesPage
   ],
   imports: [
     CommonModule,
