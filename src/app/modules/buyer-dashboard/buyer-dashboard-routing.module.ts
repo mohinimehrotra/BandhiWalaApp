@@ -43,6 +43,7 @@ const routes: Routes = [
           path: 'edit-profile',
           component: EditProfilePage
         },
+        {
           path: 'seller-list',
           component: SellerListPage
         },
