@@ -21,6 +21,8 @@ import { TokenInterceptorService } from 'src/app/core/interceptors/token.interce
 import { SellerDashboardService } from './services/seller-dashboard.service';
 import { SellerDashboardRoutingModule } from './seller-dashboard-routing.module';
 import { AdvanceBookingsPage } from './bookings/page/advance-bookings/advance-bookings.page';
+import { MyProfilePage } from './profile/my-profile/my-profile.page';
+import { EditProfilePage } from './profile/edit-profile/edit-profile.page';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { AdvanceBookingsPage } from './bookings/page/advance-bookings/advance-bo
     PaymentHistoryPage,
     ProductListPage,
     HelpPage,
-    AdvanceBookingsPage
+    AdvanceBookingsPage,
+    MyProfilePage,
+    EditProfilePage
   ],
   imports: [
     CommonModule,

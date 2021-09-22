@@ -6,6 +6,8 @@ import { BillManagementPage } from './bills/page/bill-management/bill-management
 import { AddBookingsPage } from './bookings/page/add-bookings/add-bookings.page';
 import { AdvanceBookingsPage } from './bookings/page/advance-bookings/advance-bookings.page';
 import { BuyerHomePage } from './home/page/buyer-home/buyer-home.page';
+import { MainProfilePage } from './profile/main-profile/main-profile.page';
+import { EditProfilePage } from './profile/edit-profile/edit-profile.page';
 import { OrderEntriesPage } from './orders/page/order-entries/order-entries.page';
 import { SellerListPage } from './sellers/page/seller-list/seller-list.page';
 
@@ -34,6 +36,14 @@ const routes: Routes = [
           component: BillDetailPage
         },
         {
+          path: 'main-profile',
+          component: MainProfilePage
+        },
+        {
+          path: 'edit-profile',
+          component: EditProfilePage
+        },
+        {
           path: 'seller-list',
           component: SellerListPage
         },
@@ -42,7 +52,7 @@ const routes: Routes = [
           component: OrderEntriesPage
         }
     ]
-  }
+  },
 ];
 
 @NgModule({
