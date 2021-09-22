@@ -16,6 +16,7 @@ import { EditProfilePage } from './profile/edit-profile/edit-profile.page';
 import { OrderEntriesPage } from './orders/page/order-entries/order-entries.page';
 import { BuyerService } from './buyer-dashboard.service';
 import { TokenInterceptorService } from 'src/app/core/interceptors/token.interceptor';
+import { RequestListPage } from './request/page/request-list/request-list.page';
 
 @NgModule({
   declarations: [
@@ -24,9 +25,10 @@ import { TokenInterceptorService } from 'src/app/core/interceptors/token.interce
     AddBookingsPage,
     BillManagementPage,
     BillDetailPage,
+    OrderEntriesPage,
+    RequestListPage,
     MainProfilePage,
-    EditProfilePage,
-    OrderEntriesPage
+    EditProfilePage
   ],
   imports: [
     CommonModule,
