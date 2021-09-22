@@ -17,7 +17,7 @@
             Name
           </ion-col>
           <ion-col class="value" size="7.5">
-            Tony Stark
+            {{SellerDataModel.fullName}}
           </ion-col>
         </ion-row>
 
@@ -26,7 +26,7 @@
             <p class="label_primary head">Mobile</p>
           </ion-col>
           <ion-col size="7.5">
-            <p class="value">8871342281</p>
+            <p class="value">{{SellerDataModel.mobileNumber}}</p>
           </ion-col>
         </ion-row>
 
@@ -35,7 +35,7 @@
             <p class="label_primary head">Shop</p>
           </ion-col>
           <ion-col size="7.5">
-            <p class="value">Daily Dairy Needs</p>
+            <p class="value">{{SellerDataModel.seller.shopName}}</p>
           </ion-col>
         </ion-row>
 
@@ -44,7 +44,7 @@
             <p class="label_primary head">Registration</p>
           </ion-col>
           <ion-col size="7.5">
-            <p class="value">ADSR1234567QWER</p>
+            <p class="value">{{SellerDataModel.seller.shopRegistrationNumber}}</p>
           </ion-col>
         </ion-row>
 
@@ -53,7 +53,7 @@
             <p class="label_primary head">FSSAI</p>
           </ion-col>
           <ion-col size="7.5">
-            <p class="value">1234QWERTY5678</p>
+            <p class="value">{{SellerDataModel.seller.fssaiCode}}</p>
           </ion-col>
         </ion-row>
 
@@ -80,7 +80,7 @@
             <p class="label_primary head">Address</p>
           </ion-col>
           <ion-col size="7.5">
-            <p class="value">1/2 - A, New Street, Old Town</p>
+            <p class="value">{{SellerDataModel.seller.shopAddress}}</p>
           </ion-col>
         </ion-row>
 

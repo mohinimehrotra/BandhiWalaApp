@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { MenuController } from "@ionic/angular";
 import { Observable } from "rxjs";
 import { catchError, map } from "rxjs/operators";
-import { ACCEPT_REJECT_BOOKING, ADD_FEEDBACK, ADD_PRODUCT, FETCH_BOOKING, FETCH_PRODUCT } from "src/app/core/constants/apis.constant";
+import { ACCEPT_REJECT_BOOKING, ADD_FEEDBACK, ADD_PRODUCT, FETCH_BILL, FETCH_BOOKING, FETCH_BUYER_SELLER_RELATION, FETCH_PRODUCT, PREVIEW_BILL } from "src/app/core/constants/apis.constant";
 import { BOOKEING_FETCH_MESSAGE, PRODUCT_ADDED_MESSAGE } from "src/app/core/constants/storage.constant";
 import { ErrorHandler } from "src/app/core/services/errorhandler.service";
 import { UiService } from "src/app/core/services/ui.service";
@@ -83,6 +83,43 @@ export class SellerDashboardService {
           }
           return false;
       }), catchError(this.errorHandler.handleError));
+    }
+
+    fetchSellerProfile() {
+        return this.storageService.getuserData();
+    }
+
+    fetchBills() {
+        return this.httpClient.get(
+            `${environment.serverConfig.apiUrl}${FETCH_BILL}`
+        ).pipe(map((response: any) => {
+            if (response.statusCode === 200) {
+                return response;
+            }
+            return false;
+        }), catchError(this.errorHandler.handleError));
+    }
+
+    fetchByuerSellerRelation() {
+        return this.httpClient.get(
+            `${environment.serverConfig.apiUrl}${FETCH_BUYER_SELLER_RELATION}`
+        ).pipe(map((response: any) => {
+            if (response.statusCode === 200) {
+                return response;
+            }
+            return false;
+        }), catchError(this.errorHandler.handleError));
+    }
+
+    previewBill(data) {
+        return this.httpClient.post(
+            `${environment.serverConfig.apiUrl}${PREVIEW_BILL}`, data
+        ).pipe(map((response: any) => {
+            if (response.statusCode === 200) {
+                return response.data;
+            }
+            return false;
+        }), catchError(this.errorHandler.handleError));
     }
 
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BuyerDataModel } from '../../buyer-dashboard.interface';
+import { BuyerService } from '../../buyer-dashboard.service';
 
 @Component({
   selector: 'app-main-profile',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainProfilePage implements OnInit {
 
-  constructor() { }
+  buyerData;
+
+  constructor(
+    private buyerApiService: BuyerService
+  ) { }
 
   ngOnInit() {
+    this.onFetchProfile()
+  }
+
+  onFetchProfile(){
+    this.buyerData = this.buyerApiService.fetchBuyerProfile()
+    console.log(this.buyerData)
   }
 
 }
