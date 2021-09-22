@@ -1,9 +1,227 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>generate-bill</ion-title>
+<ion-header mode="ios">
+  <ion-toolbar color="secondary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Bill Management</ion-title>
   </ion-toolbar>
 </ion-header>
 
+<!-- Segment Creation -->
 <ion-content>
+  <ion-toolbar>
+    <ion-segment mode="ios" (ionChange)="viewChanged($event)" value="generate">
+      <ion-segment-button value='generate'>
+        <ion-label class="head">Generate  Bill</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value='past'>
+        <ion-label class="head">Past Bills</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+ 
+  <!-- Generate Bill Segment -->
+  <div class="main" *ngIf = "showGenerateBill">
+    <div>
+      <p class="section_title">
+        Enter Details
+      </p>
+    </div>
+    <div class="form">
+      <div class="input_wrapper">
+        <ion-label class="label_primary">Buyer</ion-label>
+          <ion-select class="input_primary" interface="action-sheet" placeholder="Select Buyer" mode="ios">
+            <ion-select-option value="tony">Tony Stark</ion-select-option>
+            <ion-select-option value="lily">Lily John</ion-select-option>
+          </ion-select>
+      </div>
+      <div class="input_wrapper">
+        <ion-label class="label_primary">Month</ion-label>
+        <ion-datetime class="input_primary" mode="ios" display-format="MMM YY" picker-format="MMMM YYYY" min="2020-01-01" placeholder="Select month"></ion-datetime>
+      </div>
 
+      <ion-item class="input_wrapper" lines="none">
+        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-label class="label">Choose Custom Billing Period</ion-label>
+      </ion-item>  
+
+      <div class="input_wrapper pay">
+        <ion-label class="label_primary">Payable By: </ion-label>
+        <ion-datetime class="input_primary" mode="ios" display-format="MMM YY" picker-format="MMMM YYYY" min="2020-01-01" placeholder="Select month"></ion-datetime>
+      </div>
+    </div>
+    
+
+    <div class="view">
+      <ion-button>VIEW</ion-button>
+    </div>
+
+
+
+    <div class="bill-preview">
+      <div>
+        <p class="section_title">
+          Bill Preview
+        </p>
+      </div>
+      <div class="card_primary bill-preview_items_wrapper">
+        <p class="bill-preview_item-label">
+          <span class="bill-preview_item-label--bold">Buyer Details:</span>
+          <br>
+          <span class="bill-preview_item-timestamp">
+            <span class="name">Tony Stark(*****42281)</span>
+            <br>
+            12/3, New Road, Old Street, Indore, MP
+          </span>
+        </p>
+
+        <p class="bill-preview_item-label">
+          <span class="bill-preview_item-label--bold">Billing Period:</span>
+          <br>
+          <span class="bill-preview_item-timestamp">
+            01/07/2021 - 31/07/2021 (31 Days)
+          </span>
+        </p>
+
+        <p class="bill-preview_item-label">
+          <span class="bill-preview_item-label--bold">Payable By:</span>
+          <br>
+          <span class="bill-preview_item-timestamp">
+            08/07/2021 (7 Days)
+          </span>
+        </p>
+
+        <p class="bill-preview_item-label">
+          <span class="bill-preview_item-label--bold">Items:</span>
+        </p>
+        <p class="bill-preview_item-label">
+          <span class="bill-preview_item-label">Full Fat Milk</span>
+          <span class="bill-preview_item-label price-a">₹60.00/litre</span>
+        </p>
+        <p class="bill-preview_item-label">
+          <span class="bill-preview_item-label">31 Litres</span>
+          <span class="bill-preview_item-label price-b">₹1860.00</span>
+        </p>
+        <br>
+        <p class="bill-preview_item-label">
+          <span class="bill-preview_item-label">Curd</span>
+          <span class="bill-preview_item-label price-a">₹100.00/kg</span>
+        </p>
+        <p class="bill-preview_item-label">
+          <span class="bill-preview_item-label">2.5 Kg</span>
+          <span class="bill-preview_item-label price-b">₹250.00</span>
+        </p>
+
+        
+        <div class="hr"> </div>
+
+        <p class="bill-preview_item-label">
+          <span class="bill-preview_item-label--bold">Total Bill Amount:</span>
+          <span class="bill-preview_item-label--bold price-b">₹2110.00</span>
+        </p>
+        <ion-button class="ion-text-wrap" >
+          Confirm & Generate Bill
+        </ion-button>
+      
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Past Bills Segment -->
+  <div class="main" *ngIf = "showPastBills">
+    <div class="form">
+      <div class="input_wrapper">
+        <ion-input class="input_primary" placeholder="Search by name or bill no"></ion-input>
+        <ion-icon class="search-icon" color="medium" name="search-outline"></ion-icon>
+      </div>
+      <div class="input_wrapper">
+        <ion-label class="label_primary">Filter by Month</ion-label>
+        <ion-datetime class="input_primary" mode="ios" display-format="MMMM YYYY" picker-format="MMMM YYYY" min="2020-01-01" placeholder="Select month"></ion-datetime>
+        <ion-icon class="calendar-icon" color="medium" name="chevron-down-outline"></ion-icon>
+      </div>
+    </div>
+    <div class="filter">
+      <ion-button>FILTER</ion-button>
+    </div>
+
+    <div class="bill-preview">
+      <p class="section_title">
+        All Bills
+      </p>
+      <div class="card_primary bill-preview_items_wrapper">
+        <p class="bill-preview_item-label">
+          <span class="bill-preview_item-label--bold">Bill No.: 11234021245</span>
+        </p>
+        <p class="bill-preview_item-timestamp">
+          <span class="name">Tony Stark(*****42281)</span>
+          <br>
+          01/07/2021 - 31/07/2021 (31 Days)
+        </p>
+        <p class="bill-preview_item-label">
+          <span class="bill-preview_item-label--bold">Total Bill Amount:</span>
+          <span class="bill-preview_item-label--bold price">₹2,110.00</span>
+        </p>
+        <ion-buttons class="bill-preview_item-edit" [routerLink]="['/seller/bill-detail']">
+          view
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </ion-buttons>
+        <ion-chip color = "success">
+          <ion-label class="paid" color = "secondary">PAID</ion-label>
+        </ion-chip>
+      </div>
+
+
+
+      <div class="card_primary bill-preview_items_wrapper">
+        <p class="bill-preview_item-label">
+          <span class="bill-preview_item-label--bold">Bill No.: 11234021245</span>
+        </p>
+        <p class="bill-preview_item-timestamp">
+          <span class="name">Tony Stark(*****42281)</span>
+          <br>
+          01/07/2021 - 31/07/2021 (31 Days)
+        </p>
+        <p class="bill-preview_item-label">
+          <span class="bill-preview_item-label--bold">Total Bill Amount:</span>
+          <span class="bill-preview_item-label--bold price">₹2,110.00</span>
+        </p>
+        <ion-buttons class="bill-preview_item-edit" [routerLink]="['/seller/bill-detail']">
+          view
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </ion-buttons>
+        <ion-chip color = "danger">
+          <ion-label class="paid" color = "danger">UNPAID</ion-label>
+        </ion-chip>
+      </div>
+
+
+
+      <div class="card_primary bill-preview_items_wrapper">
+        <p class="bill-preview_item-label">
+          <span class="bill-preview_item-label--bold">Bill No.: 11234021245</span>
+        </p>
+        <p class="bill-preview_item-timestamp">
+          <span class="name">Tony Stark(*****42281)</span>
+          <br>
+          01/07/2021 - 31/07/2021 (31 Days)
+        </p>
+        <p class="bill-preview_item-label">
+          <span class="bill-preview_item-label--bold">Total Bill Amount:</span>
+          <span class="bill-preview_item-label--bold price">₹2,110.00</span>
+        </p>
+        <ion-buttons class="bill-preview_item-edit" [routerLink]="['/seller/bill-detail']">
+          view
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </ion-buttons>
+        <ion-chip color = "success">
+          <ion-label class="paid" color = "secondary">PAID</ion-label>
+        </ion-chip>
+      </div>
+
+
+
+    </div>
+  </div>
+  
 </ion-content>

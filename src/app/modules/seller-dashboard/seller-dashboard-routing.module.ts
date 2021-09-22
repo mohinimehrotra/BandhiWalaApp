@@ -15,6 +15,9 @@ import { SalesListingPage } from './sales/page/sales-listing/sales-listing.page'
 import { HelpPage } from './help/help.page';
 import { AdvanceBookingsPage } from './bookings/page/advance-bookings/advance-bookings.page';
 import { RequestListPage } from './requests/page/request-list/request-list.page';
+import { MyProfilePage } from './profile/my-profile/my-profile.page';
+import { EditProfilePage } from './profile/edit-profile/edit-profile.page';
+
 
 const routes: Routes = [
   {
@@ -79,9 +82,18 @@ const routes: Routes = [
       {
         path: 'request-list',
         component: RequestListPage
-      }
+      },
+      {
+        path: 'my-profile',
+        component: MyProfilePage
+      },
+      {
+        path: 'edit-profile',
+        component: EditProfilePage
+      },
     ]
-  }
+  },
+
 ];
 
 @NgModule({

@@ -38,7 +38,7 @@ export class AppComponent {
     },
     {
       title: 'Bill Management',
-      url: '/register',
+      url: '/seller/generate-bill',
       icon: 'newspaper'
     },
     {
@@ -48,7 +48,7 @@ export class AppComponent {
     },
     {
       title: 'Profile',
-      url: '/register',
+      url: '/seller/my-profile',
       icon: 'person'
     },
     {

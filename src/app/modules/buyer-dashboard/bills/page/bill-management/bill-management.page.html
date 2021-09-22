@@ -1,9 +1,114 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>bill-management</ion-title>
+<ion-header mode="ios">
+  <ion-toolbar color="secondary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Bill Management</ion-title>
   </ion-toolbar>
 </ion-header>
-
+ 
 <ion-content>
+  <div class="main">
+    <div class="head">
+      <p class="bill_item-timestamp current">Current Seller/ Store:</p>
+      <ion-buttons class="bill_item-edit change">
+        Change
+      </ion-buttons>
+      <p class="bill_item-label">
+        <span class="bill_item-label--bold">Daily Dairy Needs (Vijay Nagar)</span>
+      </p>
+      <div class="hr"></div>
+    </div>
+    
+    <div class="form">
+      <div class="input_wrapper">
+        <ion-input class="input_primary" placeholder="Search by bill number"></ion-input>
+        <ion-icon class="search-icon" color="medium" name="search-outline"></ion-icon>
+      </div>
+      <div class="input_wrapper">
+        <ion-label class="label_primary">Filter by Month</ion-label>
+        <ion-datetime class="input_primary" mode="ios" display-format="MMMM YYYY" picker-format="MMMM YYYY" min="2020-01-01" placeholder="Select month"></ion-datetime>
+        <ion-icon class="calendar-icon" color="medium" name="chevron-down-outline"></ion-icon>
+      </div>
+    </div>
+    <div class="filter">
+      <ion-button>FILTER</ion-button>
+    </div>
 
+    <div class="bill">
+      <p class="section_title">
+        All Bills
+      </p>
+      <div class="card_primary bill_items_wrapper">
+        <p class="bill_item-label">
+          <span class="bill_item-label--bold">Bill No.: 11234021245</span>
+        </p>
+        <p class="bill_item-timestamp">
+          <span class="name">Dairy Needs (*****42281)</span>
+          <br>
+          01/07/2021 - 31/07/2021 (31 Days)
+        </p>
+        <p class="bill_item-label">
+          <span class="bill_item-label--bold">Total Bill Amount:</span>
+          <span class="bill_item-label--bold price">₹2,110.00</span>
+        </p>
+        <ion-buttons class="bill_item-edit" [routerLink]="['/buyer/bill-detail']">
+          view
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </ion-buttons>
+        <ion-chip color = "success">
+          <ion-label class="paid" color = "secondary">PAID</ion-label>
+        </ion-chip>
+      </div>
+
+
+
+      <div class="card_primary bill_items_wrapper">
+        <p class="bill_item-label">
+          <span class="bill_item-label--bold">Bill No.: 11234021245</span>
+        </p>
+        <p class="bill_item-timestamp">
+          <span class="name">Dairy Needs (*****42281)</span>
+          <br>
+          01/07/2021 - 31/07/2021 (31 Days)
+        </p>
+        <p class="bill_item-label">
+          <span class="bill_item-label--bold">Total Bill Amount:</span>
+          <span class="bill_item-label--bold price">₹2,110.00</span>
+        </p>
+        <ion-buttons class="bill_item-edit" [routerLink]="['/seller/bill-detail']">
+          view
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </ion-buttons>
+        <ion-chip color = "danger">
+          <ion-label class="paid" color = "danger">UNPAID</ion-label>
+        </ion-chip>
+      </div>
+
+
+
+      <div class="card_primary bill_items_wrapper">
+        <p class="bill_item-label">
+          <span class="bill_item-label--bold">Bill No.: 11234021245</span>
+        </p>
+        <p class="bill_item-timestamp">
+          <span class="name">Dairy Needs (*****42281)</span>
+          <br>
+          01/07/2021 - 31/07/2021 (31 Days)
+        </p>
+        <p class="bill_item-label">
+          <span class="bill_item-label--bold">Total Bill Amount:</span>
+          <span class="bill_item-label--bold price">₹2,110.00</span>
+        </p>
+        <ion-buttons class="bill_item-edit" [routerLink]="['/seller/bill-detail']">
+          view
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </ion-buttons>
+        <ion-chip color = "success">
+          <ion-label class="paid" color = "secondary">PAID</ion-label>
+        </ion-chip>
+      </div>
+
+    </div>
+  </div>
 </ion-content>
