@@ -8,20 +8,20 @@ export class FormErrorService {
   getErrorMessage(fieldName, errorName): string {
     switch (errorName) {
       case 'pattern':
-        if (fieldName == 'mobileNumber') {
+        if (fieldName === 'mobileNumber') {
           return 'Mobile number should be 10 digits';
         }
         if (fieldName === 'email') {
-          return 'Invalid email id'
+          return 'Invalid email id';
         }
         return 'Invalid value';
       case 'required':
         if (fieldName === 'mobileNumber') {
-          return 'Mobile number is required'
+          return 'Mobile number is required';
         }
         return 'This field is required';
       case 'minlength':
-        if (fieldName == 'password') {
+        if (fieldName === 'password') {
           return 'Password length should be 8 digits';
         }
         return 'Minimum length not fulfilled';

@@ -38,7 +38,7 @@ export class LoginPage implements OnInit {
     this.formService.markFormAsTouched(this.loginFormGroup);
     if (this.loginFormGroup.valid) {
       this.authService.login(this.loginFormGroup.value).subscribe((data) => {
-        console.log(data);
+        // console.log(data);
         if (data) {
           this.loginFormGroup.reset();
         }
@@ -46,7 +46,7 @@ export class LoginPage implements OnInit {
         this.customErrorMessage = error;
       });
     }
-    console.log(this.loginFormGroup.value);
+    // console.log(this.loginFormGroup.value);
   }
 
   togglePasswordView() {
@@ -55,5 +55,6 @@ export class LoginPage implements OnInit {
   public getErrorMessage(fieldName: string, error: string): string {
     return this.formErrorService.getErrorMessage(fieldName, error);
   }
+
 
 }

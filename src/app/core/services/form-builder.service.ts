@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
-import { MOBILE_REGEX } from "../constants/regex.constant";
-import { PASSSWORD_MIN_LENGTH, PRODUCT_MIN_LENGTH } from "../constants/storage.constant";
+import { Injectable } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MOBILE_REGEX } from '../constants/regex.constant';
+import { PASSSWORD_MIN_LENGTH, PRODUCT_MIN_LENGTH } from '../constants/storage.constant';
 
 @Injectable({providedIn: 'root'})
 export class FormBuilderService {
@@ -38,8 +38,8 @@ export class FormBuilderService {
     // lOGIN START
     getLoginform(): FormGroup {
         return this.formBuilder.group({
-            mobileNumber:['9039335274', [Validators.required, Validators.pattern(MOBILE_REGEX)]],
-            password:['123456', [Validators.required, Validators.minLength(PASSSWORD_MIN_LENGTH)]]
+            mobileNumber:['', [Validators.required, Validators.pattern(MOBILE_REGEX)]],
+            password:['', [Validators.required, Validators.minLength(PASSSWORD_MIN_LENGTH)]]
         });
     }
     // lOGIN END

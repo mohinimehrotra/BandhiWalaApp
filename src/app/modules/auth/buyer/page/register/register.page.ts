@@ -1,4 +1,3 @@
-/* eslint-disable no-trailing-spaces */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -81,7 +80,6 @@ export class BuyerRegisterPage implements OnInit {
   }
 
   onChangeNumber() {
-
     this.showMobileSection = true;
     this.showOTPSection = false;
     this.showRegistrationSection = false;

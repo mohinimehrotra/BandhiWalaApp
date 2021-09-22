@@ -43,11 +43,18 @@ export class AuthService {
             `${environment.serverConfig.apiUrl}${LOGIN}`,
             data
         ).pipe(map((response: LoginMethodCall) => {
+            console.log(response);
+
             if (response.statusCode === 200) {
                 this.uiService.presentToast( LOGGED_IN_MESSAGE);
                 this.storageService.saveData(AUTH_TOKEN, response.token);
                 this.storageService.setUserData(response.data);
-                this.router.navigateByUrl('/seller/home');
+                if(response.data.userType === 'BUYER'){
+                  this.router.navigateByUrl('/buyer/home');
+                }
+                else if(response.data.userType === 'SELLER'){
+                  this.router.navigateByUrl('/seller/home');
+                }
                 return response;
             }
             return false;
