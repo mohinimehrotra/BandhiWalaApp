@@ -13,7 +13,9 @@ export class GenerateBillPage implements OnInit {
   billData = [];
   buyersData = [];
   apiBodyData = {};
+  billCreateBodyData = {};
   previewBill = {};
+  billAmount = 0;
 
   customErrorMessage = String;
   constructor(
@@ -67,15 +69,37 @@ export class GenerateBillPage implements OnInit {
         this.previewBill["items"] =[...this.previewBill["items"], ...booking.bookingDetails];
       })
       console.log(this.previewBill)
-    this.showPreviewBill = true;
-
+      if(this.previewBill["dailySales"].length || this.previewBill["bookings"].length)
+        this.showPreviewBill = true;
+      this.billCreateBodyData = { ...this.apiBodyData, "status":"PENDING"}
+      this.billCreateBodyData["products"] = this.previewBill["items"].map(item=>{
+        return { 
+          "productIdFK": item.productIdFK, 
+          "productName" : item.productName ? item.productName: item.product.productName, 
+          "productQty": item.productQtyCount,
+          "price": item.productPrice ? item.productPrice : item.price,
+          "productUnit": item.product.productUnit 
+        }
+      })
+      this.billCreateBodyData["billAmount"] = this.calculateBillTotal(this.previewBill["items"]);
+      console.log(this.billCreateBodyData);
     }, error => {
       this.customErrorMessage = error;
     });
-
   }
   
-  calculateOrderTotal(billItems: any[]): number {
+  onBillCreate(){
+    if(Object.keys(this.billCreateBodyData).length === 0 ){
+      return;
+    }
+    this.sellerApiService.createBill(this.billCreateBodyData).subscribe((response: any) => {
+    }, error => {
+      this.customErrorMessage = error;
+    });
+  }
+
+
+  calculateBillTotal(billItems: any[]): number {
     let total = 0;
     billItems.map(billItem => {
       total = total + billItem.productTotalPrice;

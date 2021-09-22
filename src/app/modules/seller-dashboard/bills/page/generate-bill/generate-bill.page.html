@@ -101,9 +101,9 @@
 
         <p class="bill-preview_item-label">
           <span class="bill-preview_item-label--bold">Total Bill Amount:</span>
-          <span class="bill-preview_item-label--bold price-b">₹{{calculateOrderTotal(previewBill.items)}}</span>
+          <span class="bill-preview_item-label--bold price-b">₹{{calculateBillTotal(previewBill.items)}}</span>
         </p>
-        <ion-button class="ion-text-wrap" >
+        <ion-button class="ion-text-wrap" (click)="onBillCreate()">
           Confirm & Generate Bill
         </ion-button>
       

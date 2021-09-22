@@ -12,3 +12,4 @@ export const USER_DATA = 'user_data';
 export const BOOKING_ACCEPTED = 'BOOKED';
 export const BOOKING_PENDING = 'PENDING';
 export const BOOKING_REJECTED = 'REJECTED';
+export const BILL_GENERATED = 'BILL GENERATED SUCCESSFULLY';

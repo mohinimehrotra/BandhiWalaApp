@@ -3,8 +3,8 @@ import { Injectable } from "@angular/core";
 import { MenuController } from "@ionic/angular";
 import { Observable } from "rxjs";
 import { catchError, map } from "rxjs/operators";
-import { ACCEPT_REJECT_BOOKING, ADD_FEEDBACK, ADD_PRODUCT, FETCH_BILL, FETCH_BOOKING, FETCH_BUYER_SELLER_RELATION, FETCH_PRODUCT, PREVIEW_BILL } from "src/app/core/constants/apis.constant";
-import { BOOKEING_FETCH_MESSAGE, PRODUCT_ADDED_MESSAGE } from "src/app/core/constants/storage.constant";
+import { ACCEPT_REJECT_BOOKING, ADD_FEEDBACK, ADD_PRODUCT, CREATE_BILL, FETCH_BILL, FETCH_BOOKING, FETCH_BUYER_SELLER_RELATION, FETCH_PRODUCT, PREVIEW_BILL } from "src/app/core/constants/apis.constant";
+import { BILL_GENERATED, BOOKEING_FETCH_MESSAGE, PRODUCT_ADDED_MESSAGE } from "src/app/core/constants/storage.constant";
 import { ErrorHandler } from "src/app/core/services/errorhandler.service";
 import { UiService } from "src/app/core/services/ui.service";
 import { environment } from "src/environments/environment";
@@ -116,6 +116,18 @@ export class SellerDashboardService {
             `${environment.serverConfig.apiUrl}${PREVIEW_BILL}`, data
         ).pipe(map((response: any) => {
             if (response.statusCode === 200) {
+                return response.data;
+            }
+            return false;
+        }), catchError(this.errorHandler.handleError));
+    }
+
+    createBill(data) {
+        return this.httpClient.post(
+            `${environment.serverConfig.apiUrl}${CREATE_BILL}`, data
+        ).pipe(map((response: any) => {
+            if (response.statusCode === 201) {
+                this.uiService.presentToast(BILL_GENERATED);
                 return response.data;
             }
             return false;
