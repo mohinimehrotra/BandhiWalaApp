@@ -38,8 +38,8 @@ export class FormBuilderService {
     // lOGIN START
     getLoginform(): FormGroup {
         return this.formBuilder.group({
-            mobileNumber:['9039335274', [Validators.required, Validators.pattern(MOBILE_REGEX)]],
-            password:['123456', [Validators.required, Validators.minLength(PASSSWORD_MIN_LENGTH)]]
+            mobileNumber:['8319744573', [Validators.required, Validators.pattern(MOBILE_REGEX)]],
+            password:['8319744573', [Validators.required, Validators.minLength(PASSSWORD_MIN_LENGTH)]]
         });
     }
     // lOGIN END

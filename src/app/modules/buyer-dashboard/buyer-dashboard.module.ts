@@ -13,8 +13,7 @@ import { BillManagementPage } from './bills/page/bill-management/bill-management
 import { BillDetailPage } from '../seller-dashboard/bills/page/bill-detail/bill-detail.page';
 import { MainProfilePage } from './profile/main-profile/main-profile.page';
 import { EditProfilePage } from './profile/edit-profile/edit-profile.page';
-
-
+import { OrderEntriesPage } from './orders/page/order-entries/order-entries.page';
 
 @NgModule({
   declarations: [
@@ -24,7 +23,8 @@ import { EditProfilePage } from './profile/edit-profile/edit-profile.page';
     BillManagementPage,
     BillDetailPage,
     MainProfilePage,
-    EditProfilePage
+    EditProfilePage,
+    OrderEntriesPage
   ],
   imports: [
     CommonModule,
