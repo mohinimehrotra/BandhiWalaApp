@@ -1,14 +1,16 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CustomLoadingPage } from './custom-loading/custom-loading.page';
 import { FieldErrorsComponent } from './field-errors/field-errors.component';
+import { EmptyPage } from './empty/empty.page';
 
 
 
 @NgModule({
   declarations: [
     CustomLoadingPage,
-    FieldErrorsComponent
+    FieldErrorsComponent,
+    EmptyPage
   ],
   imports: [
     CommonModule
@@ -16,6 +18,7 @@ import { FieldErrorsComponent } from './field-errors/field-errors.component';
   exports: [
     CustomLoadingPage,
     FieldErrorsComponent
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SharedModule { }

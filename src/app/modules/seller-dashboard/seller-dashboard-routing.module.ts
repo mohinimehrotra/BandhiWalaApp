@@ -14,6 +14,7 @@ import { BulkSalesEntryPage } from './sales/page/bulk-sales-entry/bulk-sales-ent
 import { SalesListingPage } from './sales/page/sales-listing/sales-listing.page';
 import { HelpPage } from './help/help.page';
 import { AdvanceBookingsPage } from './bookings/page/advance-bookings/advance-bookings.page';
+import { RequestListPage } from './requests/page/request-list/request-list.page';
 
 const routes: Routes = [
   {
@@ -74,6 +75,10 @@ const routes: Routes = [
       {
         path: 'advance-bookings',
         component: AdvanceBookingsPage
+      },
+      {
+        path: 'request-list',
+        component: RequestListPage
       }
     ]
   }

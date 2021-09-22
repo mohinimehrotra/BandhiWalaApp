@@ -22,7 +22,7 @@ const routes: Routes = [
   {
     path: 'buyer',
     loadChildren: () => import('./modules/buyer-dashboard/buyer-dashboard.module').then( m => m.BuyerDashboardModule)
-  },
+  }
 ];
 
 @NgModule({
