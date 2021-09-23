@@ -17,6 +17,7 @@ import { OrderEntriesPage } from './orders/page/order-entries/order-entries.page
 import { BuyerService } from './buyer-dashboard.service';
 import { TokenInterceptorService } from 'src/app/core/interceptors/token.interceptor';
 import { RequestListPage } from './request/page/request-list/request-list.page';
+import { SellerListPage } from './sellers/page/seller-list/seller-list.page';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { RequestListPage } from './request/page/request-list/request-list.page';
     OrderEntriesPage,
     RequestListPage,
     MainProfilePage,
-    EditProfilePage
+    EditProfilePage,
+    SellerListPage
   ],
   imports: [
     CommonModule,
