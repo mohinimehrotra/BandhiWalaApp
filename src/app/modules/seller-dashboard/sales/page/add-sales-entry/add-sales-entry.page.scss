@@ -1,9 +1,6 @@
 ion-segment{
     margin: 35px 40px 2px;
 }
-ion-label{
-    font-size: 15px;
-}
 ion-segment-button{
     --background-checked: var(--ion-color-secondary);
     --color-checked: var(--ion-color-secondary-contrast);
@@ -16,6 +13,9 @@ ion-checkbox{
 ion-list{
     padding:0px;
     margin-bottom: 15px;
+}
+.head{
+    font-size: 15px;
 }
 .save{
     margin: 20px;

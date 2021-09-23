@@ -11,7 +11,10 @@ import { AdvanceBookingsPage } from './bookings/page/advance-bookings/advance-bo
 import { AddBookingsPage } from './bookings/page/add-bookings/add-bookings.page';
 import { BillManagementPage } from './bills/page/bill-management/bill-management.page';
 import { BillDetailPage } from '../seller-dashboard/bills/page/bill-detail/bill-detail.page';
-
+import { MainProfilePage } from './profile/main-profile/main-profile.page';
+import { EditProfilePage } from './profile/edit-profile/edit-profile.page';
+import { OrderEntriesPage } from './orders/page/order-entries/order-entries.page';
+import { RequestListPage } from './request/page/request-list/request-list.page';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,11 @@ import { BillDetailPage } from '../seller-dashboard/bills/page/bill-detail/bill-
     AdvanceBookingsPage,
     AddBookingsPage,
     BillManagementPage,
-    BillDetailPage
+    BillDetailPage,
+    OrderEntriesPage,
+    RequestListPage,
+    MainProfilePage,
+    EditProfilePage
   ],
   imports: [
     CommonModule,

@@ -5,13 +5,15 @@ import { MenuController } from "@ionic/angular";
 import { Observable } from "rxjs";
 import { catchError, map } from "rxjs/operators";
 import {
+  ACCEPT_REJECT_BOOKING,
   ADD_BULK_DAILY_SALES,
   ADD_DAILY_SALES,
   ADD_FEEDBACK,
   ADD_PRODUCT,
+  FETCH_BOOKING,
   FETCH_BUYER_SELLER_RELATION,
   FETCH_PRODUCT } from "src/app/core/constants/apis.constant";
-import { PRODUCT_ADDED_MESSAGE } from "src/app/core/constants/storage.constant";
+import { BOOKEING_FETCH_MESSAGE, PRODUCT_ADDED_MESSAGE } from "src/app/core/constants/storage.constant";
 import { ErrorHandler } from "src/app/core/services/errorhandler.service";
 import { UiService } from "src/app/core/services/ui.service";
 import { environment } from "src/environments/environment";
@@ -46,6 +48,31 @@ export class SellerDashboardService {
         return this.httpClient.get(
             `${environment.serverConfig.apiUrl}${FETCH_PRODUCT}`,
         ).pipe(catchError(this.errorHandler.handleError));
+    }
+
+    fetchBooking(status) {
+        return this.httpClient.get(
+            `${environment.serverConfig.apiUrl}${FETCH_BOOKING}`,
+            { params : status }
+        ).pipe(map((response: any) => {
+            if (response.statusCode === 200) {
+                this.uiService.presentToast(BOOKEING_FETCH_MESSAGE);
+                return response;
+            }
+            return false;
+        }), catchError(this.errorHandler.handleError));
+    }
+
+    confirmRejectBooking(status , bookingId) {
+        return this.httpClient.patch(
+            `${environment.serverConfig.apiUrl}${ACCEPT_REJECT_BOOKING}${bookingId}`, status
+        ).pipe(map((response: any) => {
+            if (response.statusCode === 202) {
+                this.uiService.presentToast("Updated success");
+                return response;
+            }
+            return false;
+        }), catchError(this.errorHandler.handleError));
     }
 
     toggleMenuView(toggleTo: boolean) {

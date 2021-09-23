@@ -1,0 +1,77 @@
+<ion-header mode="ios">
+  <ion-toolbar color="secondary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>My Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+
+<ion-content>
+  <div class="main">
+    <div class="input_wrapper">
+      <ion-grid>
+        <ion-row>
+          <ion-col class=" label_primary head" size="4.5">
+            Name
+          </ion-col>
+          <ion-col class="value" size="7.5">
+            Tony Stark
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="4.5">
+            <p class="label_primary head">Mobile</p>
+          </ion-col>
+          <ion-col size="7.5">
+            <p class="value">8871342281</p>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="4.5">
+            <p class="label_primary head">State</p>
+          </ion-col>
+          <ion-col size="7.5">
+            <p class="value">Madhya Pradesh</p>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="4.5">
+            <p class="label_primary head">City</p>
+          </ion-col>
+          <ion-col size="7.5">
+            <p class="value">Indore</p>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="4.5">
+            <p class="label_primary head">Address</p>
+          </ion-col>
+          <ion-col size="7.5">
+            <p class="value">1/2 - A, New Street, Old Town</p>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="4.5">
+            <p class="label_primary head">Password</p>
+          </ion-col>
+          <ion-col>
+            <p class="value">********</p>
+          </ion-col>
+          <ion-col>
+            <p class="change" color="danger">Change</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <ion-button [routerLink]="['/buyer/edit-profile']">
+      EDIT
+    </ion-button>
+  </div>
+</ion-content>
