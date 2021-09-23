@@ -35,13 +35,23 @@
             <ion-select-option value="lily">Lily John</ion-select-option>
           </ion-select>
       </div>
-      <div class="input_wrapper">
-        <ion-label class="label_primary">Month</ion-label>
+      <div class="input_wrapper" *ngIf = isHide>
+        <ion-label class="label_primary" >Month</ion-label>
         <ion-datetime class="input_primary" mode="ios" display-format="MMM YY" picker-format="MMMM YYYY" min="2020-01-01" placeholder="Select month"></ion-datetime>
       </div>
 
+      <div class="input_wrapper" *ngIf="isShown">
+        <ion-label class="label_primary">Start Date</ion-label>
+        <ion-datetime class="input_primary" mode="ios" min="2020-01-01" placeholder="Select start date"></ion-datetime>
+      </div>
+
+      <div class="input_wrapper" *ngIf="isShown">
+        <ion-label class="label_primary">End Date</ion-label>
+        <ion-datetime class="input_primary" mode="ios" min="2020-01-01" placeholder="Select end date"></ion-datetime>
+      </div>
+
       <ion-item class="input_wrapper" lines="none">
-        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-checkbox slot="start" (click)="toggleShow()"></ion-checkbox>
         <ion-label class="label">Choose Custom Billing Period</ion-label>
       </ion-item>  
 

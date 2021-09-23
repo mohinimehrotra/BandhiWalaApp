@@ -28,6 +28,7 @@ import { SellerListPage } from './sellers/page/seller-list/seller-list.page';
     RequestListPage,
     MainProfilePage,
     EditProfilePage,
+    OrderEntriesPage,
     SellerListPage
   ],
   imports: [

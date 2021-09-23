@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class GenerateBillPage implements OnInit {
   showGenerateBill = true;
   showPastBills = false;
+  isShown: boolean = false ; 
+  isHide: boolean = true ; 
   constructor() { }
 
   ngOnInit() {
@@ -22,4 +24,10 @@ export class GenerateBillPage implements OnInit {
       this.showGenerateBill = false;
     }
   }
+
+  toggleShow() {
+
+    this.isShown = ! this.isShown;
+    this.isHide = ! this.isHide;
+    }
 }
