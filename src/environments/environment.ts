@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   serverConfig: {
-    apiUrl: 'http://bwa-apis.imtsllp.org/'
+    apiUrl: 'http://localhost:3000/'
   }
 };
 
