@@ -23,7 +23,7 @@ export class BillDetailPage implements OnInit {
   async raiseDisputeAlert(billIdFK) {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: 'Prompt!',
+      header: 'Message',
       inputs: [
         // multiline input.
         {
@@ -49,11 +49,9 @@ export class BillDetailPage implements OnInit {
         }
       ]
     });
-    console.log(billIdFK)
-
     await alert.present();
   }
-  
+
   raiseDispute(billIdFK, message){
       this.buyerApiService.createBillDispute({billIdFK: billIdFK, message: message, status:"PENDING"}).subscribe((response: any) => {
       console.log(response);
