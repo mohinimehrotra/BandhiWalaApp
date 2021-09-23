@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BuyersListPage } from '../seller-dashboard/buyers/page/buyers-list/buyers-list.page';
-import { RequestListPage } from '../seller-dashboard/requests/page/request-list/request-list.page';
 import { BillDetailPage } from './bills/page/bill-detail/bill-detail.page';
 import { BillManagementPage } from './bills/page/bill-management/bill-management.page';
 import { AddBookingsPage } from './bookings/page/add-bookings/add-bookings.page';
@@ -11,6 +9,7 @@ import { MainProfilePage } from './profile/main-profile/main-profile.page';
 import { EditProfilePage } from './profile/edit-profile/edit-profile.page';
 import { OrderEntriesPage } from './orders/page/order-entries/order-entries.page';
 import { SellerListPage } from './sellers/page/seller-list/seller-list.page';
+import { RequestListPage } from './request/page/request-list/request-list.page';
 
 const routes: Routes = [
   {
