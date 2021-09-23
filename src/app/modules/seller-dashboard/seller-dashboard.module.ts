@@ -24,6 +24,7 @@ import { AdvanceBookingsPage } from './bookings/page/advance-bookings/advance-bo
 import { RequestListPage } from './requests/page/request-list/request-list.page';
 import { MyProfilePage } from './profile/my-profile/my-profile.page';
 import { EditProfilePage } from './profile/edit-profile/edit-profile.page';
+import { EmptyPage } from 'src/app/shared/empty/empty.page';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { EditProfilePage } from './profile/edit-profile/edit-profile.page';
     AdvanceBookingsPage,
     RequestListPage,
     MyProfilePage,
-    EditProfilePage
+    EditProfilePage,
+    EmptyPage
   ],
   imports: [
     CommonModule,

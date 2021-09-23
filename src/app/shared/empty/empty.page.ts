@@ -7,12 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmptyPage implements OnInit {
 
-  title = 'SOme title';
-  message = 'some message';
-
+  title = 'No requests found';
+  message = 'You do not have any connection request. Please check back later.';
+  
   constructor() { }
-
+  
   ngOnInit() {
   }
-
 }
