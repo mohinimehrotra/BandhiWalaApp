@@ -31,6 +31,9 @@ export class GenerateBillPage implements OnInit {
     private sellerApiService: SellerDashboardService,
     private storageService: StorageService,
   ) { }
+  isShown: boolean = false ; 
+  isHide: boolean = true ; 
+  
 
   ngOnInit() {
     this.onBillFetch();
@@ -147,4 +150,9 @@ export class GenerateBillPage implements OnInit {
     this.sellerApiService.billDetail = billDetail;
   }
 
+  toggleShow() {
+
+    this.isShown = ! this.isShown;
+    this.isHide = ! this.isHide;
+    }
 }

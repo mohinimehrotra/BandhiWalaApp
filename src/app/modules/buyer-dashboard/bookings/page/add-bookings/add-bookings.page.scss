@@ -16,11 +16,12 @@
     .action {
         width: calc(100%);
         position: fixed;
-        bottom: 40px;
+        bottom: 0;
         left: 0;
         right: 0;
-        padding: 10px 40px 0;
-        z-index: 2; 
+        padding: 10px 40px 20px;
+        z-index: 2;
+        background: var(--ion-color-light);
     }
     .add {
         color: var(--ion-color-secondary);

@@ -10,7 +10,6 @@ import { BuyerHomePage } from './home/page/buyer-home/buyer-home.page';
 import { AdvanceBookingsPage } from './bookings/page/advance-bookings/advance-bookings.page';
 import { AddBookingsPage } from './bookings/page/add-bookings/add-bookings.page';
 import { BillManagementPage } from './bills/page/bill-management/bill-management.page';
-import { BillDetailPage } from '../seller-dashboard/bills/page/bill-detail/bill-detail.page';
 import { MainProfilePage } from './profile/main-profile/main-profile.page';
 import { EditProfilePage } from './profile/edit-profile/edit-profile.page';
 import { OrderEntriesPage } from './orders/page/order-entries/order-entries.page';
@@ -18,6 +17,7 @@ import { BuyerService } from './buyer-dashboard.service';
 import { TokenInterceptorService } from 'src/app/core/interceptors/token.interceptor';
 import { RequestListPage } from './request/page/request-list/request-list.page';
 import { SellerListPage } from './sellers/page/seller-list/seller-list.page';
+import { BillDetailPage } from './bills/page/bill-detail/bill-detail.page';
 
 @NgModule({
   declarations: [
