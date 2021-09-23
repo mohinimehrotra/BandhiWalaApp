@@ -14,4 +14,5 @@ export const CHECK_USER_EXIST ='is_exist/';
 export const VERIFY_OTP ='otp_verify/';
 export const ADD_DAILY_SALES ='seller/add_dailysales/';
 export const ADD_BULK_DAILY_SALES ='seller/add_bulk_dailysales/';
+export const CREATE_BILL_DISPIUTE ='buyer/add_billdispute/';
 

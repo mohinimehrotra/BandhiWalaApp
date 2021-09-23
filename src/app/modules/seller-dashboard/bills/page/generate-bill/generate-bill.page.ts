@@ -143,4 +143,8 @@ export class GenerateBillPage implements OnInit {
     return this.formErrorService.getErrorMessage(fieldName, error);
   }
 
+  viewBillDetail(billDetail){
+    this.sellerApiService.billDetail = billDetail;
+  }
+
 }

@@ -14,7 +14,7 @@ import { StorageService } from "src/app/core/services/storage.service";
 
 @Injectable()
 export class SellerDashboardService {
-
+    billDetail: any;
     constructor(
         private httpClient: HttpClient,
         private uiService: UiService,

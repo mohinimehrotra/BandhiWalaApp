@@ -148,7 +148,7 @@
           <span class="bill-preview_item-label--bold">Total Bill Amount:</span>
           <span class="bill-preview_item-label--bold price">₹{{bill.billAmount}}</span>
         </p>
-        <ion-buttons class="bill-preview_item-edit" [routerLink]="['/seller/bill-detail']">
+        <ion-buttons class="bill-preview_item-edit" (click)="viewBillDetail(bill)" [routerLink]="['/seller/bill-detail']">
           view
           <ion-icon name="arrow-forward-outline"></ion-icon>
         </ion-buttons>
