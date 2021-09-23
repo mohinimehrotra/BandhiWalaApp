@@ -1,3 +1,4 @@
+/* eslint-disable no-trailing-spaces */
 import { Component, OnInit } from '@angular/core';
 import { SellerDashboardService } from '../../../services/seller-dashboard.service';
 @Component({
@@ -13,6 +14,7 @@ export class SellerHomePage implements OnInit {
 
   ngOnInit() {
     this.sellerDashboardService.toggleMenuView(true);
+    
   }
 
 }

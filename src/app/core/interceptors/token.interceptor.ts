@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/naming-convention */
+/* eslint-disable prefer-const */
+/* eslint-disable no-trailing-spaces */
 import {
     HttpInterceptor,
     HttpRequest,
@@ -12,7 +15,7 @@ import { map, catchError, finalize, mergeMap } from 'rxjs/operators';
 import { UiService } from '../services/ui.service';
 import { AUTH_TOKEN } from '../constants/storage.constant';
 import { StorageService } from 'src/app/core/services/storage.service';
-  
+
 @Injectable({ providedIn: 'root' })
 export class TokenInterceptorService implements HttpInterceptor {
     isLoading: boolean;
@@ -23,10 +26,10 @@ export class TokenInterceptorService implements HttpInterceptor {
     ) {}
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        
+
         this.uiService.loadingChecker.next(true);
         // let promise = this.storageService.getAuthToken();
-        let token = this.storageService.getAuthToken();
+        const token = this.storageService.getAuthToken();
 
         req = req.clone({
             setHeaders: {
@@ -41,7 +44,7 @@ export class TokenInterceptorService implements HttpInterceptor {
             return event;
 
         }),
-        
+
         catchError((error: HttpErrorResponse) => {
 
             if (error.status === 401) {

@@ -1,9 +1,18 @@
+/* eslint-disable @typescript-eslint/quotes */
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { MenuController } from "@ionic/angular";
 import { Observable } from "rxjs";
 import { catchError, map } from "rxjs/operators";
-import { ACCEPT_REJECT_BOOKING, ADD_FEEDBACK, ADD_PRODUCT, FETCH_BOOKING, FETCH_PRODUCT } from "src/app/core/constants/apis.constant";
+import {
+  ACCEPT_REJECT_BOOKING,
+  ADD_BULK_DAILY_SALES,
+  ADD_DAILY_SALES,
+  ADD_FEEDBACK,
+  ADD_PRODUCT,
+  FETCH_BOOKING,
+  FETCH_BUYER_SELLER_RELATION,
+  FETCH_PRODUCT } from "src/app/core/constants/apis.constant";
 import { BOOKEING_FETCH_MESSAGE, PRODUCT_ADDED_MESSAGE } from "src/app/core/constants/storage.constant";
 import { ErrorHandler } from "src/app/core/services/errorhandler.service";
 import { UiService } from "src/app/core/services/ui.service";
@@ -40,7 +49,7 @@ export class SellerDashboardService {
             `${environment.serverConfig.apiUrl}${FETCH_PRODUCT}`,
         ).pipe(catchError(this.errorHandler.handleError));
     }
-    
+
     fetchBooking(status) {
         return this.httpClient.get(
             `${environment.serverConfig.apiUrl}${FETCH_BOOKING}`,
@@ -53,7 +62,7 @@ export class SellerDashboardService {
             return false;
         }), catchError(this.errorHandler.handleError));
     }
-    
+
     confirmRejectBooking(status , bookingId) {
         return this.httpClient.patch(
             `${environment.serverConfig.apiUrl}${ACCEPT_REJECT_BOOKING}${bookingId}`, status
@@ -84,6 +93,55 @@ export class SellerDashboardService {
           return false;
       }), catchError(this.errorHandler.handleError));
     }
+
+    fetchBuyers(){
+      return this.httpClient.get(
+        `${environment.serverConfig.apiUrl}${FETCH_BUYER_SELLER_RELATION}`
+      ).pipe(catchError(this.errorHandler.handleError));
+    };
+
+    addDailySale(data: {
+      "sellerUserIdFK": number;
+      "buyerUserIdFK": number;
+      "productIdFK": number;
+      "productName": string;
+      "productQty": number;
+      "productPrice": number;
+      "entryType": string;
+      "salesDate": string;
+    }){
+      return this.httpClient.post(
+        `${environment.serverConfig.apiUrl}${ADD_DAILY_SALES}`,
+        data
+      ).pipe(map((response: AddFeedback) => {
+        if (response.statusCode === 201) {
+            // console.log(response);
+            this.uiService.presentToast('Entry Added Successfully');
+            return true;
+        }
+        return false;
+      }), catchError(this.errorHandler.handleError));
+    };
+
+    addBulkDailySales(data: {
+      "sellerUserIdFK": number;
+      "bulkData": {buyerUserIdFK: number; productQty: number}[];
+      "productIdFK": number;
+      "entryType": string;
+      "salesDate": string;
+    }){
+      return this.httpClient.post(
+        `${environment.serverConfig.apiUrl}${ADD_BULK_DAILY_SALES}`,
+        data
+      ).pipe(map((response: AddFeedback) => {
+        if (response.statusCode === 201) {
+            // console.log(response);
+            this.uiService.presentToast('Entry Added Successfully');
+            return true;
+        }
+        return false;
+      }), catchError(this.errorHandler.handleError));
+    };
 
 
 }
