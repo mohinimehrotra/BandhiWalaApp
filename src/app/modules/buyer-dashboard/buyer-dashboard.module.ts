@@ -15,6 +15,7 @@ import { MainProfilePage } from './profile/main-profile/main-profile.page';
 import { EditProfilePage } from './profile/edit-profile/edit-profile.page';
 import { OrderEntriesPage } from './orders/page/order-entries/order-entries.page';
 import { RequestListPage } from './request/page/request-list/request-list.page';
+import { SellerListPage } from './sellers/page/seller-list/seller-list.page';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RequestListPage } from './request/page/request-list/request-list.page';
     OrderEntriesPage,
     RequestListPage,
     MainProfilePage,
-    EditProfilePage
+    EditProfilePage,
+    SellerListPage
   ],
   imports: [
     CommonModule,
