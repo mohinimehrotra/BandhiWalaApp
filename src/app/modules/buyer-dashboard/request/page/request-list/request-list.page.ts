@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./request-list.page.scss'],
 })
 export class RequestListPage implements OnInit {
-
-  constructor() { }
+  numbers = []
+  constructor() {
+    this.numbers = Array(20).fill(1).map((x,i)=>i);
+   }
 
   ngOnInit() {
   }
