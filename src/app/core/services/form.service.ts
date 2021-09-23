@@ -9,6 +9,7 @@ export class FormService {
   constructor() { }
 
   public markFormAsTouched(form: FormGroup | FormArray) {
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
     (<any>Object).values(form.controls).forEach(control => {
       if (control.controls) {
         // control is a FormGroup or FormArray
@@ -24,6 +25,7 @@ export class FormService {
   }
 
   public markFormAsDirty(form: FormGroup | FormArray) {
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
     (<any>Object).values(form.controls).forEach(control => {
       if (control.controls) {
         // control is a FormGroup or FormArray
@@ -40,6 +42,7 @@ export class FormService {
     });
   }
 
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   public MustMatch(controlName: string, matchingControlName: string) {
     return (formGroup: FormGroup) => {
         const control = formGroup.controls[controlName];

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BuyersListPage } from '../seller-dashboard/buyers/page/buyers-list/buyers-list.page';
+import { RequestListPage } from '../seller-dashboard/requests/page/request-list/request-list.page';
 import { BillDetailPage } from './bills/page/bill-detail/bill-detail.page';
 import { BillManagementPage } from './bills/page/bill-management/bill-management.page';
 import { AddBookingsPage } from './bookings/page/add-bookings/add-bookings.page';
@@ -50,6 +51,10 @@ const routes: Routes = [
         {
           path: 'order-entries',
           component: OrderEntriesPage
+        },
+        {
+          path: 'request-list',
+          component: RequestListPage
         }
     ]
   },

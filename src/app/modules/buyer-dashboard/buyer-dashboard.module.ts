@@ -14,6 +14,7 @@ import { BillDetailPage } from '../seller-dashboard/bills/page/bill-detail/bill-
 import { MainProfilePage } from './profile/main-profile/main-profile.page';
 import { EditProfilePage } from './profile/edit-profile/edit-profile.page';
 import { OrderEntriesPage } from './orders/page/order-entries/order-entries.page';
+import { RequestListPage } from './request/page/request-list/request-list.page';
 import { SellerListPage } from './sellers/page/seller-list/seller-list.page';
 
 @NgModule({
@@ -23,6 +24,8 @@ import { SellerListPage } from './sellers/page/seller-list/seller-list.page';
     AddBookingsPage,
     BillManagementPage,
     BillDetailPage,
+    OrderEntriesPage,
+    RequestListPage,
     MainProfilePage,
     EditProfilePage,
     OrderEntriesPage,
