@@ -16,6 +16,7 @@ import { OrderEntriesPage } from './orders/page/order-entries/order-entries.page
 import { RequestListPage } from './request/page/request-list/request-list.page';
 import { SellerListPage } from './sellers/page/seller-list/seller-list.page';
 import { BillDetailPage } from './bills/page/bill-detail/bill-detail.page';
+import { SellerDetailModalPage } from './sellers/page/seller-detail-modal/seller-detail-modal.page';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { BillDetailPage } from './bills/page/bill-detail/bill-detail.page';
     RequestListPage,
     MainProfilePage,
     EditProfilePage,
-    SellerListPage
+    SellerListPage,
+    SellerDetailModalPage
   ],
   imports: [
     CommonModule,

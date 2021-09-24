@@ -10,6 +10,7 @@ import { EditProfilePage } from './profile/edit-profile/edit-profile.page';
 import { OrderEntriesPage } from './orders/page/order-entries/order-entries.page';
 import { SellerListPage } from './sellers/page/seller-list/seller-list.page';
 import { RequestListPage } from './request/page/request-list/request-list.page';
+import { SellerDetailModalPage } from './sellers/page/seller-detail-modal/seller-detail-modal.page';
 
 const routes: Routes = [
   {
@@ -54,9 +55,15 @@ const routes: Routes = [
         {
           path: 'request-list',
           component: RequestListPage
-        }
+        },
+        {
+          path: 'seller-detail-modal',
+          component: SellerDetailModalPage
+        },
     ]
   },
+
+
 ];
 
 @NgModule({
