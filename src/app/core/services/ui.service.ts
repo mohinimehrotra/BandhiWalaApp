@@ -3,20 +3,24 @@ import { ToastController, LoadingController, AlertController, ActionSheetControl
 import { Subject } from 'rxjs';
 import { TOAST_TIMER } from 'src/app/core/constants/widgets.constant';
 
+
 @Injectable({providedIn: 'root'})
 export class UiService {
 
-  // for custom loading 
+  // for custom loading
   loadingChecker = new Subject();
+
 
   constructor(
     private toastController: ToastController,
     private loadingController: LoadingController,
     private alertController: AlertController,
-    public actionSheetController: ActionSheetController
+    public actionSheetController: ActionSheetController,
   ) {}
 
   loading: any;
+
+
 
   async presentToast(message: string) {
     const toast = await this.toastController.create({
@@ -63,5 +67,6 @@ export class UiService {
     });
     await actionSheet.present();
   }
+
 
 }
