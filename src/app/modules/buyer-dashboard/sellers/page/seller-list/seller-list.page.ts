@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { UiService } from 'src/app/core/services/ui.service';
-import { Item } from 'src/app/modules/seller-dashboard/products/product-interface';
 import { SellersListModel } from '../../../buyer-dashboard.interface';
 import { BuyerService } from '../../../buyer-dashboard.service';
 

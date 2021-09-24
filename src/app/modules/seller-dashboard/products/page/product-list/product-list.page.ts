@@ -20,6 +20,13 @@ export class ProductListPage implements OnInit {
     this.fetchProduct();
   }
 
+  onSearch(key){
+    if(key.detail.value === ""){
+      this.fetchProduct()
+    }
+    this.items = this.items.filter(item => item.productName.includes(key.detail.value))
+  }
+
   fetchProduct(){
     this.sellerDashboardService.fetchProduct().subscribe((response: any) => {
       console.log(response);

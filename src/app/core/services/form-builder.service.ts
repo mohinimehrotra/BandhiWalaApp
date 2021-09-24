@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
-import { MOBILE_REGEX } from "../constants/regex.constant";
-import { PASSSWORD_MIN_LENGTH, PRODUCT_MIN_LENGTH } from "../constants/storage.constant";
+import { Injectable } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MOBILE_REGEX } from '../constants/regex.constant';
+import { PASSSWORD_MIN_LENGTH, PRODUCT_MIN_LENGTH } from '../constants/storage.constant';
 
 @Injectable({providedIn: 'root'})
 export class FormBuilderService {
@@ -38,8 +38,8 @@ export class FormBuilderService {
     // lOGIN START
     getLoginform(): FormGroup {
         return this.formBuilder.group({
-            mobileNumber:['8319744573', [Validators.required, Validators.pattern(MOBILE_REGEX)]],
-            password:['8319744573', [Validators.required, Validators.minLength(PASSSWORD_MIN_LENGTH)]]
+            mobileNumber:['', [Validators.required, Validators.pattern(MOBILE_REGEX)]],
+            password:['', [Validators.required, Validators.minLength(PASSSWORD_MIN_LENGTH)]]
         });
     }
     // lOGIN END
@@ -62,5 +62,12 @@ export class FormBuilderService {
         message:['LAPTOP IS BEST', [Validators.required]]
     });
 
+    }
+    //bill preview form
+
+    getBillPreviewform(): FormGroup {
+        return this.formBuilder.group({
+            buyerUserIdFK:['', [Validators.required]],
+        });
     }
 }

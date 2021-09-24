@@ -3,7 +3,7 @@
     <ion-buttons slot="start" [routerLink]="['/seller/generate-bill']">
       <ion-icon name="chevron-back-outline" size="large"></ion-icon>
     </ion-buttons>
-    <ion-title>Bill #12344456765</ion-title>
+    <ion-title>Bill #{{buyerBillDetail.billNumber}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,18 +12,18 @@
     <div class="bill-detail">
       <div class="card_primary bill-detail_items_wrapper">
         <p class="bill-detail_item-label status">
-          <span class="bill-detail_item-label--bold">Bill #12344456765</span>
+          <span class="bill-detail_item-label--bold">Bill #{{buyerBillDetail.billNumber}}</span>
         </p>
         <ion-chip color = "danger">
-          <ion-label class="paid" color = "danger">UNPAID</ion-label>
+          <ion-label class="paid" color = "danger">{{buyerBillDetail.status}}</ion-label>
         </ion-chip>
         <p class="bill-detail_item-label">
           <span class="bill-detail_item-label--bold">Buyer Details:</span>
           <br>
           <span class="bill-detail_item-timestamp">
-            <span class="name">Tony Stark(*****42281)</span>
+            <span class="name">{{buyerBillDetail.buyerUser.fullName}}</span>
             <br>
-            12/3, New Road, Old Street, Indore, MP
+            {{buyerBillDetail.buyerUser.buyer.address}}
           </span>
         </p>
 
@@ -31,7 +31,7 @@
           <span class="bill-detail_item-label--bold">Billing Period:</span>
           <br>
           <span class="bill-detail_item-timestamp">
-            01/07/2021 - 31/07/2021 (31 Days)
+            {{buyerBillDetail.startDate}} - {{buyerBillDetail.endDate}}
           </span>
         </p>
 
@@ -46,11 +46,11 @@
         <p class="bill-detail_item-label">
           <span class="bill-detail_item-label--bold">Items:</span>
         </p>
-        <p class="bill-detail_item-label">
-          <span class="payment-history_item-label--bold">Full Fat Milk</span>
-          <span class="payment-history_item-label--bold price-a">₹60.00/litre</span>
+        <p class="bill-detail_item-label" *ngFor="let item of buyerBillDetail.billItems">
+          <span class="payment-history_item-label--bold">{{item.productName}}</span>
+          <span class="payment-history_item-label--bold price-a">₹{{item.price}}/{{item.productUnit}} * {{item.productQty}}{{item.productUnit}}</span>
         </p>
-        <p class="bill-detail_item-label">
+        <!-- <p class="bill-detail_item-label">
           <span class="payment-history_item-label--bold">31 Litres</span>
           <span class="payment-history_item-label--bold price-b">₹1860.00</span>
         </p>
@@ -62,14 +62,14 @@
         <p class="bill-detail_item-label">
           <span class="payment-history_item-label--bold">2.5 Kg</span>
           <span class="payment-history_item-label--bold price-b">₹250.00</span>
-        </p>
+        </p> -->
 
         
         <div class="hr"> </div>
 
         <p class="bill-detail_item-label">
           <span class="bill-detail_item-label--bold">Total Bill Amount:</span>
-          <span class="bill-detail_item-label--bold price-b">₹2110.00</span>
+          <span class="bill-detail_item-label--bold price-b">₹{{buyerBillDetail.billAmount}}</span>
         </p>
         <ion-button class="ion-text-wrap">
           Add Payment & Clear Bill

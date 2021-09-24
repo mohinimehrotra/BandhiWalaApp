@@ -17,7 +17,7 @@
             Name
           </ion-col>
           <ion-col class="value" size="7.5">
-            Tony Stark
+            {{buyerData.fullName}}
           </ion-col>
         </ion-row>
 
@@ -26,7 +26,7 @@
             <p class="label_primary head">Mobile</p>
           </ion-col>
           <ion-col size="7.5">
-            <p class="value">8871342281</p>
+            <p class="value">{{buyerData.mobileNumber}}</p>
           </ion-col>
         </ion-row>
 
@@ -53,7 +53,7 @@
             <p class="label_primary head">Address</p>
           </ion-col>
           <ion-col size="7.5">
-            <p class="value">1/2 - A, New Street, Old Town</p>
+            <p class="value">{{buyerData.buyer.address}}</p>
           </ion-col>
         </ion-row>
 
