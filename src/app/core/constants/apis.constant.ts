@@ -5,4 +5,5 @@ export const FETCH_PRODUCT='seller/fetch_product';
 export const FETCH_BOOKING='fetch_booking/';
 export const ACCEPT_REJECT_BOOKING='seller/update_booking/';
 export const ADD_FEEDBACK='add_feedback';
+export const FETCH_BUYER_SELLER_RELATION='fetch_relation';
 
