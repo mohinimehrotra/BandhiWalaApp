@@ -17,7 +17,7 @@
         My Sellers(3)
       </p>
       <div class="card_primary my-products_items_wrapper" *ngFor="let list of sellersList">
-        <ion-buttons class="my-products_item-edit">
+        <ion-buttons class="my-products_item-edit" (click) = "presentModal()">
           view
           <ion-icon name="arrow-forward-outline"></ion-icon>
         </ion-buttons>

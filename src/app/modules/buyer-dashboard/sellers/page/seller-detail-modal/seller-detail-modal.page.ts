@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-seller-detail-modal',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./seller-detail-modal.page.scss'],
 })
 export class SellerDetailModalPage implements OnInit {
-
-  constructor() { }
+    
+  constructor(
+    public modalController: ModalController,
+      ) { }
 
   ngOnInit() {
+    
+    }
+
+  dismiss() {
+    this.modalController.dismiss({
+      'dismissed': true
+    });
   }
 
+
+  
 }
