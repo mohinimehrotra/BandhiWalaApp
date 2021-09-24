@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { menuController } from "@ionic/core";
+import { UiService } from './core/services/ui.service';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+
 
 @Component({
   selector: 'app-root',
@@ -58,7 +61,7 @@ export class AppComponent {
     },
     {
       title: 'Invite',
-      url: '/register',
+      url: '/invite',
       icon: 'share-social'
     },
     {
@@ -73,10 +76,29 @@ export class AppComponent {
     },
   ];
 
-  constructor() {
+  constructor(
+    private uiService: UiService,
+    private socialSharing: SocialSharing
+  ) {
   }
 
   closeMenu() {
     menuController.toggle();
   }
+
+  //for social sharing
+
+  onInvite(){
+    const message = 'Bandhiwala App\n';
+    const link = 'https://link.medium.com/JA4amAHFJ5';
+    this.socialSharing.share(message, 'Subject', null, link)
+      .then(() => {
+
+      }).catch((error) => {
+        console.log(error);
+      });
+  };
+
+  //end of social sharing
+
 }

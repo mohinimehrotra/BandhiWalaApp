@@ -12,7 +12,9 @@
         <ion-icon class="close-icon" name="close-outline" (click)="closeMenu()"></ion-icon>
         <hr>
         <ion-menu-toggle auto-hide="false" *ngFor="let pages of Pages; let i = index">
-          <ion-item (click)="activeIndex = i" routerDirection="root" [routerLink]="[pages.url]" routerLinkActive="router-link-active"  lines="none"
+          <ion-item (click)=" pages.url === '/invite' ? onInvite() : activeIndex = i; "
+           routerDirection="root" [routerLink]="pages.url === '/invite' ? null : [pages.url]"
+           routerLinkActive="router-link-active"  lines="none"
             detail="false" [class.selected]="activeIndex == i">
             <ion-icon slot="start" [ios]="pages.icon + '-outline'" [md]="pages.icon + '-outline'"></ion-icon>
             <ion-label>{{ pages.title }}</ion-label>
