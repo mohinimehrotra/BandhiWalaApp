@@ -4,16 +4,8 @@ import { Injectable } from "@angular/core";
 import { MenuController } from "@ionic/angular";
 import { Observable } from "rxjs";
 import { catchError, map } from "rxjs/operators";
-import {
-  ACCEPT_REJECT_BOOKING,
-  ADD_BULK_DAILY_SALES,
-  ADD_DAILY_SALES,
-  ADD_FEEDBACK,
-  ADD_PRODUCT,
-  FETCH_BOOKING,
-  FETCH_BUYER_SELLER_RELATION,
-  FETCH_PRODUCT } from "src/app/core/constants/apis.constant";
-import { BOOKEING_FETCH_MESSAGE, PRODUCT_ADDED_MESSAGE } from "src/app/core/constants/storage.constant";
+import { ACCEPT_REJECT_BOOKING, ADD_BULK_DAILY_SALES, ADD_DAILY_SALES, ADD_FEEDBACK, ADD_PRODUCT, CREATE_BILL, FETCH_BILL, FETCH_BOOKING, FETCH_BUYER_SELLER_RELATION, FETCH_PRODUCT, PREVIEW_BILL } from "src/app/core/constants/apis.constant";
+import { BILL_GENERATED, BOOKEING_FETCH_MESSAGE, PRODUCT_ADDED_MESSAGE } from "src/app/core/constants/storage.constant";
 import { ErrorHandler } from "src/app/core/services/errorhandler.service";
 import { UiService } from "src/app/core/services/ui.service";
 import { environment } from "src/environments/environment";
@@ -22,7 +14,7 @@ import { StorageService } from "src/app/core/services/storage.service";
 
 @Injectable()
 export class SellerDashboardService {
-
+    billDetail: any;
     constructor(
         private httpClient: HttpClient,
         private uiService: UiService,
@@ -94,6 +86,54 @@ export class SellerDashboardService {
       }), catchError(this.errorHandler.handleError));
     }
 
+    fetchSellerProfile() {
+        return this.storageService.getuserData();
+    }
+
+    fetchBills() {
+        return this.httpClient.get(
+            `${environment.serverConfig.apiUrl}${FETCH_BILL}`
+        ).pipe(map((response: any) => {
+            if (response.statusCode === 200) {
+                return response;
+            }
+            return false;
+        }), catchError(this.errorHandler.handleError));
+    }
+
+    fetchByuerSellerRelation() {
+        return this.httpClient.get(
+            `${environment.serverConfig.apiUrl}${FETCH_BUYER_SELLER_RELATION}`
+        ).pipe(map((response: any) => {
+            if (response.statusCode === 200) {
+                return response;
+            }
+            return false;
+        }), catchError(this.errorHandler.handleError));
+    }
+
+    previewBill(data) {
+        return this.httpClient.post(
+            `${environment.serverConfig.apiUrl}${PREVIEW_BILL}`, data
+        ).pipe(map((response: any) => {
+            if (response.statusCode === 200) {
+                return response.data;
+            }
+            return false;
+        }), catchError(this.errorHandler.handleError));
+    }
+
+    createBill(data) {
+        return this.httpClient.post(
+            `${environment.serverConfig.apiUrl}${CREATE_BILL}`, data
+        ).pipe(map((response: any) => {
+            if (response.statusCode === 201) {
+                this.uiService.presentToast(BILL_GENERATED);
+                return response.data;
+            }
+            return false;
+        }), catchError(this.errorHandler.handleError));
+    }
     fetchBuyers(){
       return this.httpClient.get(
         `${environment.serverConfig.apiUrl}${FETCH_BUYER_SELLER_RELATION}`

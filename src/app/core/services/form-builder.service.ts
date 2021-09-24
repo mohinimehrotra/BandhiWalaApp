@@ -63,4 +63,11 @@ export class FormBuilderService {
     });
 
     }
+    //bill preview form
+
+    getBillPreviewform(): FormGroup {
+        return this.formBuilder.group({
+            buyerUserIdFK:['', [Validators.required]],
+        });
+    }
 }
