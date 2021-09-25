@@ -2,24 +2,21 @@ ion-row{
     margin-bottom: -10px;
 }
 ion-icon{
-    float: right;
+    position: absolute;
+    right: 20px;
     color: var(--ion-color-medium);
 }
 
 .main{
-    padding: 20px 40px;
-    .input_wrapper{
-        .head{
+    padding: 20px 24px;
+    overflow-y: scroll;
+    .details_wrapper{
+        .label_primary{
             font-size: 14px;
+            margin-bottom: 20px !important;
         }
         .value{
             font-size: 15px;
-        }
-        .change{
-            font-size: 12px;
-            color: var(--ion-color-danger);
-            float: right;
-            margin-bottom: 40px;
         }
     }
 }
