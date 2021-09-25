@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UiService } from 'src/app/core/services/ui.service';
 import { SellersListModel } from '../../../buyer-dashboard.interface';
 import { BuyerService } from '../../../buyer-dashboard.service';
+import { ModalController } from '@ionic/angular';
+import { SellerDetailModalPage } from '../seller-detail-modal/seller-detail-modal.page';
 
 @Component({
   selector: 'app-seller-list',
@@ -15,6 +17,7 @@ export class SellerListPage implements OnInit {
   BuyerService: any;
   
   constructor(
+    public modalController: ModalController,
     private buyerDashboardService: BuyerService,
     private uiService: UiService
   ) { }
@@ -36,4 +39,14 @@ export class SellerListPage implements OnInit {
     });
   }
 
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: SellerDetailModalPage,
+      cssClass: 'seller-detail-modal',
+      showBackdrop: true,
+      backdropDismiss: true
+      
+    });
+    return await modal.present();
+  }
 }
