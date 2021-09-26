@@ -11,6 +11,8 @@ import { OrderEntriesPage } from './orders/page/order-entries/order-entries.page
 import { SellerListPage } from './sellers/page/seller-list/seller-list.page';
 import { RequestListPage } from './request/page/request-list/request-list.page';
 import { SellerDetailModalPage } from './sellers/page/seller-detail-modal/seller-detail-modal.page';
+import { PaymentHistoryPage } from './payments/page/payment-history/payment-history.page';
+import { HelpPage } from './help/page/help/help.page';
 
 const routes: Routes = [
   {
@@ -21,7 +23,7 @@ const routes: Routes = [
           component: BuyerHomePage
         },
         {
-          path: 'bookings',
+          path: 'advance-bookings',
           component: AdvanceBookingsPage
         },
         {
@@ -60,8 +62,20 @@ const routes: Routes = [
           path: 'seller-detail-modal',
           component: SellerDetailModalPage
         },
+        {
+          path: 'payment-history',
+          component: PaymentHistoryPage
+        },
+        {
+          path: 'help',
+          component: HelpPage
+        },
     ]
   },
+
+
+  
+
 
 
 ];

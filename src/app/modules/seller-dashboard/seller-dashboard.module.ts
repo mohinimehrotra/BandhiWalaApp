@@ -25,6 +25,7 @@ import { RequestListPage } from './requests/page/request-list/request-list.page'
 import { MyProfilePage } from './profile/my-profile/my-profile.page';
 import { EditProfilePage } from './profile/edit-profile/edit-profile.page';
 import { EmptyPage } from 'src/app/shared/empty/empty.page';
+import { BuyerDetailPage } from './buyers/page/buyer-detail/buyer-detail.page';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { EmptyPage } from 'src/app/shared/empty/empty.page';
     RequestListPage,
     MyProfilePage,
     EditProfilePage,
-    EmptyPage
+    EmptyPage,
+    BuyerDetailPage
   ],
   imports: [
     CommonModule,

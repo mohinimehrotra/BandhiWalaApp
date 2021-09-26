@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BuyerDataModel } from 'src/app/modules/buyer-dashboard/buyer-dashboard.interface';
 import { SellerDataModel } from 'src/app/modules/seller-dashboard/services/seller-dashboard.interface';
 import { AUTH_TOKEN, USER_DATA } from '../constants/storage.constant';
 // import { Plugins } from '@capacitor/core';
@@ -14,7 +15,11 @@ export class StorageService {
         return localStorage.getItem(AUTH_TOKEN);
     }
 
-    getuserData(): SellerDataModel {
+    getSellerUserData(): SellerDataModel {
+        return JSON.parse(localStorage.getItem(USER_DATA));
+    }
+
+    getBuyerUserData(): BuyerDataModel {
         return JSON.parse(localStorage.getItem(USER_DATA));
     }
 

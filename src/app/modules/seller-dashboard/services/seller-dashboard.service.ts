@@ -72,7 +72,7 @@ export class SellerDashboardService {
     }
 
     createFeedback(data){
-        data.userIdFK = this.storageService.getuserData().id;
+        data.userIdFK = this.storageService.getSellerUserData().id;
         console.log(data);
       return this.httpClient.post(
           `${environment.serverConfig.apiUrl}${ADD_FEEDBACK}`,
@@ -87,7 +87,7 @@ export class SellerDashboardService {
     }
 
     fetchSellerProfile() {
-        return this.storageService.getuserData();
+        return this.storageService.getSellerUserData();
     }
 
     fetchBills() {

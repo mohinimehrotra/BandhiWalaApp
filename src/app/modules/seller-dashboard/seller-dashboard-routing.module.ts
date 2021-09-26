@@ -17,6 +17,7 @@ import { AdvanceBookingsPage } from './bookings/page/advance-bookings/advance-bo
 import { RequestListPage } from './requests/page/request-list/request-list.page';
 import { MyProfilePage } from './profile/my-profile/my-profile.page';
 import { EditProfilePage } from './profile/edit-profile/edit-profile.page';
+import { BuyerDetailPage } from './buyers/page/buyer-detail/buyer-detail.page';
 
 
 const routes: Routes = [
@@ -91,8 +92,14 @@ const routes: Routes = [
         path: 'edit-profile',
         component: EditProfilePage
       },
+      {
+        path: 'buyer-detail',
+        component: BuyerDetailPage
+      },
     ]
   },
+  
+
 
 ];
 

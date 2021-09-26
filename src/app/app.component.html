@@ -11,13 +11,13 @@
       <ion-list id="inbox-list" mode="ios">
         <ion-icon class="close-icon" name="close-outline" (click)="closeMenu()"></ion-icon>
         <hr>
-        <ion-menu-toggle auto-hide="false" *ngFor="let pages of Pages; let i = index">
-          <ion-item (click)=" pages.url === '/invite' ? onInvite() : activeIndex = i; "
-           routerDirection="root" [routerLink]="pages.url === '/invite' ? null : [pages.url]"
+        <ion-menu-toggle auto-hide="false" *ngFor="let page of pages; let i = index">
+          <ion-item (click)=" page.url === '/invite' ? onInvite() : activeIndex = i; "
+           routerDirection="root" [routerLink]="page.url === '/invite' ? null : [page.url]"
            routerLinkActive="router-link-active"  lines="none"
             detail="false" [class.selected]="activeIndex == i">
-            <ion-icon slot="start" [ios]="pages.icon + '-outline'" [md]="pages.icon + '-outline'"></ion-icon>
-            <ion-label>{{ pages.title }}</ion-label>
+            <ion-icon slot="start" [ios]="page.icon + '-outline'" [md]="page.icon + '-outline'"></ion-icon>
+            <ion-label>{{ page.title }}</ion-label>
           </ion-item>
         </ion-menu-toggle>
       </ion-list>

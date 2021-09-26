@@ -1,5 +1,7 @@
 /* eslint-disable no-trailing-spaces */
 import { Component, OnInit } from '@angular/core';
+import { MenuController } from '@ionic/angular';
+import { AppService } from 'src/app/app.service';
 import { BOOKING_PENDING } from 'src/app/core/constants/storage.constant';
 import { StorageService } from 'src/app/core/services/storage.service';
 import { SellerDashboardService } from '../../../services/seller-dashboard.service';
@@ -19,15 +21,19 @@ export class SellerHomePage implements OnInit {
 
   constructor(
     private sellerDashboardService: SellerDashboardService,
-    private storageService: StorageService
-
-  ) { }
+    private storageService: StorageService,
+    private menuController: MenuController,
+    private appService: AppService
+  ) {
+    appService.setSellerPages();
+  }
 
   ngOnInit() {
+    this.menuController.enable(true);
     this.sellerDashboardService.toggleMenuView(true); 
     this.onfetchDashboardStats();
     this.onFetchBookings(BOOKING_PENDING);
-    this.userData = this.storageService.getuserData()
+    this.userData = this.storageService.getSellerUserData()
   }
 
   onfetchDashboardStats(){

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { menuController } from "@ionic/core";
 import { UiService } from './core/services/ui.service';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { AppService } from './app.service';
 
 
 @Component({
@@ -12,74 +13,21 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 export class AppComponent {
 
   activePageTitle = 'Home';
-
-  Pages = [
-    {
-      title: 'Home',
-      url: '/seller/home',
-      icon: 'home'
-    },
-    {
-      title: 'Products',
-      url: '/seller/product-list',
-      icon: 'bag'
-    },
-    {
-      title: 'Buyers',
-      url: '/seller/buyers-list',
-      icon: 'people'
-    },
-    {
-      title: 'Advance Bookings',
-      url: '/seller/advance-bookings',
-      icon: 'cart'
-    },
-    {
-      title: 'Upload Sales Figures',
-      url: '/seller/add-sales-entry',
-      icon: 'duplicate'
-    },
-    {
-      title: 'Bill Management',
-      url: '/seller/generate-bill',
-      icon: 'newspaper'
-    },
-    {
-      title: 'Payments',
-      url: '/seller/payment-history',
-      icon: 'cash'
-    },
-    {
-      title: 'Profile',
-      url: '/seller/my-profile',
-      icon: 'person'
-    },
-    {
-      title: 'Reports',
-      url: '/register',
-      icon: 'bar-chart'
-    },
-    {
-      title: 'Invite',
-      url: '/invite',
-      icon: 'share-social'
-    },
-    {
-      title: 'Help',
-      url: '/seller/help',
-      icon: 'help'
-    },
-    {
-      title: 'Logout',
-      url: '/register',
-      icon: 'log-out'
-    },
-  ];
+  activeIndex;
+  pages = [];
 
   constructor(
     private uiService: UiService,
-    private socialSharing: SocialSharing
+    private socialSharing: SocialSharing,
+    private appService: AppService
   ) {
+    this.pages = appService.getPages();
+    appService.pages$.subscribe((res) => {
+      if (res) {
+        this.pages = appService.getPages();
+        console.log(this.pages)
+      }
+    })
   }
 
   closeMenu() {
