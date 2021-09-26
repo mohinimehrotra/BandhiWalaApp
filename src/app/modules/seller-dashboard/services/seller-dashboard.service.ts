@@ -4,7 +4,7 @@ import { Injectable } from "@angular/core";
 import { MenuController } from "@ionic/angular";
 import { Observable } from "rxjs";
 import { catchError, map } from "rxjs/operators";
-import { ACCEPT_REJECT_BOOKING, ADD_BULK_DAILY_SALES, ADD_DAILY_SALES, ADD_FEEDBACK, ADD_PRODUCT, CREATE_BILL, FETCH_BILL, FETCH_BOOKING, FETCH_BUYER_SELLER_RELATION, FETCH_PRODUCT, PREVIEW_BILL } from "src/app/core/constants/apis.constant";
+import { ACCEPT_REJECT_BOOKING, ADD_BULK_DAILY_SALES, ADD_DAILY_SALES, ADD_FEEDBACK, ADD_PRODUCT, CREATE_BILL, FETCH_BILL, FETCH_BOOKING, FETCH_BUYER_SELLER_RELATION, FETCH_PRODUCT, FETCH_SELLER_STATS, PREVIEW_BILL } from "src/app/core/constants/apis.constant";
 import { BILL_GENERATED, BOOKEING_FETCH_MESSAGE, PRODUCT_ADDED_MESSAGE } from "src/app/core/constants/storage.constant";
 import { ErrorHandler } from "src/app/core/services/errorhandler.service";
 import { UiService } from "src/app/core/services/ui.service";
@@ -182,6 +182,17 @@ export class SellerDashboardService {
         return false;
       }), catchError(this.errorHandler.handleError));
     };
+
+    fetchDashbordStats() {
+        return this.httpClient.get(
+            `${environment.serverConfig.apiUrl}${FETCH_SELLER_STATS}` 
+        ).pipe(map((response: any) => {
+            if (response.statusCode === 200) {
+                return response.data;
+            }
+            return false;
+        }), catchError(this.errorHandler.handleError));
+    }
 
 
 }
