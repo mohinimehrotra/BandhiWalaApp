@@ -1,0 +1,107 @@
+.main {
+    padding: 20px 40px;
+    .head{
+        margin-top: 20px;
+        .current{
+            display: inline-block;
+            color: black!important;
+        }
+    }
+    .hr {
+        border-bottom: 1px solid black;
+        margin: 10px 0;
+        width: 100%;
+    }
+    .months{
+        float: left;
+    }
+    .overview {
+        .month-toggle {
+            display: flex;
+            align-items: center;
+            .input_wrapper {
+                margin: 0;
+                width: 100%;
+                ion-datetime {
+                    font-size: 0.75em;
+                    --padding-start: 16px;
+                    --padding-end: 16px;
+                    --padding-top: 8px;
+                    --padding-bottom: 8px;
+                }
+                ion-icon {
+                    position: absolute;
+                    right: 16px;
+                    top: calc(50% - 7px);
+                    z-index: 2;
+                }
+            }
+        }
+        &_items_wrapper {
+            display: flex;
+            justify-content: space-between;  
+        }
+        &_item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            width: 45%;
+            &-number {
+               font-size: 32px;
+               font-weight: 600; 
+               margin: 0;
+            }
+            &-label {
+                font-size: 12px;
+                font-weight: 300;
+                color: var(--ion-color-medium);
+                margin: 0;
+                text-align: center;
+            }
+        }
+    }
+    .home {
+        
+        &_item {
+            padding: 12px;
+            border-bottom: 1px solid var(--ion-color-medium);
+            &:last-child {
+                border-bottom: none;
+            }
+            &-timestamp { 
+               font-size: 12px;
+               font-weight: 300;
+               color: var(--ion-color-medium);
+               margin: 0;
+            }
+            &-label {
+                font-size: 13px;
+                font-weight: 300;
+                margin: 10px 0;
+                &--bold {
+                    font-weight: 500;
+                }
+            }
+            &-action {
+                font-size: 12px;
+                font-weight: 300;
+                color: var(--ion-color-secondary);
+                display: flex;
+                align-items: center;
+                ion-icon {
+                    padding-left: 4px;
+                }
+            }
+            &-edit {
+                font-weight: 500;
+                display: inline-block;
+                float: right;
+                font-size: 13px;
+                color: var(--ion-color-secondary);
+                margin-top: 2px;
+            }
+        }
+    }
+}

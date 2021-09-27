@@ -1,0 +1,16 @@
+export const IS_LOGIN_ENABLED = 'isLoginEnabled';
+export const AUTH_TOKEN = 'token';
+export const PASSSWORD_MIN_LENGTH = 6;
+export const USER_CREATED_MESSAGE = 'User successfully created. Please login!';
+export const LOGGED_IN_MESSAGE='Welcome';
+export const PRODUCT_MIN_LENGTH = 3;
+export const PRODUCT_ADDED_MESSAGE = 'Product successfully created';
+export const FEEDBACK_ADDED_MESSAGE = 'Your feedback has been submitted';
+export const BOOKEING_FETCH_MESSAGE = 'Your bookings has been fetched';
+export const BOOKEING_UPDATED_MESSAGE = 'Booking has been updated';
+export const USER_DATA = 'user_data';
+export const BOOKING_ACCEPTED = 'BOOKED';
+export const BOOKING_PENDING = 'PENDING';
+export const BOOKING_REJECTED = 'REJECTED';
+export const BILL_GENERATED = 'BILL GENERATED SUCCESSFULLY';
+export const BILL_DISUTE_GENERATED = 'BILL DISPUTE GENERATED SUCCESSFULLY';

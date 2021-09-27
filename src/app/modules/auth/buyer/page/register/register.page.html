@@ -1,0 +1,149 @@
+<ion-content>
+  <div class="main">
+
+    <section class="w-100" *ngIf="showMobileSection">
+      <div class="content">
+        <p class="title">
+          I'm a Buyer
+        </p>
+      </div>
+      <form [formGroup] = "mobileForm">
+      <div class="form">
+        <div class="input_wrapper">
+          <ion-label class="label_primary">Mobile</ion-label>
+          <ion-input
+          formControlName = "mobile"
+          class="input_primary"
+          type="number"
+          placeholder="Enter your mobile number"></ion-input>
+        </div>
+        <p class="help-text">We will send an OTP to verify this number</p>
+      </div>
+      </form>
+      <div class="action w-100">
+        <ion-button [disabled] = "!mobileForm.valid" (click)="checkUserExist()">SEND OTP</ion-button>
+      </div>
+      <p class="error-text">{{ error }}</p>
+      <div class="action_secondary w-100">
+        Already have an account?
+        <span class="link_secondary" [routerLink]="['/auth/login']">
+          Login here
+        </span>
+      </div>
+    </section>
+
+    <section class="w-100 section_otp" *ngIf="showOTPSection">
+      <div class="content">
+        <p class="title">
+          Enter Verification Code
+        </p>
+      </div>
+      <div class="form">
+        <div class="input_wrapper">
+          <ion-label class="label_primary">OTP</ion-label>
+          <ion-input
+          (ionChange) = "onInputOtp($event)"
+          class="input_primary"
+          type="number"
+          placeholder="x x x x x x"></ion-input>
+        </div>
+        <p class="help-text">Please enter the OTP sent to 8871342281</p>
+      </div>
+      <div class="action w-100">
+        <ion-button [disabled] ="otp.length !== 6" (click)="onVerifyOTP()">VERIFY</ion-button>
+      </div>
+      <p class="error-text">{{ error }}</p>
+      <div class="action_secondary w-100">
+        <span class="link_secondary">
+          Resend OTP in 25 sec
+        </span>
+        <span class="link_secondary" (click)="onChangeNumber()">
+          Change Number
+        </span>
+      </div>
+    </section>
+
+    <section class="w-100 section_register" *ngIf="showRegistrationSection">
+      <div class="content">
+        <p class="title">
+          Fill in the details below
+        </p>
+      </div>
+      <form [formGroup] = "registrationForm">
+      <div class="form">
+        <div class="input_wrapper">
+          <ion-label class="label_primary">Mobile</ion-label>
+          <ion-input
+          value = "{{ mobileNumber }}"
+          class="input_primary"
+          type="number"
+          value=""
+          readonly></ion-input>
+        </div>
+        <div class="input_wrapper">
+          <ion-label class="label_primary">Full Name *</ion-label>
+          <ion-input
+          formControlName = "fullName"
+          class="input_primary"
+          type="text"></ion-input>
+        </div>
+        <div class="input_wrapper">
+          <ion-label class="label_primary">State *</ion-label>
+          <ion-select
+          formControlName = "state"
+          class="input_primary"
+          mode="ios"
+          placeholder="Select State">
+            <ion-select-option>Madhya Pradesh</ion-select-option>
+            <ion-select-option>Maharastra</ion-select-option>
+          </ion-select>
+        </div>
+        <div class="input_wrapper">
+          <ion-label class="label_primary">City *</ion-label>
+          <ion-select
+          formControlName = "city"
+          class="input_primary"
+          mode="ios"
+          placeholder="Select City">
+            <ion-select-option>Bhopal</ion-select-option>
+            <ion-select-option>Dewas</ion-select-option>
+            <ion-select-option>Indore</ion-select-option>
+            <ion-select-option>Ujjain</ion-select-option>
+          </ion-select>
+        </div>
+        <div class="input_wrapper">
+          <ion-label class="label_primary">Address *</ion-label>
+          <ion-input
+          formControlName = "address"
+          class="input_primary"
+          type="text"></ion-input>
+        </div>
+        <div class="input_wrapper">
+          <ion-label class="label_primary">Password *</ion-label>
+          <ion-input
+          formControlName = "password"
+          class="input_primary"
+          type="password"></ion-input>
+        </div>
+        <div class="input_wrapper">
+          <ion-label class="label_primary">Confirm Password *</ion-label>
+          <ion-input
+          formControlName = "confirmPassword"
+          class="input_primary"
+          type="password"></ion-input>
+        </div>
+      </div>
+      <div class="action w-100">
+        <ion-button [disabled] = "!registrationForm.valid" (click)="onRegister()">CREATE ACCOUNT</ion-button>
+      </div>
+      </form>
+      <!-- <div class="action_secondary w-100">
+        By clicking on Create Account, you agree to our
+        <span class="link_secondary" [routerLink]="['/auth/login']">
+          Terms and Conditions
+        </span>
+      </div> -->
+    </section>
+
+  </div>
+</ion-content>

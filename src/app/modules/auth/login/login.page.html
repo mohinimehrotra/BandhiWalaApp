@@ -1,0 +1,42 @@
+<ion-content>
+    <div class="main">
+        <form [formGroup]="loginFormGroup">
+            <div class="content">
+                <p class="title">
+                    Welcome Back
+                </p>
+            </div>
+            <div class="form">
+
+
+                <div class="input_wrapper">
+                    <ion-label class="label_primary">Mobile</ion-label>
+                    <ion-input class="input_primary" formControlName="mobileNumber" type="number" placeholder="Enter your mobile number"></ion-input>
+                </div>
+                <field-errors [formGroup]="loginFormGroup" fieldName="mobileNumber" [getErrorMessage]="getErrorMessage.bind(this)"></field-errors>
+                <div class="input_wrapper">
+                    <ion-label class="label_primary">Password</ion-label>
+                    <ion-input class="input_primary" formControlName="password" type="{{showPassword ? 'text':'password'}}" placeholder="Enter your password"></ion-input>
+                    <ion-icon class="password-icon" color="medium" name="eye-outline" *ngIf="showPassword" (click)="togglePasswordView()"></ion-icon>
+                    <ion-icon class="password-icon" color="medium" name="eye-off-outline" *ngIf="!showPassword" (click)="togglePasswordView()"></ion-icon>
+                </div>
+            </div>
+            <field-errors [formGroup]="loginFormGroup" fieldName="password" [getErrorMessage]="getErrorMessage.bind(this)"></field-errors>
+
+            <p class="error-text">{{customErrorMessage}}</p>
+            <div class="action w-100">
+
+                <!-- <ion-button [routerLink]="['/seller/home']">LOGIN</ion-button> -->
+                <ion-button (click)=onLogin()>LOGIN</ion-button>
+            </div>
+            <div class="action_secondary w-100">
+                <span class="link_secondary">
+      Forgot Password
+    </span>
+                <span class="link_secondary" [routerLink]="['/welcome/profile-type']">
+      Back to Registration
+    </span>
+            </div>
+        </form>
+    </div>
+</ion-content>

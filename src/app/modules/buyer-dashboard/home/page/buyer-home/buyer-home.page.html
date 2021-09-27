@@ -1,0 +1,71 @@
+<ion-header mode="ios">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Hello Ankit!</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="notifications-outline" size="large"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main">
+    <div class="head">
+      <p class="home_item-timestamp current">Current Seller/ Store:</p>
+      <ion-buttons class="home_item-edit">
+        Change
+      </ion-buttons>
+      <p class="home_item-label">
+        <span class="home_item-label--bold">Daily Dairy Needs (Vijay Nagar)</span>
+      </p>
+      <div class="hr"></div>
+    </div>
+    <div class="overview">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="7">
+            <p class="section_title">Overview</p>
+          </ion-col>
+          <ion-col size="5" class="month-toggle">
+            <div class="input_wrapper">
+              <ion-datetime class="input_primary" mode="ios" display-format="MMM YY" picker-format="MMMM YYYY" min="2020-01-01" placeholder="Select month" value="2021-09"></ion-datetime>
+              <ion-icon color="medium" name="chevron-down-outline"></ion-icon>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <div class="overview_items_wrapper">
+        <div class="card_primary overview_item">
+          <p class="overview_item-number">12</p>
+          <p class="overview_item-label">Total Entries</p>
+        </div>
+        <div class="card_primary overview_item">
+          <p class="overview_item-number">₹1050</p>
+          <p class="overview_item-label">Total Amount</p>
+        </div>
+      </div>
+    </div>
+    <div class="home">
+      <p class="section_title">
+        Today's Entry (2)
+      </p>
+      <div class="card_primary home_items_wrapper">
+        <div class="home_item" *ngFor="let item of ['1','2']">
+          <p class="home_item-timestamp">12:34:56 | 12-12-2021</p>
+          <p class="home_item-label">
+            You have taken
+            <span class="home_item-label--bold">2 Litres</span>  
+            of 
+            <span class="home_item-label--bold">Full Fat Milk</span>
+          </p>
+          <div class="home_item-action">
+            View Entry
+            <ion-icon name="arrow-forward-outline" color="secondary"></ion-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

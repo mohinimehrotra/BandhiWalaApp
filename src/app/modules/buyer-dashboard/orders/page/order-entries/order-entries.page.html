@@ -1,0 +1,76 @@
+<ion-header mode="ios">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Order Entries</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="search-outline" size="large"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main">
+    <div class="head">
+      <p class="home_item-timestamp current">Current Seller/ Store:</p>
+      <ion-buttons class="home_item-edit">
+        Change
+      </ion-buttons>
+      <p class="home_item-label">
+        <span class="home_item-label--bold">Daily Dairy Needs (Vijay Nagar)</span>
+      </p>
+      <div class="hr"></div>
+    </div>
+
+    <div class="form">
+      <div class="input_wrapper">
+        <ion-input class="input_primary" placeholder="Search by name or bill no"></ion-input>
+        <ion-icon class="search-icon" color="medium" name="search-outline"></ion-icon>
+      </div>
+      <div class="input_wrapper">
+        <ion-label class="label_primary">Filter by Month</ion-label>
+        <ion-datetime class="input_primary" mode="ios" display-format="MMMM YYYY" picker-format="MMMM YYYY" min="2020-01-01" placeholder="Select month"></ion-datetime>
+        <ion-icon class="calendar-icon" color="medium" name="chevron-down-outline"></ion-icon>
+      </div>
+    </div>
+    <div class="filter">
+      <ion-button>FILTER</ion-button>
+    </div>
+
+    <div class="home">
+      <p class="section_title">
+        Order Entries
+      </p>
+      <div class="card_primary home_items_wrapper">
+        <div class="home_item">
+          <p class="home_item-timestamp">12:34:56 | 12-12-2021</p>
+          <p class="home_item-label">
+            You have taken
+            <span class="home_item-label--bold">2 Litres</span>  
+            of 
+            <span class="home_item-label--bold">Full Fat Milk</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="card_primary home_items_wrapper">
+        <div class="home_item">
+          <p class="home_item-timestamp">12:34:56 | 12-12-2021</p>
+          <p class="home_item-label">
+            You have taken
+            <span class="home_item-label--bold">2 Litres</span>  
+            of 
+            <span class="home_item-label--bold">Full Fat Milk</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <ion-fab>
+      <ion-fab-button [routerLink]="['/buyer/add-booking']">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    
+  </div>
+</ion-content>

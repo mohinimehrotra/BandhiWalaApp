@@ -1,0 +1,89 @@
+<ion-header mode = "ios">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start" [routerLink]="['/seller/generate-bill']">
+      <ion-icon name="chevron-back-outline" size="large"></ion-icon>
+    </ion-buttons>
+    <ion-title>Bill #{{buyerBillDetail.billNumber}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main">
+    <div class="bill-detail">
+      <div class="card_primary bill-detail_items_wrapper">
+        <p class="bill-detail_item-label status">
+          <span class="bill-detail_item-label--bold">Bill #{{buyerBillDetail.billNumber}}</span>
+        </p>
+        <ion-chip color = "danger">
+          <ion-label class="paid" color = "danger">{{buyerBillDetail.status}}</ion-label>
+        </ion-chip>
+        <p class="bill-detail_item-label">
+          <span class="bill-detail_item-label--bold">Buyer Details:</span>
+          <br>
+          <span class="bill-detail_item-timestamp">
+            <span class="name">{{buyerBillDetail.buyerUser.fullName}}</span>
+            <br>
+            {{buyerBillDetail.buyerUser.buyer.address}}
+          </span>
+        </p>
+
+        <p class="bill-detail_item-label">
+          <span class="bill-detail_item-label--bold">Billing Period:</span>
+          <br>
+          <span class="bill-detail_item-timestamp">
+            {{buyerBillDetail.startDate}} - {{buyerBillDetail.endDate}}
+          </span>
+        </p>
+
+        <p class="bill-detail_item-label">
+          <span class="bill-detail_item-label--bold">Payable By:</span>
+          <br>
+          <span class="bill-detail_item-timestamp">
+            08/07/2021 (7 Days)
+          </span>
+        </p>
+
+        <p class="bill-detail_item-label">
+          <span class="bill-detail_item-label--bold">Items:</span>
+        </p>
+        <p class="bill-detail_item-label" *ngFor="let item of buyerBillDetail.billItems">
+          <span class="payment-history_item-label--bold">{{item.productName}}</span>
+          <span class="payment-history_item-label--bold price-a">₹{{item.price}}/{{item.productUnit}} * {{item.productQty}}{{item.productUnit}}</span>
+        </p>
+        <!-- <p class="bill-detail_item-label">
+          <span class="payment-history_item-label--bold">31 Litres</span>
+          <span class="payment-history_item-label--bold price-b">₹1860.00</span>
+        </p>
+        <br>
+        <p class="bill-detail_item-label">
+          <span class="payment-history_item-label--bold">Curd</span>
+          <span class="payment-history_item-label--bold price-a">₹100.00/kg</span>
+        </p>
+        <p class="bill-detail_item-label">
+          <span class="payment-history_item-label--bold">2.5 Kg</span>
+          <span class="payment-history_item-label--bold price-b">₹250.00</span>
+        </p> -->
+
+        
+        <div class="hr"> </div>
+
+        <p class="bill-detail_item-label">
+          <span class="bill-detail_item-label--bold">Total Bill Amount:</span>
+          <span class="bill-detail_item-label--bold price-b">₹{{buyerBillDetail.billAmount}}</span>
+        </p>
+        <ion-button class="ion-text-wrap">
+          Add Payment & Clear Bill
+        </ion-button>
+      
+        
+      </div>
+    </div>
+
+    <ion-button class="out-btn" expand="round" fill="outline">Share</ion-button>
+    <ion-button class="ion-text-wrap out-btn" expand="round" fill="outline" color = "danger">Send Payment Reminder</ion-button>
+  </div>
+  
+
+  
+    
+</ion-content>

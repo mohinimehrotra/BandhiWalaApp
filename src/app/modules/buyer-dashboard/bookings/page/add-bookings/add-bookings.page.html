@@ -1,0 +1,134 @@
+<ion-header mode="ios">
+  <ion-toolbar color="secondary">
+      <ion-buttons slot="start" [routerLink]="['/buyer/bookings']">
+        <ion-icon name="chevron-back-outline" size="large"></ion-icon>
+      </ion-buttons>
+      <ion-title>Create Advance Booking</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main">
+    <div>
+      <p class="section_title">
+        Enter Details
+      </p>
+    </div>
+    <form [formGroup]="addBookingForm">
+      <div class="input_wrapper">
+        <ion-label class="label_primary">Seller</ion-label>
+          <ion-select
+          formControlName="seller"
+          class="input_primary"
+          interface="action-sheet"
+          placeholder="Select Seller"
+          mode="ios">
+            <ion-select-option value="dairy needs">Dairy Needs</ion-select-option>
+            <ion-select-option value="indiamart">IndiaMART</ion-select-option>
+          </ion-select>
+      </div>
+      <div class="input_wrapper">
+        <ion-label class="label_primary">Required on Date & Time</ion-label>
+        <ion-grid class="input_wrapper">
+          <ion-row>
+            <ion-col>
+              <ion-datetime formControlName="date" class="input_primary" interface="action-sheet" placeholder="Date" mode="ios" displayFormat="D MMM YYYY" min="1997"></ion-datetime>
+            </ion-col>
+            <ion-col>
+              <ion-datetime formControlName="time" class="input_primary" interface="action-sheet" placeholder="Time" mode="ios" displayFormat="h:mm A"></ion-datetime>
+            </ion-col>
+          </ion-row>
+        </ion-grid>  
+      </div>
+      <div class="form">
+        <div formArrayName="products">
+          <p *ngIf = "products.controls.length >= 2">Product 1</p>
+          <div *ngFor = "let product of products.controls; index as i" [formGroupName]="i">
+            <ion-row>
+              <ion-col>
+                <p *ngIf = "i >= 1">Product {{ i + 1 }} </p>
+                <ion-icon
+                name="close-circle"
+                class="close"
+                (click)="removeProduct(i)"
+                *ngIf="i > 0"
+                ></ion-icon>
+              </ion-col>
+            </ion-row>
+            <div class="input_wrapper">
+              <ion-label class="label_primary">Product</ion-label>
+              <ion-select
+              formControlName="productName"
+              class="input_primary"
+              interface="action-sheet"
+              placeholder="Select Product"
+              mode="ios">
+                <ion-select-option value="milk">Skimmed milk</ion-select-option>
+                <ion-select-option value="curd">Curd</ion-select-option>
+              </ion-select>
+            </div>
+
+            <ion-label class="label_primary">Quantity</ion-label>
+            <ion-grid class="input_wrapper">
+              <ion-row>
+                <ion-col class="input_primary" size="4">
+                  <ion-input
+                  formControlName="quantity"
+                  type="number"
+                  placeholder="Quantity"></ion-input>
+                </ion-col>
+                <ion-col class="input_primary" size="7.5">
+                  <ion-select
+                  formControlName="unit"
+                  class="input_primary"
+                  interface="action-sheet"
+                  placeholder="Select unit"
+                  mode="ios" value="litres"
+                  readonly>
+                    <ion-select-option value="litres">Litres(ltr)</ion-select-option>
+                  </ion-select>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+            <ion-grid class="input_wrapper">
+              <ion-row>
+                <ion-col>
+                  <ion-label class="label_primary">Rate</ion-label>
+                  <ion-input
+                  formControlName="rate"
+                  class="input_primary"
+                  type="number"
+                  value=""
+                  readonly><i>₹</i></ion-input>
+                </ion-col>
+                <ion-col>
+                  <ion-label class="label_primary label">Price</ion-label>
+                  <ion-input
+                  formControlName="price"
+                  class="input_primary"
+                  type="number"
+                  value=""
+                  readonly><i>₹</i></ion-input>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </div>
+      </div>
+
+    </form>
+
+    <ion-buttons
+    (click) = "addProduct()"
+    class="add">
+      <ion-icon name="add-outline"></ion-icon>
+      Add More Product
+    </ion-buttons>
+
+    <div class="action w-100">
+      <ion-button (click) = "onSave()">SAVE</ion-button>
+    </div>
+
+  </div>
+</ion-content>

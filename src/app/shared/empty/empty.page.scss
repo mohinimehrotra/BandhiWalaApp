@@ -1,0 +1,35 @@
+.main {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    .illustration {
+        padding : 20px;
+    }
+    .section_title{
+        font-size: 15px;
+        margin-bottom: 0;
+    }
+    .message{
+        font-size: 15px;
+        text-align: center;
+        color: var(--ion-color-medium);
+    }
+}
+.icon-circle-large{
+    position: relative;
+    display: inline-block;
+  
+    border-radius: 50%;   
+    background: rgb(243, 243, 243); /*#ececec;ebebeb*/
+    color: var(--ion-color-medium);
+    align-items: center;
+    /*vertical-align: middle;*/
+    width: 130px;
+    height: 130px;
+    font-size: 80px; /* 64, originally 60 */
+    padding: 24px;
+    
+  }
+  

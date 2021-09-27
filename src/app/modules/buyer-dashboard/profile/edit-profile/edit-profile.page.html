@@ -1,0 +1,51 @@
+<ion-header mode = "ios">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start" [routerLink]="['/buyer/main-profile']">
+      <ion-icon name="chevron-back-outline" size="large"></ion-icon>
+    </ion-buttons>
+    <ion-title>Edit Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main">
+    <section class="w-100 section_register">
+      <div class="form">
+        <div class="input_wrapper">
+          <ion-label class="label_primary">Mobile</ion-label>
+          <ion-input class="input_primary" type="number" value="8871342281"></ion-input>
+        </div>
+        <div class="input_wrapper">
+          <ion-label class="label_primary">Full Name</ion-label>
+          <ion-input class="input_primary" type="text" value="Tony Stark"></ion-input>
+        </div>
+        <div class="input_wrapper">
+          <ion-label class="label_primary">State</ion-label>
+          <ion-select class="input_primary" interface="action-sheet" value="mp" mode="ios">
+            <ion-select-option value="mp">Madhya Pradesh</ion-select-option>
+            <ion-select-option value="rj">Rajasthan</ion-select-option>
+          </ion-select>
+        </div>
+        <div class="input_wrapper">
+          <ion-label class="label_primary">City</ion-label>
+          <ion-select class="input_primary" interface="action-sheet" value="indore" mode="ios">
+            <ion-select-option value="indore">Indore</ion-select-option>
+            <ion-select-option value="jaipur">Jaipur</ion-select-option>
+          </ion-select>
+        </div>
+        <div class="input_wrapper">
+          <ion-label class="label_primary">Address</ion-label>
+          <ion-input class="input_primary" text = "type" value="Madhya Pradesh"></ion-input>
+        </div>
+        <div class="input_wrapper">
+          <ion-label class="label_primary">Password</ion-label>
+          <ion-input class="input_primary" value="********"></ion-input>
+        </div>
+      </div>
+      <div class="action w-100" [routerLink]="['/buyer/main-profile']">
+        <ion-button>UPDATE</ion-button>
+      </div>
+    </section>
+  </div>
+</ion-content>
+
