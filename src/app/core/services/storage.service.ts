@@ -26,4 +26,7 @@ export class StorageService {
     setUserData(data: any): void {
         localStorage.setItem(USER_DATA, JSON.stringify(data));
     }
+    clearSessionData(): void{
+      localStorage.clear();
+    }
 }
