@@ -1,7 +1,0 @@
-{
-  "name": "BandhiWala",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
