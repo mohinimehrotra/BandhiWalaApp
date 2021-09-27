@@ -25,7 +25,7 @@ export class AppService {
             { title: 'Reports', url: '/register', icon: 'bar-chart' },
             { title: 'Invite', url: '/invite', icon: 'share-social' },
             { title: 'Help', url: '/seller/help', icon: 'help' },
-            { title: 'Logout', url: '/register', icon: 'log-out' }
+            { title: 'Logout', url: '/logout', icon: 'log-out' }
         ];
         this.pages$.next(true);
     }

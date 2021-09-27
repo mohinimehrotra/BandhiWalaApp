@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
-import { menuController } from "@ionic/core";
+import { menuController } from '@ionic/core';
 import { UiService } from './core/services/ui.service';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { AppService } from './app.service';
+import { AlertController } from '@ionic/angular';
+import { StorageService } from './core/services/storage.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,20 +17,23 @@ export class AppComponent {
 
   activePageTitle = 'Home';
   activeIndex;
-  pages = [];
+  Pages = [];
 
   constructor(
     private uiService: UiService,
     private socialSharing: SocialSharing,
-    private appService: AppService
+    private appService: AppService,
+    private storageService: StorageService,
+    private router: Router,
+    private alertController: AlertController
   ) {
-    this.pages = appService.getPages();
+    this.Pages = appService.getPages();
     appService.pages$.subscribe((res) => {
       if (res) {
-        this.pages = appService.getPages();
-        console.log(this.pages)
+        this.Pages = appService.getPages();
+        console.log(this.Pages);
       }
-    })
+    });
   }
 
   closeMenu() {
@@ -48,5 +54,28 @@ export class AppComponent {
   };
 
   //end of social sharing
-
+  async onLogout(){
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Confirm!',
+      message: 'Message <strong>text</strong>!!!',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Okay',
+          handler: () => {
+            this.storageService.clearSessionData();
+            this.router.navigateByUrl('/auth/login');
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
 }
