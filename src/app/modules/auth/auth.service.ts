@@ -12,6 +12,7 @@ import { UiService } from 'src/app/core/services/ui.service';
 import { environment } from 'src/environments/environment';
 import { LOGIN } from 'src/app/core/constants/apis.constant';
 import { StorageService } from 'src/app/core/services/storage.service';
+import { AppService } from 'src/app/app.service';
 
 
 @Injectable()
@@ -21,7 +22,8 @@ export class AuthService {
         private errorHandler: ErrorHandler,
         private uiService: UiService,
         private router: Router,
-        private storageService: StorageService
+        private storageService: StorageService,
+        private appService: AppService
     ) {}
 
     registerSeller(data): Observable<any> {
@@ -50,9 +52,11 @@ export class AuthService {
                 this.storageService.saveData(AUTH_TOKEN, response.token);
                 this.storageService.setUserData(response.data);
                 if(response.data.userType === 'BUYER'){
+                  this.appService.setBuyerPages();
                   this.router.navigateByUrl('/buyer/home');
                 }
                 else if(response.data.userType === 'SELLER'){
+                  this.appService.setSellerPages();
                   this.router.navigateByUrl('/seller/home');
                 }
                 return response;

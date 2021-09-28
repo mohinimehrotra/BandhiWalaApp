@@ -32,7 +32,7 @@ export class BuyerService {
     }
     
     fetchBuyerProfile() {
-        return this.storageService.getuserData();
+        return this.storageService.getSellerUserData();
     }
 
     fetchBills() {

@@ -1,15 +1,24 @@
 <ion-header mode="ios">
-    <ion-toolbar color="secondary">
+    <ion-toolbar color="secondary" *ngIf="!showSearch">
         <ion-buttons slot="start">
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
         <ion-title>Products</ion-title>
-        <ion-buttons slot="end">
+        <ion-buttons slot="end" (click)="toggleSearch()">
             <ion-icon name="search-outline" size="large"></ion-icon>
         </ion-buttons>
-        <ion-searchbar (ionChange)="onSearch($event)"></ion-searchbar>
+    </ion-toolbar>
+
+    <ion-toolbar color="secondary" *ngIf="showSearch" class="search-wrapper">
+        <ion-searchbar (ionChange)="onSearch($event)" showCancelButton="always" (ionCancel)="toggleSearch()"></ion-searchbar>
     </ion-toolbar>
 </ion-header>
+
+<!-- <ion-header mode="ios" *ngIf="showSearch" class="search-wrapper">
+    <ion-toolbar color="secondary">
+        <ion-searchbar (ionChange)="onSearch($event)" showCancelButton="always"></ion-searchbar>
+    </ion-toolbar>
+</ion-header> -->
 
 <ion-content>
     <div class="main">

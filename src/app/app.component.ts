@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
-import { menuController } from "@ionic/core";
+import { menuController } from '@ionic/core';
 import { UiService } from './core/services/ui.service';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { AppService } from './app.service';
+import { AlertController } from '@ionic/angular';
+import { StorageService } from './core/services/storage.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,74 +16,24 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 export class AppComponent {
 
   activePageTitle = 'Home';
-
-  Pages = [
-    {
-      title: 'Home',
-      url: '/seller/home',
-      icon: 'home'
-    },
-    {
-      title: 'Products',
-      url: '/seller/product-list',
-      icon: 'bag'
-    },
-    {
-      title: 'Buyers',
-      url: '/seller/buyers-list',
-      icon: 'people'
-    },
-    {
-      title: 'Advance Bookings',
-      url: '/seller/advance-bookings',
-      icon: 'cart'
-    },
-    {
-      title: 'Upload Sales Figures',
-      url: '/seller/add-sales-entry',
-      icon: 'duplicate'
-    },
-    {
-      title: 'Bill Management',
-      url: '/seller/generate-bill',
-      icon: 'newspaper'
-    },
-    {
-      title: 'Payments',
-      url: '/seller/payment-history',
-      icon: 'cash'
-    },
-    {
-      title: 'Profile',
-      url: '/seller/my-profile',
-      icon: 'person'
-    },
-    {
-      title: 'Reports',
-      url: '/register',
-      icon: 'bar-chart'
-    },
-    {
-      title: 'Invite',
-      url: '/invite',
-      icon: 'share-social'
-    },
-    {
-      title: 'Help',
-      url: '/seller/help',
-      icon: 'help'
-    },
-    {
-      title: 'Logout',
-      url: '/register',
-      icon: 'log-out'
-    },
-  ];
+  activeIndex;
+  Pages = [];
 
   constructor(
     private uiService: UiService,
-    private socialSharing: SocialSharing
+    private socialSharing: SocialSharing,
+    private appService: AppService,
+    private storageService: StorageService,
+    private router: Router,
+    private alertController: AlertController
   ) {
+    this.Pages = appService.getPages();
+    appService.pages$.subscribe((res) => {
+      if (res) {
+        this.Pages = appService.getPages();
+        console.log(this.Pages);
+      }
+    });
   }
 
   closeMenu() {
@@ -100,5 +54,28 @@ export class AppComponent {
   };
 
   //end of social sharing
-
+  async onLogout(){
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Confirm!',
+      message: 'Message <strong>text</strong>!!!',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Okay',
+          handler: () => {
+            this.storageService.clearSessionData();
+            this.router.navigateByUrl('/auth/login');
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
 }

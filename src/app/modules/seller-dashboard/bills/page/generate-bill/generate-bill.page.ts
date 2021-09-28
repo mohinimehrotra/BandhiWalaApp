@@ -85,7 +85,7 @@ export class GenerateBillPage implements OnInit {
       
       this.billPreviewFormGroup.value.startDate = this.apiBodyData["startDate"]
       this.billPreviewFormGroup.value.endDate = this.apiBodyData["endDate"]
-      this.billPreviewFormGroup.value.sellerUserIdFK = this.storageService.getuserData().id;
+      this.billPreviewFormGroup.value.sellerUserIdFK = this.storageService.getSellerUserData().id;
   
       this.sellerApiService.previewBill(this.billPreviewFormGroup.value).subscribe((response) => {
         this.previewBill = response;
