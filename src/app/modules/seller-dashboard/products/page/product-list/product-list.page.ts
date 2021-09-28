@@ -11,6 +11,7 @@ export class ProductListPage implements OnInit {
   items: Item[] = [];
   customErrorMessage: string;
   rsIcon = RUPEE_ICON;
+  showSearch = false;
 
   constructor(
     private sellerDashboardService: SellerDashboardService
@@ -18,6 +19,10 @@ export class ProductListPage implements OnInit {
 
   ngOnInit() {
     this.fetchProduct();
+  }
+
+  toggleSearch() {
+    this.showSearch = !this.showSearch;
   }
 
   onSearch(key){
